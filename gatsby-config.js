@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "",
   siteMetadata: {
     siteUrl: "https://geeksforgeeks-srmist-ncr.github.io/",
-    title: "GeeksForGeeks SRMIST NCE",
+    title: "GeeksForGeeks SRMIST NCR",
     description: `lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
     author: `@Drish`,
   },
@@ -12,16 +12,16 @@ module.exports = {
         trackingId: "G-M13VCWJBMC",
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/images/Logo.svg`,
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-dark-mode",
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        icon: `src/images/icon.png`,
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {

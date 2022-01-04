@@ -11,16 +11,22 @@ header {
   padding: 0.5rem 1rem;
 }
 
+/* GFG Logo */
+
 .logo {
   position: absolute;
   left: 50%;
   top: 50%;
+  display: flex;
+  align-items: center;
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
   z-index: 4;
 }
+
+/* nav - links */
 
 .navbar {
   width: 100%;
@@ -41,13 +47,56 @@ a {
   color: var(--text-main);
   text-decoration: none;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
+  font-family: "Sofia Pro";
   padding: 0.5rem 1rem;
   transition: all 0.3s;
   cursor: pointer;
 }
 
+/* Hamburger icon */
+
+.hamburger-menu {
+  -webkit-tap-highlight-color: transparent;
+  height: 35px;
+  width: 35px;
+  display: none;
+  place-content: space-evenly center;
+  cursor: pointer;
+}
+
+.gfg-burger-1,
+.gfg-burger-2,
+.gfg-burger-3 {
+  width: 25px;
+  height: 2px;
+  border-radius: 30px;
+  background-color: var(--text-main);
+  transition: 0.2s ease;
+}
+
+.gfg-burger-1.open,
+.gfg-burger-2.open,
+.gfg-burger-3.open {
+  transition: 0.2s ease;
+  transform-origin: top left;
+}
+
+.gfg-burger-1.open {
+  transform: rotate(45deg) translate(2px, -1px);
+}
+
+.gfg-burger-3.open {
+  transform: rotate(-45deg);
+}
+.gfg-burger-2.open {
+  opacity: 0;
+}
+
+/* Theme toogle btn */
+
 label {
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 }
 
@@ -74,7 +123,8 @@ label input + div:after {
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0 -18px 0 var(--text-main), 0 18px 0 var(--text-main), 18px 0 0 var(--text-main), -18px 0 0 var(--text-main), 12px 12px 0 var(--text-main), -12px 12px 0 var(--text-main), 12px -12px 0 var(--text-main), -12px -12px 0 var(--text-main);
+  box-shadow: 0 -18px 0 var(--text-main), 0 18px 0 var(--text-main), 18px 0 0 var(--text-main), -18px 0 0 var(--text-main), 12px 12px 0 var(--text-main),
+    -12px 12px 0 var(--text-main), 12px -12px 0 var(--text-main), -12px -12px 0 var(--text-main);
   transform: scale(0);
   transition: all 0.3s ease-in-out;
 }
@@ -88,4 +138,51 @@ label input:checked + div {
 label input:checked + div:after {
   transform: scale(1.5);
   transition: transform 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .hamburger-menu {
+    display: grid;
+  }
+
+  .navbar ul {
+    width: 40%;
+    height: calc(100vh - 60px);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    flex-direction: column;
+    background-color: var(--main);
+    border-right: 1px solid var(--secondary);
+    box-shadow: 0 2px 5px var(--shadow);
+    transform: translateX(-100%);
+    transition: all 0.5s ease 0s;
+  }
+
+  .navbar ul.open {
+    transform: translateX(0);
+  }
+
+  .navbar ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar ul li a {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar ul {
+    width: 100%;
+  }
 }
