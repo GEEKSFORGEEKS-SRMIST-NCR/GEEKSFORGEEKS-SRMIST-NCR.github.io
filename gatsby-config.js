@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "./",
+  pathPrefix: "",
   siteMetadata: {
     siteUrl: "https://geeksforgeeks-srmist-ncr.github.io/",
     title: "GeeksForGeeks SRMIST NCE",
