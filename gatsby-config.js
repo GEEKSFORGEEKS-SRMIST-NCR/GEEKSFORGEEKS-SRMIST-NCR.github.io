@@ -15,6 +15,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        name: `GeeksForGeeks`,
+        short_name: `GeeksForGeeks`,
+        start_url: `/`,
+        background_color: `#f5f5f5`,
+        theme_color: `#f5f5f5`,
+        display: `standalone`,
         icon: `src/images/Logo.svg`,
       },
     },
