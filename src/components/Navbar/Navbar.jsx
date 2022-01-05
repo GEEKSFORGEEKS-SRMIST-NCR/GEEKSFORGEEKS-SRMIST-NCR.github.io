@@ -2,7 +2,8 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
-import { GFG } from "./GFG";
+import { Logo2 } from "../Logo/Logo2";
+import { Logo } from "../Logo/Logo";
 
 function menu() {
   document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3").forEach(function(el) {
@@ -16,7 +17,8 @@ const Navbar = () => {
   return (
     <header>
       <Link to="#" className="logo" >
-        <GFG />
+        <Logo />
+        <Logo2 />
       </Link>
       <div className="navbar">
         <span className="hamburger-menu" onClick={ menu }>

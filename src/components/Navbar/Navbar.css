@@ -5,7 +5,8 @@ header {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: var(--main);
+  background-color: var(--secondary);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--secondary);
   box-shadow: 0 2px 5px var(--shadow);
   padding: 0.5rem 1rem;
@@ -109,7 +110,7 @@ label input + div {
   width: 25px;
   height: 25px;
   position: relative;
-  box-shadow: inset 12px -12px 0 0 var(--text-main);
+  box-shadow: inset 10px -10px 0 0 var(--theme-btn);
   transform: scale(1) rotate(-2deg);
   transition: box-shadow 0.5s ease-in-out 0s, transform 0.4s ease-in-out;
 }
@@ -123,14 +124,14 @@ label input + div:after {
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0 -18px 0 var(--text-main), 0 18px 0 var(--text-main), 18px 0 0 var(--text-main), -18px 0 0 var(--text-main), 12px 12px 0 var(--text-main),
-    -12px 12px 0 var(--text-main), 12px -12px 0 var(--text-main), -12px -12px 0 var(--text-main);
+  box-shadow: 0 -18px 0 var(--theme-btn), 0 18px 0 var(--theme-btn), 18px 0 0 var(--theme-btn), -18px 0 0 var(--theme-btn), 12px 12px 0 var(--theme-btn),
+    -12px 12px 0 var(--theme-btn), 12px -12px 0 var(--theme-btn), -12px -12px 0 var(--theme-btn);
   transform: scale(0);
   transition: all 0.3s ease-in-out;
 }
 
 label input:checked + div {
-  box-shadow: inset 25px -25px 0 0 var(--text-main);
+  box-shadow: inset 25px -25px 0 0 var(--theme-btn);
   transform: scale(0.5) rotate(0deg);
   transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
 }
@@ -152,7 +153,8 @@ label input:checked + div:after {
     top: 60px;
     left: 0;
     flex-direction: column;
-    background-color: var(--main);
+    background-color: var(--secondary);
+    backdrop-filter: blur(10px);
     border-right: 1px solid var(--secondary);
     box-shadow: 0 2px 5px var(--shadow);
     transform: translateX(-100%);
@@ -185,4 +187,13 @@ label input:checked + div:after {
   .navbar ul {
     width: 100%;
   }
+
+  .hamburger-menu, label input + div {
+    transform: scale(0.8);
+  }
+
+  label input:checked + div {
+    transform: scale(0.4);
+  }
+
 }
