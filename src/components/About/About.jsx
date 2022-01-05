@@ -5,7 +5,7 @@ import { Logo2 } from "../Logo/Logo2";
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="About" className="about">
       <h1 className="section-title"> About Us</h1>
       <div className="about-container">
         <div className="title">

@@ -5,24 +5,19 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { Logo2 } from "../Logo/Logo2";
 import { Logo } from "../Logo/Logo";
 
-function closenavbar() {
-  document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function (el) {
-    el.classList.toggle("open");
-  });
-  if ( document.querySelector("body").classList.contains("hidden") ) {
+function tooglemenu() {
+  if (window.innerWidth <= 1024) {
+    document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function (el) {
+      el.classList.toggle("open");
+    });
     document.querySelector("body").classList.toggle("hidden");
   }
-}
-
-function tooglemenu() {
-  closenavbar();
-  document.querySelector("body").classList.toggle("hidden");
 }
 
 const Navbar = () => {
   return (
     <header>
-      <Link to="#" className="logo">
+      <Link to="/" className="logo">
         <Logo />
         <Logo2 />
       </Link>
@@ -34,22 +29,22 @@ const Navbar = () => {
         </span>
         <ul>
           <li>
-            <Link to="#" onClick={closenavbar}>
+            <Link to="/" onClick={tooglemenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="#events" onClick={closenavbar}>
+            <Link to="/Events" onClick={tooglemenu}>
               Events
             </Link>
           </li>
           <li>
-            <Link to="#team" onClick={closenavbar}>
+            <Link to="/#Team" onClick={tooglemenu}>
               Team
             </Link>
           </li>
           <li>
-            <Link to="#contact" onClick={closenavbar}>
+            <Link to="/#Contact" onClick={tooglemenu}>
               Contact
             </Link>
           </li>

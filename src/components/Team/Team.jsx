@@ -16,7 +16,7 @@ let cardgrid = data.map((data) => {
 
 const Team = () => {
   return (
-    <section className="team" id="team">
+    <section className="team" id="Team">
       <div className="">
         <h1 className="section-title">Team</h1>
         <div className="team-container" key={data.id}>{cardgrid}</div>

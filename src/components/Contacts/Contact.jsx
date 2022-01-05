@@ -4,7 +4,7 @@ import { FaLinkedinIn, FaInstagram, FaGithub, FaDiscord } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <section className="contacts" id="contact">
+    <section className="contacts" id="Contact">
       <h1 className="section-title">Get In Touch</h1>
       <div className="contacts-container">
         <a href="https://www.linkedin.com/in/geeksforgeeks-srmist-ncr/" target="_blank" rel="noreferrer">
@@ -22,10 +22,7 @@ const Contact = () => {
       </div>
 
       <footer>
-        <p>
-            © Copyrights {new Date().getFullYear()} by GFG SRMIST NCR. All Rights Reserved.
-  
-        </p>
+        <p>© Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
       </footer>
     </section>
   );
