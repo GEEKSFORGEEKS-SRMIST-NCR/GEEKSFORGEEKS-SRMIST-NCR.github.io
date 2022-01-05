@@ -1,25 +1,24 @@
 import React from "react";
 import "./Contacts.css";
 import { FaLinkedinIn, FaInstagram, FaGithub, FaDiscord } from "react-icons/fa";
-import { Link } from "gatsby";
 
 const Contact = () => {
   return (
     <section className="contacts" id="contact">
       <h1 className="section-title">Get In Touch</h1>
       <div className="contacts-container">
-        <Link to="https://www.linkedin.com/in/geeksforgeeks-srmist-ncr/" target="_blank">
+        <a href="https://www.linkedin.com/in/geeksforgeeks-srmist-ncr/" target="_blank" rel="noreferrer">
           <FaLinkedinIn />
-        </Link>
-        <Link to="https://github.com/GEEKSFORGEEKS-SRMIST-NCR">
+        </a>
+        <a href="https://github.com/GEEKSFORGEEKS-SRMIST-NCR" target="_blank" rel="noreferrer">
           <FaGithub />
-        </Link>
-        <Link to="https://www.instagram.com/geeksforgeeks_srmist_ncr/">
+        </a>
+        <a href="https://www.instagram.com/geeksforgeeks_srmist_ncr/" target="_blank" rel="noreferrer">
           <FaInstagram />
-        </Link>
-        <Link to="">
+        </a>
+        <a href="" target="_blank" rel="noreferrer">
           <FaDiscord />
-        </Link>
+        </a>
       </div>
 
       <footer>

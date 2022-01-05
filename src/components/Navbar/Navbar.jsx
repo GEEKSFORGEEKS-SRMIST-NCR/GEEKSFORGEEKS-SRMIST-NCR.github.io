@@ -5,44 +5,58 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode";
 import { Logo2 } from "../Logo/Logo2";
 import { Logo } from "../Logo/Logo";
 
-function menu() {
-  document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function(el) {
+function closenavbar() {
+  document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function (el) {
     el.classList.toggle("open");
   });
-  document.querySelector("body").classList.toggle("hidden");
+  if ( document.querySelector("body").classList.contains("hidden") ) {
+    document.querySelector("body").classList.toggle("hidden");
+  }
 }
 
+function tooglemenu() {
+  closenavbar();
+  document.querySelector("body").classList.toggle("hidden");
+}
 
 const Navbar = () => {
   return (
     <header>
-      <Link to="#" className="logo" >
+      <Link to="#" className="logo">
         <Logo />
         <Logo2 />
       </Link>
       <div className="navbar">
-        <span className="hamburger-menu" onClick={ menu }>
+        <span className="hamburger-menu" onClick={tooglemenu}>
           <span className="gfg-burger-1"></span>
           <span className="gfg-burger-2"></span>
           <span className="gfg-burger-3"></span>
         </span>
         <ul>
           <li>
-            <Link to="#" onClick={ menu }>Home</Link>
+            <Link to="#" onClick={closenavbar}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="#events" onClick={ menu }>Events</Link>
+            <Link to="#events" onClick={closenavbar}>
+              Events
+            </Link>
           </li>
           <li>
-            <Link to="#team" onClick={ menu }>Team</Link>
+            <Link to="#team" onClick={closenavbar}>
+              Team
+            </Link>
           </li>
           <li>
-            <Link to="#contact" onClick={ menu }>Contact</Link>
+            <Link to="#contact" onClick={closenavbar}>
+              Contact
+            </Link>
           </li>
         </ul>
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
-            <label  >
+            <label>
               <input type="checkbox" onChange={(e) => toggleTheme(e.target.checked ? "dark" : "light")} checked={theme === "dark"} />
               <div></div>
             </label>

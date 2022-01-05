@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import "./Team.css";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
@@ -14,15 +13,15 @@ const card = ({ title, desc, img }) => {
       <p>{desc}</p>
 
       <div className="social-links">
-        <Link to="">
+        <a href="" target="_blank" rel="noreferrer">
           <AiFillLinkedin />
-        </Link>
-        <Link to="">
+        </a>
+        <a href="" target="_blank" rel="noreferrer">
             <AiFillGithub />
-        </Link>
-        <Link to="">
+        </a>
+        <a href="" target="_blank" rel="noreferrer">
             <AiFillInstagram />
-        </Link>
+        </a>
       </div>
     </div>
   );
