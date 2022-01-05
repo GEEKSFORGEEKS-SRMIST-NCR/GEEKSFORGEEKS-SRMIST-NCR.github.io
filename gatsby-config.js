@@ -21,7 +21,7 @@ module.exports = {
         background_color: `#f5f5f5`,
         theme_color: `#f5f5f5`,
         display: `standalone`,
-        icon: `src/images/Logo.svg`,
+        icon: `src/images/icon.png`,
       },
     },
     "gatsby-plugin-image",
