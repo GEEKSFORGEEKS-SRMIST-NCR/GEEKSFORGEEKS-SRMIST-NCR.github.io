@@ -1,31 +1,37 @@
 .about {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .about-container {
-  width: 50%;
+  width: 700px;
   padding: 50px 40px;
   border-radius: 25px;
-  margin: 20px 30px;
+  margin: 0 auto;
   background-color: var(--card-bg);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 10px 0 #000000bf;
   backdrop-filter: blur(10px);
   z-index: 1;
+  transition: transform 0.2s ease-in-out;
 }
 
-.about h1 {
-  font-size: 2.5rem;
+.about-container:hover {
+  transform: translate(5px, -5px);
+  box-shadow: 2px 2px 10px 0 #000000bf;
+}
+
+.section-title {
+  font-size: 3rem;
   font-weight: bold;
+  text-align: center;
   color: var(--text-main);
-  padding-bottom: 10px;
+  padding: 2rem 0;
 }
 
-.about h1 svg {
-  width: 80px;
-  height: 40px;
+.about .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .about p {
@@ -42,13 +48,8 @@
     width: 80%;
   }
 
-  .about h1 svg {
-    width: 60px;
-    height: 30px;
-  }
-
-  .about h1 {
-    font-size: 2rem;
+  .section-title {
+    font-size: 2.5rem;
   }
 
   .about p {
@@ -62,13 +63,8 @@
     width: 90%;
   }
 
-  .about h1 svg {
-    width: 40px;
-    height: 20px;
-  }
-
-  .about h1 {
-    font-size: 1.5rem;
+  .section-title {
+    font-size: 2rem;
   }
 
   .about p {
