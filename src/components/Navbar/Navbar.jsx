@@ -6,10 +6,10 @@ import { Logo2 } from "../Logo/Logo2";
 import { Logo } from "../Logo/Logo";
 
 function menu() {
-  document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3").forEach(function(el) {
+  document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function(el) {
     el.classList.toggle("open");
   });
-  document.querySelector(".navbar ul").classList.toggle("open");
+  document.querySelector("body").classList.toggle("hidden");
 }
 
 
