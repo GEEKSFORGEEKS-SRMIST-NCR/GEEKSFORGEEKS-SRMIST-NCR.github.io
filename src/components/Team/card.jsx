@@ -4,24 +4,25 @@ import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 const card = ({ title, desc, img }) => {
   return (
-    <div className="card">
-      <div className="card-image">
-        <img src={img} alt="team member" />
-      </div>
+    <div className="card" style={{backgroundImage: `url(${img})`}}>
+      <div className="card-border">
 
-      <h1>{title}</h1>
-      <p>{desc}</p>
+        <div className="card-info">
+          <h1>{title}</h1>
+          <p>{desc}</p>
+        </div>
 
-      <div className="social-links">
-        <a href="" target="_blank" rel="noreferrer" title="LinkedIn">
-          <AiFillLinkedin />
-        </a>
-        <a href="" target="_blank" rel="noreferrer" title="Github">
+        <div className="social-links">
+          <a href="" target="_blank" rel="noreferrer" title="LinkedIn">
+            <AiFillLinkedin />
+          </a>
+          <a href="" target="_blank" rel="noreferrer" title="Github">
             <AiFillGithub />
-        </a>
-        <a href="" target="_blank" rel="noreferrer" title="Instagram">
+          </a>
+          <a href="" target="_blank" rel="noreferrer" title="Instagram">
             <AiFillInstagram />
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   );

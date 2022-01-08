@@ -13,56 +13,81 @@
 }
 
 .card {
+  position: relative;
   width: 300px;
-  height: auto;
-  padding: 15px 20px;
+  aspect-ratio: 3/4;
   border-radius: 15px;
-  background-color: var(--card-bg);
+  background-size: 300px;
+  background-position: center center;
+  image-rendering: optimizeSpeed;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 0 10px 0 #000000bf;
-  transition: transform 0.2s ease-in-out;
+  transition: 1s ease;
+}
+
+.card-border {
+  width: 95%;
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  position: relative;
+  transition: 1s ease;
 }
 
 .card:hover {
-  transform: translate(5px, -5px);
-  box-shadow: 2px 2px 10px 0 #000000bf;
+  background-position: left center;
+  background-size: 400px;
+  box-shadow: 2px 2px 10px 0 #000000bf; 
 }
 
-.card-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.card:hover .card-border {
+  border: 1px solid #fff;
+  background: linear-gradient(transparent 60%, #000);
 }
 
-.card-image img {
-  width: 50%;
-  border-radius: 50%;
+.card-info {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  opacity: 0;
+  color: #fff;
+  transition: opacity 1s ease;
 }
 
 .card h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--text-main);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card p {
   font-size: 1rem;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
 }
 
 .social-links {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
 .card a {
   text-decoration: none;
-  color: var(--text-main);
   font-size: 1.5rem;
+  color: #fff;
   padding: 2px;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease;
+}
+
+.card:hover .social-links, 
+.card:hover .card-info {
+  opacity: 1;
 }
 
 .card a:hover {
@@ -94,7 +119,7 @@
   }
 
   .card {
-    width: 240px;
+    width: 200px;
   }
 
   .card h1 {
