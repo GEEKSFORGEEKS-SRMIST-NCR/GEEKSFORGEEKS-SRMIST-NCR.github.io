@@ -13,13 +13,13 @@ const card = ({ title, desc, img }) => {
       <p>{desc}</p>
 
       <div className="social-links">
-        <a href="" target="_blank" rel="noreferrer">
+        <a href="" target="_blank" rel="noreferrer" title="LinkedIn">
           <AiFillLinkedin />
         </a>
-        <a href="" target="_blank" rel="noreferrer">
+        <a href="" target="_blank" rel="noreferrer" title="Github">
             <AiFillGithub />
         </a>
-        <a href="" target="_blank" rel="noreferrer">
+        <a href="" target="_blank" rel="noreferrer" title="Instagram">
             <AiFillInstagram />
         </a>
       </div>
