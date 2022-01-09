@@ -1,6 +1,5 @@
 import * as React from "react";
-// import Navbar from "../components/Navbar/Navbar"
-// import Contact from "../components/Contacts/Contact"
+import Seo from "../components/Seo";
 import Layout from "../components/Layout";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
@@ -10,6 +9,7 @@ import "./style.css";
 const IndexPage = () => {
   return (
     <>
+      <Seo title="Home" />
       <Layout>
         <Home />
         <About />

@@ -3,10 +3,17 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://geeksforgeeks-srmist-ncr.github.io/",
     title: "GeeksForGeeks SRMIST NCR",
-    description: `lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+    description: `Geeksforgeeks Students' chapter at SRM NCR is working
+    on the idea - to impart knowledge among the geeks in a fun and
+    exciting way. It will be achieved through events, hackathons and
+    webinars to enlighten the mates. We aim for the perfection and success
+    of all who are connected with us through this chapter. So keep
+    yourself connected with us to ace your career beyond the skies.`,
     author: `@Drish`,
+    image: "https://raw.githubusercontent.com/GEEKSFORGEEKS-SRMIST-NCR/GEEKSFORGEEKS-SRMIST-NCR.github.io/main/src/images/Screenshot.webp",
   },
-  plugins: [{
+  plugins: [
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "G-M13VCWJBMC",

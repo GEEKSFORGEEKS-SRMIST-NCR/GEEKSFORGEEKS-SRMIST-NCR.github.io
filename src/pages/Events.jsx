@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Event from "../components/Event/Event";
+import Seo from "../components/Seo";
 
 let events = [
   {
@@ -24,6 +25,7 @@ let eventlist = events.map((data) => {
 const Events = () => {
   return (
     <>
+      <Seo title="Events" />
       <Layout>
         <h1 className="section-title">Events</h1>
         <div className="events-container">{eventlist}</div>

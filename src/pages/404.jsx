@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
+import Seo from "../components/Seo";
 
 // styles
 const pageStyles = {
@@ -30,6 +31,7 @@ const homelink = {
 const NotFoundPage = () => {
   return (
     <Layout>
+      <Seo title="404: Page Not found" />
       <main style={pageStyles}>
         <h1 className="section-title">Page not found</h1>
         <p style={paragraphStyles}>
