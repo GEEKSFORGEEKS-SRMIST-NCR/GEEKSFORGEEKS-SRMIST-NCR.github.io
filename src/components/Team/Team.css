@@ -5,21 +5,20 @@
 .team-container {
   width: 60%;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-column-gap: 30px;
-  grid-row-gap: 40px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px 30px;
 }
 
 .card {
   position: relative;
-  width: 300px;
+  width: 280px;
   aspect-ratio: 3/4;
   border-radius: 15px;
   background-size: 300px;
   background-position: center center;
-  image-rendering: optimizeSpeed;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -123,11 +122,11 @@
   }
 
   .card h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .card p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .card a {
