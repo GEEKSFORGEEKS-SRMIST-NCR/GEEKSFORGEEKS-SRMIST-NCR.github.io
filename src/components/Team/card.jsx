@@ -2,7 +2,7 @@ import React from "react";
 import "./Team.css";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
-const card = ({ title, desc, img }) => {
+const card = ({ title, desc, img, link1, link2, link3 }) => {
   return (
     <div className="card" style={{backgroundImage: `url(${img})`}}>
       <div className="card-border">
@@ -13,13 +13,13 @@ const card = ({ title, desc, img }) => {
         </div>
 
         <div className="social-links">
-          <a href="" target="_blank" rel="noreferrer" title="LinkedIn">
+          <a href={link1} target="_blank" rel="noreferrer" title="LinkedIn">
             <AiFillLinkedin />
           </a>
-          <a href="" target="_blank" rel="noreferrer" title="Github">
+          <a href={link2} target="_blank" rel="noreferrer" title="Github">
             <AiFillGithub />
           </a>
-          <a href="" target="_blank" rel="noreferrer" title="Instagram">
+          <a href={link3} target="_blank" rel="noreferrer" title="Instagram">
             <AiFillInstagram />
           </a>
         </div>
