@@ -17,13 +17,14 @@ module.exports = {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "G-M13VCWJBMC",
+        head: true,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `GeeksForGeeks`,
-        short_name: `GeeksForGeeks`,
+        short_name: `GFG`,
         start_url: `/`,
         background_color: `#f5f5f5`,
         theme_color: `#f5f5f5`,
