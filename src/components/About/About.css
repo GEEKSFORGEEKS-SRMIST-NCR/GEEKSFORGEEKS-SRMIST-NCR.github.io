@@ -4,7 +4,7 @@
 
 .about-container {
   width: 700px;
-  padding: 40px 40px 50px 40px;
+  padding: 40px 40px 50px;
   border-radius: 25px;
   margin: 0 auto;
   background-color: var(--card-bg);
