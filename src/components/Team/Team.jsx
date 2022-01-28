@@ -32,6 +32,15 @@ let data = [
   },
   {
     id: 4,
+    name: "Aditya Prabhakar",
+    desc: "Event Head",
+    img: "Aaditya.webp",
+    link1: "https://www.linkedin.com/in/aditya-prabhakar-b9a8a11a6",
+    link2: "https://www.github.com/",
+    link3: "https://www.instagram.com/",
+  },
+  {
+    id: 5,
     name: "Anushka Kunwar",
     desc: "Marketing Head",
     img: "Anushka.webp",
@@ -40,7 +49,7 @@ let data = [
     link3: "https://www.instagram.com/anushkakanwar15/",
   },
   {
-    id: 5,
+    id: 6,
     name: "Aditi Srivastava",
     desc: "Social Media Head",
     img: "Aditi.webp",
@@ -49,7 +58,7 @@ let data = [
     link3: "https://www.instagram.com/aditi_srv/",
   },
   {
-    id: 6,
+    id: 7,
     name: "Shreyansh Sharma",
     desc: "Design/Branding Head",
     img: "Shreyansh.webp",
@@ -58,7 +67,7 @@ let data = [
     link3: "https://www.instagram.com/_._shreyansh_._311/",
   },
   {
-    id: 7,
+    id: 8,
     name: "Samriddha Basu ",
     desc: "P.R. Head",
     img: "Samriddha.webp",
@@ -66,29 +75,10 @@ let data = [
     link2: "https://www.github.com/",
     link3: "https://www.instagram.com/unsheathed.dmg/",
   },
-  {
-    id: 8,
-    name: "Aditya Prabhakar",
-    desc: "Managent Head",
-    img: "Aaditya.webp",
-    link1: "https://www.linkedin.com/in/aditya-prabhakar-b9a8a11a6",
-    link2: "https://www.github.com/",
-    link3: "https://www.instagram.com/aditya_prabhakar/",
-  },
 ];
 
 let cardgrid = data.map((data) => {
-  return (
-    <Card
-      key={data.id}
-      title={data.name}
-      desc={data.desc}
-      img={data.img}
-      link1={data.link1}
-      link2={data.link2}
-      link3={data.link3}
-    />
-  );
+  return <Card key={data.id} title={data.name} desc={data.desc} img={data.img} link1={data.link1} link2={data.link2} link3={data.link3} />;
 });
 
 const Team = () => {
