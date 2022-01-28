@@ -14,10 +14,10 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingId: "G-M13VCWJBMC",
-        head: true,
+        id: "G-M13VCWJBMC",
+        enableWebVitalsTracking: true,
       },
     },
     {
