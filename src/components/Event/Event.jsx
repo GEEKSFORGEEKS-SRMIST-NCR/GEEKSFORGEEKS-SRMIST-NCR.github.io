@@ -5,9 +5,14 @@ const Event = ({ title, desc, img }) => {
   return (
     <>
       <div className="event-card">
-        <div className="event-banner">
-          <img src={img} alt={title} />
-        </div>
+        <div
+          className="event-banner"
+          style={{
+            backgroundImage: `url(${
+              require(`../../images/Events/${img}.png`).default
+            })`,
+          }}
+        ></div>
         <div className="event-card-content">
           <h2>{title}</h2>
           <p> {desc} </p>
