@@ -78,17 +78,63 @@ let data = [
 ];
 
 let cardgrid = data.map((data) => {
-  return <Card key={data.id} title={data.name} desc={data.desc} img={data.img} link1={data.link1} link2={data.link2} link3={data.link3} />;
+  return (
+    <Card
+      key={data.id}
+      title={data.name}
+      desc={data.desc}
+      img={data.img}
+      link1={data.link1}
+      link2={data.link2}
+      link3={data.link3}
+    />
+  );
 });
 
+let othermembers = [
+  {
+    team: "Technical Team",
+    member: ["Aastha", "Drish", "Tanish Khare"],
+  },
+  {
+    team: "Event Management Team",
+    member: ["Aryan Gaur", "Chithjyot Kaur", "Shivansh Kaul"],
+  },
+  {
+    team: "Design and Branding Team",
+    member: ["Dhruv Pandey", "Pushpak Kumawat"],
+  },
+  {
+    team: "Marketing Team",
+    member: ["Kshitiz Priyam", "Manas Kumar", "Shrishti Dhingra"],
+  },
+  {
+    team: "Public Relation and Outreach Team",
+    member: ["Sohem Mondal", "Abhijeet Lakhera"],
+  },
+  {
+    team: "Social Media Team",
+    member: ["Lahri Krishnam", "Palak Dwivedi", "Shrishti Srivastava"],
+  },
+];
+
+let otherTeamMembers = othermembers.map((member) => {
+  let members = member.member.map((name) => <p key={name}>{name}</p>);
+  return (
+    <div key={member.team} className="member-grid">
+      <h3>{member.team}</h3>
+      {members}
+    </div>
+  );
+});
 const Team = () => {
   return (
     <section className="team" id="Team">
-      <div className="">
-        <h1 className="section-title">Team</h1>
-        <div className="team-container" key={data.id}>
-          {cardgrid}
-        </div>
+      <div>
+        <h1 className="section-title">Team Leads</h1>
+        <div className="team-container">{cardgrid}</div>
+        <h1 className="section-title">Other Team Members</h1>
+        <div className="team-container">{otherTeamMembers}</div>
       </div>
     </section>
   );
