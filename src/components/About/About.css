@@ -3,7 +3,7 @@
 }
 
 .about-container {
-  width: 700px;
+  width: 60%;
   padding: 40px 40px 50px;
   border-radius: 25px;
   margin: 0 auto;
@@ -20,7 +20,7 @@
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: bold;
   text-align: center;
   color: var(--text-main);
@@ -38,8 +38,8 @@
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 1px;
-  word-spacing: 0.2rem;
-  line-height: 1.8rem;
+  word-spacing: 0.4rem;
+  line-height: 2rem;
   color: var(--text-secondary);
 }
 
@@ -49,12 +49,12 @@
   }
 
   .section-title {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
 
   .about p {
     font-size: 1rem;
-    line-height: 1.6rem;
+    line-height: 1.8rem;
   }
 }
 
@@ -64,11 +64,11 @@
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 3.5rem;
   }
 
   .about p {
     font-size: 0.8rem;
-    line-height: 1.4rem;
+    line-height: 1.6rem;
   }
 }

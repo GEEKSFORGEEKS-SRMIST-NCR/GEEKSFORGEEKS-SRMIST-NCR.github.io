@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Navbar.css";
 import { Link } from "gatsby";
 import { ThemeToggler } from "gatsby-plugin-dark-mode";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { gsap } from "gsap";
 import { Logo2 } from "../Logo/Logo2";
 import { Logo } from "../Logo/Logo";
 
 function tooglemenu() {
   if (window.innerWidth <= 1024) {
-    document.querySelectorAll(".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul").forEach(function (el) {
-      el.classList.toggle("open");
-    });
+    document
+      .querySelectorAll(
+        ".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul"
+      )
+      .forEach(function (el) {
+        el.classList.toggle("open");
+      });
     document.querySelector("body").classList.toggle("hidden");
   }
 }
 
 const Navbar = () => {
+  const el = useRef();
+
+  useEffect(() => {
+    gsap.from(el.current, {
+      y: "-100%",
+      opacity: 0,
+      duration: 1,
+      delay: 1.2,
+      stagger: 0.2,
+      ease: "power4.inOut",
+    });
+  }, []);
+
   return (
-    <header>
-      <Link to="/" className="logo">
+    <header ref={el}>
+      <AniLink cover bg="#2f8d46" to="/" className="logo">
         <Logo />
         <Logo2 />
-      </Link>
+      </AniLink>
       <div className="navbar">
         <span className="hamburger-menu" onClick={tooglemenu}>
           <span className="gfg-burger-1"></span>
@@ -29,14 +48,14 @@ const Navbar = () => {
         </span>
         <ul>
           <li>
-            <Link to="/" onClick={tooglemenu}>
+            <AniLink cover bg="#2f8d46" to="/" onClick={tooglemenu}>
               Home
-            </Link>
+            </AniLink>
           </li>
           <li>
-            <Link to="/Events" onClick={tooglemenu}>
+            <AniLink cover bg="#2f8d46" to="/Events" onClick={tooglemenu}>
               Events
-            </Link>
+            </AniLink>
           </li>
           <li>
             <Link to="/#Team" onClick={tooglemenu}>
@@ -52,7 +71,13 @@ const Navbar = () => {
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
             <label>
-              <input type="checkbox" onChange={(e) => toggleTheme(e.target.checked ? "dark" : "light")} checked={theme === "dark"} />
+              <input
+                type="checkbox"
+                onChange={(e) =>
+                  toggleTheme(e.target.checked ? "dark" : "light")
+                }
+                checked={theme === "dark"}
+              />
               <div></div>
             </label>
           )}

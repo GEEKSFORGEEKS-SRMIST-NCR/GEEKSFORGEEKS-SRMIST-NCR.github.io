@@ -1,15 +1,29 @@
-import React from 'react'
-import './Home.css'
-import { Logo2 } from "../Logo/Logo2"
+import React, { useEffect, useRef } from "react";
+import "./Home.css";
+import { Logo2 } from "../Logo/Logo2";
+import { gsap } from "gsap";
 
 const Home = () => {
-    return (
-        <section className='home'>
-            <Logo2 />
-            <h1>SRMIST NCR CHAPTER</h1>
-            <h2>A Community of SRMIST Students</h2>
-        </section>
-    )
-}
+  const el = useRef();
+  const q = gsap.utils.selector(el);
 
-export default Home
+  useEffect(() => {
+    gsap.from(q("h1, h2, svg"), {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power4.inOut",
+    });
+  }, []);
+
+  return (
+    <section className="home" ref={el}>
+      <Logo2 />
+      <h1>SRMIST NCR CHAPTER</h1>
+      <h2>A Community of SRMIST Students</h2>
+    </section>
+  );
+};
+
+export default Home;

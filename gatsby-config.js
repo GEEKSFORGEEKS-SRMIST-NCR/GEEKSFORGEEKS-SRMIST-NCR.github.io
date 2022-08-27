@@ -10,7 +10,8 @@ module.exports = {
     of all who are connected with us through this chapter. So keep
     yourself connected with us to ace your career beyond the skies.`,
     author: `@Drish`,
-    image: "https://raw.githubusercontent.com/GEEKSFORGEEKS-SRMIST-NCR/GEEKSFORGEEKS-SRMIST-NCR.github.io/main/src/images/Screenshot.webp",
+    image:
+      "https://raw.githubusercontent.com/GEEKSFORGEEKS-SRMIST-NCR/GEEKSFORGEEKS-SRMIST-NCR.github.io/main/src/images/Screenshot.webp",
   },
   plugins: [
     {
@@ -38,6 +39,8 @@ module.exports = {
     "gatsby-plugin-dark-mode",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-transition-link",
+
     {
       resolve: "gatsby-source-filesystem",
       options: {

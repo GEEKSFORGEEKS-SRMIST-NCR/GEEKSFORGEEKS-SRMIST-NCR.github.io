@@ -3,7 +3,7 @@ import Navbar from "./Navbar/Navbar";
 import Contact from "./Contacts/Contact";
 import PropTypes from "prop-types";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Navbar />

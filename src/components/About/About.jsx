@@ -16,17 +16,18 @@ const About = () => {
           Want to outshine in your career ? or desire to give shape to your
           ideas? if yes, then you are on the right page. Achieve your dreams
           with geeksforgeeks and upgrade your skillsets consistently to become
-          more confident. 
-          <br />
-          &emsp; Geeksforgeeks Students' chapter at SRM NCR is working
-          on the idea - to impart knowledge among the geeks in a fun and
-          exciting way. It will be achieved through events, hackathons and
-          webinars to enlighten the mates. We aim for the perfection and success
-          of all who are connected with us through this chapter. So keep
-          yourself connected with us to ace your career beyond the skies.
+          more confident.
           <br />
           <br />
-          <em> Wishing you luck!!</em>
+          &emsp; Geeksforgeeks Students' chapter at SRM NCR is working on the
+          idea - to impart knowledge among the geeks in a fun and exciting way.
+          It will be achieved through events, hackathons and webinars to
+          enlighten the mates. We aim for the perfection and success of all who
+          are connected with us through this chapter. So keep yourself connected
+          with us to ace your career beyond the skies.
+          <br />
+          <br />
+          <em> &emsp;&emsp;&emsp;Wishing you luck!!</em>
         </p>
       </div>
     </section>

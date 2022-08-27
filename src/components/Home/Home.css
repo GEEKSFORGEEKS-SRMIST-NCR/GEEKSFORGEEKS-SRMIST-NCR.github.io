@@ -3,24 +3,24 @@
   height: 100vh;
   padding-top: 40px;
   display: grid;
-  place-content: center center;
+  align-content: center;
   place-items: center center;
   text-align: center;
 }
 
 .home svg {
-  width: 100%;
+  width: 70%;
   height: 100%;
 }
 
 .home h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
   color: var(--text-main);
 }
 
 .home h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 400;
   color: var(--text-secondary);
 }
@@ -32,12 +32,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .home svg {
+    width: 90%;
+  }
+
   .home h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .home h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -47,6 +51,6 @@
   }
 
   .home h2 {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }

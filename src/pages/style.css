@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
 body.light {
   --main: #fcfcfc;
@@ -21,9 +21,9 @@ body.dark {
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
   height: 100vh;
   background: var(--main);
   scroll-behavior: smooth;
-  font-family: "Sofia Pro";
+  font-family: "Space Mono", monospace;
 }
 
 body.hidden {
@@ -41,21 +41,20 @@ body.hidden {
 /* Custom Scroll bar */
 
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background-color: var(--main);
-    border-radius: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: var(--text-secondary);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--text-main);
-  }
-  
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--main);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--text-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-main);
+}
