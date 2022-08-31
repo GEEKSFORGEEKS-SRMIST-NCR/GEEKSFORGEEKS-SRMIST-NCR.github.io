@@ -1,0 +1,152 @@
+.registeration-form {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.registeration-form span {
+  color: #bf1650;
+  font-size: 0.9rem;
+}
+
+.registeration-form span .success::before {
+  display: inline;
+  content: "⚠ ";
+}
+
+.registeration-form .success {
+  color: #2f8d46;
+}
+
+.registeration-form span::before {
+  display: inline;
+  content: "✔ ";
+}
+
+.registeration-form label {
+  line-height: 1;
+  text-align: left;
+  display: block;
+  margin: 30px 0 0;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.registeration-form input,
+.registeration-form textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--text-main);
+  padding: 10px 15px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.radio1 {
+  display: flex;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.radio2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.registeration-form .radio label {
+  display: inline-flex;
+  justify-content: center;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.registeration-form input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+  margin-top: 0;
+  accent-color: #2f8d46;
+}
+
+.registeration-form .box {
+  display: flex;
+  column-gap: 2rem;
+}
+
+.registeration-form .box label {
+  flex-grow: 1;
+}
+
+.registeration-form input[type="submit"] {
+  background: #2f8d46;
+  color: var(--main);
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+
+.registeration-form input[type="submit"]:hover {
+  transition: 0.3s all;
+  background: #1f8037;
+}
+.registeration-form input[type="submit"]:disabled {
+  background: #505050;
+}
+
+.Announcement_fadein__2X6vU {
+  background-color: #1f8037 !important;
+}
+
+.Announcement_fadein__2X6vU div h3 {
+  color: #fff !important;
+}
+
+.Announcement_fadein__2X6vU div p {
+  color: #e6e6e6 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .registeration-form {
+    max-width: 60%;
+  }
+
+  .registeration-form .box {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .registeration-form {
+    max-width: 80%;
+  }
+  .registeration-form span {
+    font-size: 0.7rem;
+  }
+
+  .registeration-form label {
+    font-size: 1rem;
+  }
+
+  .registeration-form input,
+  .registeration-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .registeration-form .radio label {
+    font-size: 0.8rem;
+  }
+
+  .registeration-form input[type="submit"] {
+    font-size: 0.8rem;
+  }
+}
