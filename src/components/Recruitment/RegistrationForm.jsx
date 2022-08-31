@@ -34,7 +34,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
             required: "This field is required",
             pattern: {
               value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
-              message: "Please enter a valid Email",
+              message: "Enter a valid email ending with '@srmist.edu.in'",
             },
           })}
         />
@@ -50,7 +50,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
             pattern: {
               value:
                 /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
-              message: "Please enter a valid Phone Number",
+              message: "Enter a valid Phone Number",
             },
           })}
         />
@@ -63,8 +63,9 @@ const RegistrationForm = ({ submitData, submitted }) => {
           {...register("regno", {
             required: "This field is required",
             pattern: {
-              value: /^[Rr][Aa][0-9]{13}$/,
-              message: "Please enter a valid Registeration Number",
+              value: /^(RA)[0-9]{13}$/,
+              message:
+                "Enter valid Registeration Number starting with capital 'RA'",
             },
           })}
         />
@@ -124,7 +125,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
               required: "This field is required",
               pattern: {
                 value: /^[A-Z]{1}$/,
-                message: "One Capital Alphabetical characters only",
+                message: "Enter a capital alphabetical character only",
               },
             })}
           />
@@ -139,7 +140,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
               required: "This field is required",
               pattern: {
                 value: /^[A-Za-z]+$/i,
-                message: "Alphabetical characters only",
+                message: "Enter alphabetical characters only",
               },
             })}
           />

@@ -8,18 +8,9 @@
   font-size: 0.9rem;
 }
 
-.registeration-form span .success::before {
-  display: inline;
-  content: "⚠ ";
-}
-
-.registeration-form .success {
-  color: #2f8d46;
-}
-
 .registeration-form span::before {
   display: inline;
-  content: "✔ ";
+  content: "⚠ ";
 }
 
 .registeration-form label {
