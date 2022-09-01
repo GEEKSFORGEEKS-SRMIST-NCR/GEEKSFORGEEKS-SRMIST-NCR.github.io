@@ -16,6 +16,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@hookform/error-message": "^2.0.0",
     "@supabase/supabase-js": "^1.35.6",
     "gatsby": "^4.4.0",

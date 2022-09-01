@@ -6,6 +6,7 @@ import Announcement from "react-announcement";
 import { withCookies, useCookies } from "react-cookie";
 import Logo from "../images/bell.png";
 import { supabase } from "../../lib/supabase";
+import emailjs from '@emailjs/browser';
 
 const Recruitment = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -16,6 +17,13 @@ const Recruitment = () => {
   }, [removeCookie]);
 
   const submitData = async (data, e) => {
+    e.preventDefault();
+
+    const emailData = {
+      "name": data.name,
+      "email": data.email
+    }
+    emailjs.sendForm(process.env.GATSBY_EMAIL_ID, process.env.GATSBY_TEMPLATE_ID, emailData, process.env.GATSBY_EMAIL_KEY)
     await supabase
       .from("Recruitment")
       .insert([data])
