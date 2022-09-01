@@ -17,19 +17,16 @@ const Recruitment = () => {
   }, [removeCookie]);
 
   const submitData = async (data, e) => {
-    e.preventDefault();
-
-    const emailData = {
-      "name": data.name,
-      "email": data.email
-    }
-    emailjs.sendForm(process.env.GATSBY_EMAIL_ID, process.env.GATSBY_TEMPLATE_ID, emailData, process.env.GATSBY_EMAIL_KEY)
     await supabase
       .from("Recruitment")
       .insert([data])
       .then(() => {
         e.target.reset();
         setSubmitted(true);
+        emailjs.send(process.env.GATSBY_EMAIL_ID, process.env.GATSBY_TEMPLATE_ID, {
+          "name": data.name,
+          "email": data.email
+        }, process.env.GATSBY_EMAIL_KEY);
         setTimeout(() => {
           setSubmitted(false);
         }, 20000);
