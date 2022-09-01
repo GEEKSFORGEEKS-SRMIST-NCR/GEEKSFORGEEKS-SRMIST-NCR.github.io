@@ -24,7 +24,7 @@ const Contact = () => {
           <FaGithub />
         </a>
         <a
-          href="https://www.instagram.com/geeksforgeeks_srmist_ncr/"
+          href="https://www.instagram.com/gfg_srmist_ncr"
           target="_blank"
           rel="noreferrer"
           title="Instagram"

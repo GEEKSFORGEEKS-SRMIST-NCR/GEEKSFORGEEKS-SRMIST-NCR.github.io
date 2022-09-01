@@ -131,7 +131,7 @@ let cardgrid = data.map((data) => {
 const faculty = (
   <Card
     title="Bharti Vidhury"
-    desc="Assistent Professor Department of CSE"
+    desc="Assistant Professor Department of CSE"
     img="Faculty.webp"
   />
 );
