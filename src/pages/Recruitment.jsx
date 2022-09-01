@@ -13,7 +13,7 @@ const Recruitment = () => {
 
   useEffect(() => {
     removeCookie("banner");
-  }, []);
+  }, [removeCookie]);
 
   const submitData = async (data, e) => {
     await supabase

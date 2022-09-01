@@ -49,7 +49,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
             required: "This field is required",
             pattern: {
               value:
-                /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
+                /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
               message: "Enter a valid Phone Number",
             },
           })}
