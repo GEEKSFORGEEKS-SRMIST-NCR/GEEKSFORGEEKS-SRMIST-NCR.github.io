@@ -9,7 +9,7 @@ let data = [
     desc: "Chairperson",
     img: "Deepak.webp",
     link1: "https://www.linkedin.com/in/spycaptain/",
-    link2: "https://www.github.com/",
+    link2: "https://github.com/spycaptain3",
     link3: "https://www.instagram.com/_spycaptain/",
   },
   {
@@ -44,9 +44,9 @@ let data = [
     name: "Lahari Krishnam",
     desc: "Marketing Head",
     img: "Lahari.webp",
-    link1: "https://www.linkedin.com/in/anushka-kanwar-8484241b6",
+    link1: "https://www.linkedin.com/in/lahari03",
     link2: "",
-    link3: "https://www.instagram.com/anushkakanwar15/",
+    link3: "https://www.instagram.com/lahari_k03/",
   },
   {
     id: 6,
