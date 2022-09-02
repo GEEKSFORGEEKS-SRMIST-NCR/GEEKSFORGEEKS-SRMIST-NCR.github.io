@@ -72,6 +72,16 @@
   flex-grow: 1;
 }
 
+.registeration-form input[type="file"] {
+  padding: 0;
+  cursor: pointer;
+}
+
+.registeration-form input[type="file"]::file-selector-button {
+  padding: 0.6rem 2rem;
+  margin-right: 1rem;
+}
+
 .registeration-form input[type="submit"] {
   background: #2f8d46;
   color: var(--main);

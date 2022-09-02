@@ -208,9 +208,21 @@ const RegistrationForm = ({ submitData, submitted }) => {
       <ErrorMessage errors={errors} name="team" as="span" />
 
       <label>
+        Upload your Resume
+        <input
+          type="file"
+          accept="application/pdf"
+          {...register("resume", {
+            required: "This field is required",
+          })}
+        />
+        <ErrorMessage errors={errors} name="resume" as="span" />
+      </label>
+
+      <label>
         What makes you stand apart from the rest?
         <textarea
-          placeholder="Type here"
+          placeholder="Type here (Min 100 Words)"
           {...register("desc", {
             required: "This field is required",
           })}

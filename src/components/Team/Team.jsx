@@ -140,12 +140,12 @@ const Team = () => {
   return (
     <section className="team" id="Team">
       <div>
-        <h1 className="section-title">Team Leads</h1>
-        <div className="team-container">{cardgrid}</div>
         {/* <h1 className="section-title">Other Team Members</h1>
         <div className="team-container">{otherTeamMembers}</div> */}
         <h1 className="section-title">Faculty Coordinator</h1>
         <div className="team-container">{faculty}</div>
+        <h1 className="section-title">Team Leads</h1>
+        <div className="team-container">{cardgrid}</div>
       </div>
     </section>
   );
