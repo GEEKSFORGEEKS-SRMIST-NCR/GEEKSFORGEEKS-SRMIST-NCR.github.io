@@ -19,8 +19,8 @@ const Recruitment = () => {
   const submitData = async (data, e) => {
     await supabase
       .from("Recruitment")
-      .insert({ ...data, "resume": data.name + data.regno })
-      .then(await supabase.storage.from("recruitment").upload(`resume/${data.name}(${data.regno}).pdf`, data.resume[0]))
+      .insert({ ...data, "resume": data.name + "-" + Date.now() })
+      .then(await supabase.storage.from("recruitment").upload(`resume/${data.name}-${Date.now()}).pdf`, data.resume[0]))
       .then(() => {
         e.target.reset();
         setSubmitted(true);
