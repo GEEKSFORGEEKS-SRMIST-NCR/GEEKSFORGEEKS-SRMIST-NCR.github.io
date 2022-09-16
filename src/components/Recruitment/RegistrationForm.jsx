@@ -49,7 +49,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
             required: "This field is required",
             pattern: {
               value:
-                /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
+                /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
               message: "Enter a valid Phone Number",
             },
           })}
@@ -208,9 +208,21 @@ const RegistrationForm = ({ submitData, submitted }) => {
       <ErrorMessage errors={errors} name="team" as="span" />
 
       <label>
+        Upload your Resume
+        <input
+          type="file"
+          accept="application/pdf"
+          {...register("resume", {
+            required: "This field is required",
+          })}
+        />
+        <ErrorMessage errors={errors} name="resume" as="span" />
+      </label>
+
+      <label>
         What makes you stand apart from the rest?
         <textarea
-          placeholder="Type here"
+          placeholder="Type here (Min 100 Words)"
           {...register("desc", {
             required: "This field is required",
           })}

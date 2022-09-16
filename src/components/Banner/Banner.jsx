@@ -8,7 +8,7 @@ const Banner = () => {
 
   useEffect(() => {
     removeCookie("banner");
-  }, []);
+  }, [removeCookie]);
 
   return (
     <Announcement
