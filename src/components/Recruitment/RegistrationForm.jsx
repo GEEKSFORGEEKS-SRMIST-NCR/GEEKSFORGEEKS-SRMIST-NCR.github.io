@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import Loader from "../Loader/Loader";
 import "./Recruitment.css";
 
-const RegistrationForm = ({ submitData, submitted }) => {
+const RegistrationForm = ({ submitData, submitted, loading }) => {
   const {
     register,
     handleSubmit,
@@ -73,7 +74,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
       </label>
 
       <label>Year</label>
-      <div className="radio radio1">
+      <div className="radio">
         <label>
           <input
             {...register("year", {
@@ -148,16 +149,16 @@ const RegistrationForm = ({ submitData, submitted }) => {
         </label>
       </div>
 
-      <label className="radio radio2">
+      <label className="checkbox">
         Which Team you find yourself fit to work under?
       </label>
-      <div className="radio radio2">
+      <div className="checkbox">
         <label>
           <input
             {...register("team", {
               required: "This field is required",
             })}
-            type="radio"
+            type="checkbox"
             value="Technical"
           />
           Technical
@@ -167,7 +168,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
             {...register("team", {
               required: "This field is required",
             })}
-            type="radio"
+            type="checkbox"
             value="Event Management"
           />
           Event Management
@@ -175,7 +176,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="radio"
+            type="checkbox"
             value="Design/Branding"
           />
           Design/Branding
@@ -183,7 +184,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="radio"
+            type="checkbox"
             value="Public Relation & Outreach"
           />
           Public Relation & Outreach
@@ -191,7 +192,7 @@ const RegistrationForm = ({ submitData, submitted }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="radio"
+            type="checkbox"
             value=" Marketing"
           />
           Marketing
@@ -199,26 +200,18 @@ const RegistrationForm = ({ submitData, submitted }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="radio"
+            type="checkbox"
             value=" Social Media"
           />
           Social Media
         </label>
       </div>
       <ErrorMessage errors={errors} name="team" as="span" />
-
       <label>
         Upload your Resume
-        <input
-          type="file"
-          accept="application/pdf"
-          {...register("resume", {
-            required: "This field is required",
-          })}
-        />
+        <input type="file" accept="application/pdf" {...register("resume")} />
         <ErrorMessage errors={errors} name="resume" as="span" />
       </label>
-
       <label>
         What makes you stand apart from the rest?
         <textarea
@@ -229,12 +222,9 @@ const RegistrationForm = ({ submitData, submitted }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-
-      <input
-        type="submit"
-        value={submitted ? "Submitted Successfully" : "Submit"}
-        disabled={submitted}
-      />
+      <button type="submit" disabled={submitted}>
+        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
+      </button>
     </form>
   );
 };
