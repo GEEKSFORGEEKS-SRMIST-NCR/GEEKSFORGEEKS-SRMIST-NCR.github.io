@@ -8,7 +8,7 @@ const Contact = () => {
       <h1 className="section-title">Get In Touch</h1>
       <div className="contacts-container">
         <a
-          href="https://www.linkedin.com/in/geeksforgeeks-srmist-ncr/"
+          href="https://www.linkedin.com/company/gfg-srm/"
           target="_blank"
           rel="noreferrer"
           title="LinkedIn"
