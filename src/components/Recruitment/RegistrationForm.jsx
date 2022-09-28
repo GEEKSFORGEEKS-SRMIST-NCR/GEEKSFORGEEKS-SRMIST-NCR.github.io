@@ -222,8 +222,9 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled={submitted}>
-        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
+      <button type="submit" disabled>
+        Submissions Closed
+        {/* {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"} */}
       </button>
     </form>
   );
