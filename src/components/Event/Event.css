@@ -1,15 +1,17 @@
 .events-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
-  align-items: center;
+  gap: 5rem;
   width: 100%;
 }
 
 .event-card {
   display: flex;
   flex-direction: column;
-  width: 768px;
+  justify-content: flex-start;
+  width: 360px;
   background-color: var(--card-bg);
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
