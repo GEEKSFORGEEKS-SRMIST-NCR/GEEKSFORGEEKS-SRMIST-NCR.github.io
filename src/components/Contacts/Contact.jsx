@@ -42,7 +42,7 @@ const Contact = () => {
       </div>
 
       <footer>
-        <p>© Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
+        <p> &#9426; Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
       </footer>
     </section>
   );
