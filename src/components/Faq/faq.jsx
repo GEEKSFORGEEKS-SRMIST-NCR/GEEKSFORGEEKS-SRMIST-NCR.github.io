@@ -1,38 +1,39 @@
-import React,{
-    useState
-} from 'react'
-import './faq.css';
-import {FaqApi} from '/lib/FaqApi'
+import React, { useState } from "react";
+import { FaqApi } from "/lib/FaqApi";
+import "./faq.css";
 
 const Faq = () => {
-    const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(null);
 
-    const toggle = (i) => {
-        if (selected === i) {
-            return setSelected(null)
-        }
-
-        setSelected(i)
+  const toggle = (i) => {
+    if (selected === i) {
+      return setSelected(null);
     }
 
-    return (
-        <div className="wrapper">
-        <h1 align = "center" > Frequently Asked Questions </h1>
-            <div className = "accordion" >
-            {FaqApi.map((item, i) => (
-                <div className = "item" >
-                    <div className = "title" onClick = {() => toggle(i)}>
-                        <h2 > {item.question} </h2>
-                        <span> {selected === i ? '-' : '+'} </span>
-                    </div>
-                    <div className = {selected === i ? "content show" : "content"}>
-                        {item.answer.map((it) => (<li>{it}</li>))}
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
-);
-}
+    setSelected(i);
+  };
+
+  return (
+    <section className="faq" id="faq">
+      <h1 className="section-title"> Frequently Asked Questions </h1>
+      <div className="accordion">
+        {FaqApi.map((item, i) => (
+          <div className="item" key={i}>
+            <div className="title" onClick={() => toggle(i)}>
+              <h2> {item.question} </h2>
+              <span> {selected === i ? "-" : "+"} </span>
+            </div>
+            <div className={selected === i ? "content show" : "content"}>
+              <hr />
+              {item.answer.map((it) => (
+                <li key={it}>{it}</li>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Faq;
