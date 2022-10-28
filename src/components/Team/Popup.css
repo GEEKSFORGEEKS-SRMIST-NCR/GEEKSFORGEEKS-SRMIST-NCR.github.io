@@ -1,0 +1,77 @@
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: var(--main);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: var(--secondary);
+  color: var(--text-secondary);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 80%;
+  min-width: 300px;
+}
+
+.modallogo {
+    max-width: 50px;
+    border-radius: 50%;
+}
+
+.modal-body {
+  word-wrap: break-word;
+  background: var(--card-bg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border: 0 solid var(--text-secondary);
+  border-radius: 10px;
+  box-shadow: 0 0 2px 0 var(--text-secondary);
+}
+
+.modal-body img {
+  max-width: 300px;
+}
+
+.modal-head > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: initial;
+  top: 10px;
+  right: 10px;
+  padding-bottom: 20px;
+}
+
+.close-modal {
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .modal-body {
+    flex-direction: column;
+  }
+}

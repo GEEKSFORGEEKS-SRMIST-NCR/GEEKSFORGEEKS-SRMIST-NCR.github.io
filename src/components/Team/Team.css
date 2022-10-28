@@ -12,6 +12,7 @@
 }
 
 .card {
+  cursor: pointer;
   position: relative;
   width: 280px;
   aspect-ratio: 3/4;
