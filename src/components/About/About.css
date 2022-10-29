@@ -37,9 +37,7 @@
 .about p {
   font-size: 1.2rem;
   font-weight: 400;
-  letter-spacing: 1px;
-  word-spacing: 0.4rem;
-  line-height: 2rem;
+  word-spacing: 0.2rem;
   color: var(--text-secondary);
 }
 
@@ -54,7 +52,6 @@
 
   .about p {
     font-size: 1rem;
-    line-height: 1.8rem;
   }
 }
 
@@ -69,6 +66,5 @@
 
   .about p {
     font-size: 0.8rem;
-    line-height: 1.6rem;
   }
 }

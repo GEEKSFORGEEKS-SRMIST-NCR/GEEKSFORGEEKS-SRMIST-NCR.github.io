@@ -45,7 +45,7 @@
   transition: opacity 0.4s ease;
 }
 
-.card h1 {
+.card h2 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5px;
@@ -123,7 +123,7 @@
     width: 80%;
   }
 
-  .card h1 {
+  .card h2 {
     font-size: 1.2rem;
   }
 
@@ -146,7 +146,7 @@
     width: 200px;
   }
 
-  .card h1 {
+  .card h2 {
     font-size: 1rem;
   }
 
