@@ -49,8 +49,8 @@
   line-height: 1;
 }
 
-.modal-head p {
-  font-size: 1.1rem;
+.modal-head q {
+  font-size: 1rem;
   color: var(--text-secondary);
   font-weight: 400;
 }
@@ -97,7 +97,7 @@
 
 .modal-body h4 {
   line-height: 1;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .modal-body h5 {
   color: var(--text-secondary);
