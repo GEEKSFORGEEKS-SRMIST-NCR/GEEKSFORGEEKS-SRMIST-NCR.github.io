@@ -90,7 +90,7 @@ const Card = ({ data }) => {
               )}
               <span>
                 <h3>{team}</h3>
-                <q>{slogan}</q>
+                {slogan && <q>{slogan}</q>}
               </span>
               <div className="close-modal" onClick={() => toggleModal()}>
                 <AiOutlineClose />
