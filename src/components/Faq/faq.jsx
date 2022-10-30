@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./faq.css";
 import { FaqApi } from "/lib/FaqApi";
+import "./faq.css";
 
 const Faq = () => {
   const [selected, setSelected] = useState(null);
@@ -13,24 +13,25 @@ const Faq = () => {
   };
 
   return (
-    <div className="wrapper">
-      <h2 align="center"> Frequently Asked Questions </h2>
+    <section className="faq" id="faq">
+      <h2 className="section-title"> Frequently Asked Questions </h2>
       <div className="accordion">
         {FaqApi.map((item, i) => (
-          <div key={i} className="item">
+          <div className="item" key={i}>
             <div className="title" onClick={() => toggle(i)}>
-              <h3> {item.question} </h3>
+              <h4> {item.question} </h4>
               <span> {selected === i ? "-" : "+"} </span>
             </div>
             <div className={selected === i ? "content show" : "content"}>
-              {item.answer.map((it, i) => (
-                <li key={i}>{it}</li>
+              <hr />
+              {item.answer.map((it) => (
+                <li key={it}>{it}</li>
               ))}
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

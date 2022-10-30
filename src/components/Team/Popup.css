@@ -38,6 +38,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
   color: var(--text-main);
   padding-bottom: 1rem;
 }
@@ -59,9 +60,8 @@
 
 .modal-logo {
   width: 4rem;
-  border-radius: 50%;
+  border-radius: 10%;
   padding: 0.2rem;
-  margin-right: 1rem;
 }
 
 .modal-head span {
@@ -85,6 +85,8 @@
 .modal-body p {
   font-size: 1rem;
   color: var(--text-main);
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 .modal-body h4 {
@@ -111,6 +113,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .modal-content {
+    width: 80%;
+  }
+
   .modal-body {
     flex-direction: column;
   }
@@ -125,5 +131,12 @@
 
   .socials {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 100%;
+    padding: 1rem;
   }
 }

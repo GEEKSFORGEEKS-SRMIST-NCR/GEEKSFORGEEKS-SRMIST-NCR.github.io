@@ -1,12 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import "./Team.css";
+import React, { useState } from "react";
 import {
   AiFillGithub,
   AiFillInstagram,
   AiFillLinkedin,
   AiOutlineClose,
 } from "react-icons/ai";
+import "./Team.css";
 import "./Popup.css";
 
 const Card = ({ data }) => {
@@ -86,6 +85,7 @@ const Card = ({ data }) => {
                 <img
                   className="modal-logo"
                   src={require(`../../images/teamlogo/${logo}`).default}
+                  loading="lazy"
                 />
               )}
               <span>
@@ -97,7 +97,10 @@ const Card = ({ data }) => {
               </div>
             </div>
             <div className="modal-body">
-              <img src={require(`../../images/Team/${img}`).default} />
+              <img
+                src={require(`../../images/Team/${img}`).default}
+                loading="lazy"
+              />
               <div>
                 <h4>{name}</h4>
                 <h5>{position}</h5>
