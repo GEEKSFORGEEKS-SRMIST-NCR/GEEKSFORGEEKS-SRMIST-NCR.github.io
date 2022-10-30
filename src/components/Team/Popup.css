@@ -1,0 +1,149 @@
+.modal,
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  inset: 0;
+}
+
+.modal {
+  z-index: 99;
+}
+
+.overlay {
+  background: var(--secondary);
+  opacity: 80%;
+  backdrop-filter: blur(10px);
+  z-index: 98;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--main);
+  box-shadow: 0 0 5px 0 #000000bf;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 70%;
+  max-height: 100%;
+  overflow-y: auto;
+  z-index: 100;
+  overflow: auto;
+}
+
+.modal-head {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-main);
+  padding-bottom: 1rem;
+}
+
+.modal-head h3 {
+  font-size: 2rem;
+  color: #2f8d46;
+  line-height: 1;
+}
+
+.modal-head p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.close-modal {
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 25%;
+  font-size: 1.5rem;
+  display: inline-flex;
+}
+
+.modal-logo {
+  width: 4rem;
+  border-radius: 10%;
+  padding: 0.1rem;
+  border: 1px solid var(--text-main);
+}
+
+.modal-head span {
+  flex-grow: 1;
+}
+
+.modal-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  border: 1px solid var(--text-main);
+  border-radius: 10px;
+  color: var(--text-main);
+}
+
+.modal-body img {
+  max-width: 250px;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.modal-body h4 {
+  line-height: 1;
+  font-size: 1.2rem;
+}
+.modal-body h5 {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.modal-body hr {
+  margin: 8px 0 12px;
+}
+
+.modal .socials {
+  margin-top: 1rem;
+}
+
+.modal .socials a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-right: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 80%;
+  }
+
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .modal-head h3 {
+    font-size: 1.5rem;
+  }
+
+  .modal-head p {
+    font-size: 0.9rem;
+  }
+
+  .socials {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-content {
+    width: 100%;
+    padding: 1rem;
+  }
+}

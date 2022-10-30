@@ -30,19 +30,26 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
-hr {
+.content hr {
   margin-bottom: 10px;
 }
 
-span {
-  font-size: 1.8rem;
+.title h4 {
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-li {
+.title span {
+  font-size: 1.8rem;
+  margin-left: 0.4rem;
+}
+
+.content li {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
   list-style: disc;
   margin: 0.8rem 0;
 }
@@ -69,7 +76,7 @@ li {
     font-size: 3rem;
   }
 
-  .title {
+  .title h4 {
     font-size: 0.75rem;
   }
 }
@@ -81,9 +88,5 @@ li {
 
   .section-title {
     font-size: 2rem;
-  }
-
-  .title {
-    font-size: 0.75rem;
   }
 }

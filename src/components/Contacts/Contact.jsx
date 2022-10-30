@@ -5,7 +5,7 @@ import { FaLinkedinIn, FaInstagram, FaGithub, FaDiscord } from "react-icons/fa";
 const Contact = () => {
   return (
     <section className="contacts" id="Contact">
-      <h1 className="section-title">Get In Touch</h1>
+      <h2 className="section-title">Get In Touch</h2>
       <div className="contacts-container">
         <a
           href="https://www.linkedin.com/company/gfg-srm/"

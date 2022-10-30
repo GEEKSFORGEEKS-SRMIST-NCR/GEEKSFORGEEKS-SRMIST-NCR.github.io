@@ -9,18 +9,17 @@ const Faq = () => {
     if (selected === i) {
       return setSelected(null);
     }
-
     setSelected(i);
   };
 
   return (
     <section className="faq" id="faq">
-      <h1 className="section-title"> Frequently Asked Questions </h1>
+      <h2 className="section-title"> Frequently Asked Questions </h2>
       <div className="accordion">
         {FaqApi.map((item, i) => (
           <div className="item" key={i}>
             <div className="title" onClick={() => toggle(i)}>
-              <h2> {item.question} </h2>
+              <h4> {item.question} </h4>
               <span> {selected === i ? "-" : "+"} </span>
             </div>
             <div className={selected === i ? "content show" : "content"}>
