@@ -45,23 +45,29 @@
 
 .modal-head h3 {
   font-size: 2rem;
+  color: #2f8d46;
+  line-height: 1;
 }
 
 .modal-head p {
   font-size: 1.1rem;
   color: var(--text-secondary);
+  font-weight: 400;
 }
 
 .close-modal {
   cursor: pointer;
   padding: 0.2rem;
+  border-radius: 25%;
   font-size: 1.5rem;
+  display: inline-flex;
 }
 
 .modal-logo {
   width: 4rem;
   border-radius: 10%;
-  padding: 0.2rem;
+  padding: 0.1rem;
+  border: 1px solid var(--text-main);
 }
 
 .modal-head span {
@@ -76,6 +82,7 @@
   gap: 2rem;
   border: 1px solid var(--text-main);
   border-radius: 10px;
+  color: var(--text-main);
 }
 
 .modal-body img {
@@ -84,17 +91,17 @@
 
 .modal-body p {
   font-size: 1rem;
-  color: var(--text-main);
   font-weight: 300;
   line-height: 1.4;
 }
 
 .modal-body h4 {
-  color: var(--text-main);
+  line-height: 1;
   font-size: 1.2rem;
 }
 .modal-body h5 {
   color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .modal-body hr {
