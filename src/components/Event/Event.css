@@ -3,8 +3,10 @@
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
-  gap: 5rem;
-  width: 100%;
+  row-gap: 3rem;
+  column-gap: 5rem;
+  width: 80%;
+  margin: auto;
 }
 
 .event-card {
@@ -16,7 +18,6 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 30px 0;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -53,10 +54,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .event-card {
-    width: 80%;
-  }
-
   .event-card h2 {
     font-size: 1.2rem;
   }
@@ -71,8 +68,12 @@
 }
 
 @media screen and (max-width: 480px) {
+  .events-container {
+    width: 100%;
+  }
+
   .event-card {
-    width: 90%;
+    width: 80%;
   }
 
   .event-card h2 {
