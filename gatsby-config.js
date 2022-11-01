@@ -49,5 +49,12 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: `gatsby-plugin-tawk.to`,
+      options: {
+        tawkId: process.env.GATSBY_TAWK_ID,
+        tawkKey: process.env.GATSBY_TAWK_KEY,
+      },
+    },
   ],
 };
