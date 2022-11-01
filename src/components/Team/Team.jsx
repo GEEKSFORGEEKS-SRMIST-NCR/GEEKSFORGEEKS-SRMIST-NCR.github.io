@@ -15,7 +15,7 @@ const Team = () => {
   return (
     <section className="team" id="Team">
       <div>
-        <h2 className="section-title">Faculty</h2>
+        <h2 className="section-title">Our Patrons</h2>
         <div className="team-container">{facultyCard}</div>
         <h2 className="section-title">Team Leads</h2>
         <div className="team-container">{leadCard}</div>
