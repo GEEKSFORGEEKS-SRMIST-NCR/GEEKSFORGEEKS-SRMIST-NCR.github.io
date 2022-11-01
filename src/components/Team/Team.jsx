@@ -17,7 +17,7 @@ const Team = () => {
       <div>
         <h2 className="section-title">Our Patrons</h2>
         <div className="team-container">{facultyCard}</div>
-        <h2 className="section-title">Chapter Leads</h2>
+        <h2 className="section-title">Chapter Lead</h2>
         <div className="team-container">
           {<Card key={data.chapterLead[0].id} data={data.chapterLead[0]} />}
         </div>
