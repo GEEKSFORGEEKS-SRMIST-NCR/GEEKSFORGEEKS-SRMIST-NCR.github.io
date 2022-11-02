@@ -74,7 +74,7 @@ If you wish to contribute, we highly recommend following the guidelines mentione
    git checkout main
 ```
 
-**13.** Now that you have fetched the upstream repository, you can merge its changes into our local branch. This will bring that branch into sync with the upstream, without losing the local changes.
+**.** Now that you have fetched the upstream repository, you can merge its changes into our local branch. This will bring that branch into sync with the upstream, without losing the local changes.
 ```
    git merge upstream/main
 ```
