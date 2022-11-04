@@ -27,6 +27,7 @@
     "gatsby-plugin-react-helmet": "^5.4.0",
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.4.0",
+    "gatsby-plugin-tawk.to": "^1.0.8",
     "gatsby-plugin-transition-link": "^1.20.5",
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
