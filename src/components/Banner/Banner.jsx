@@ -14,7 +14,7 @@ const Banner = () => {
     <Announcement
       title="A year older, a lot bolder."
       subtitle="We are officially turning 1! Here's to another year of experience, diligence and excellence. "
-      link="/"
+      link="/Events"
       //daysToLive={1}
       imageSource={Logo}
       secondsBeforeBannerShows={2}
