@@ -63,6 +63,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <AniLink cover bg="#2f8d46" to="/Gallery" onClick={tooglemenu}>
+              Gallery
+            </AniLink>
+          </li>
+          <li>
             <Link to="/#Contact" onClick={tooglemenu}>
               Contact
             </Link>
