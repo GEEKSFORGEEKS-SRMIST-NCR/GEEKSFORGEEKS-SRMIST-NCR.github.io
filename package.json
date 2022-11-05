@@ -43,9 +43,19 @@
     "react-icons": "^4.3.1",
     "react-responsive-masonry": "^2.1.6",
     "react-use": "^17.4.0",
-    "browser-monads": "1.0.0"
+    "browser-monads": "1.0.0",
+    "nothing-mock": "^1.0.0"
+
   },
   "devDependencies": {
-    "@iconify/react": "^4.0.0"
+    "@iconify/react": "^4.0.0",
+    
+        "babel-cli": "^6.26.0", 
+
+     "babel-preset-env": "^1.6.1", 
+
+     "chai": "^4.1.2", 
+
+     "mocha": "^5.0.5"
   }
 }
