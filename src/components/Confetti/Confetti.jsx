@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { window } from "browser-monads";
 import ReactConfetti from 'react-confetti';
 
 const Confetti = () => {
