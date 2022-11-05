@@ -11,7 +11,7 @@ const Confetti = () => {
     useEffect(()=>{
         window.addEventListener('resize',detectSize);
         return ()=>{
-            window.removeEventListener('resize',detectSize)
+            window.removeEventListener('resize',detectSize);
         }
     },[windowDimension]);
 
@@ -23,7 +23,7 @@ const Confetti = () => {
                 tweenDuration={5}
             />    
         </>
-    )
-}
+    );
+};
 
 export default Confetti;
