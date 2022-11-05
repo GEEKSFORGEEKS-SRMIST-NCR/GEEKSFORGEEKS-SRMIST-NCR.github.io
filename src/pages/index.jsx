@@ -8,7 +8,7 @@ import Banner from "../components/Banner/Banner";
 import Faq from "../components/Faq/faq";
 import Confetti from "react-confetti";
 import "./style.css";
-import { useWindowSize } from "react-use";
+import { useWindowSize } from "react-use/lib/";
 
 const IndexPage = () => {
   const { width, height } = useWindowSize();
