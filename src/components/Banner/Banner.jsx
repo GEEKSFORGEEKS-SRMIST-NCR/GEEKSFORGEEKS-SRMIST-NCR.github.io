@@ -12,9 +12,10 @@ const Banner = () => {
 
   return (
     <Announcement
-      title="Recruitment Started"
-      subtitle="We are hiring for the core members. Feel Free to Register. Click here to Apply />"
-      link="/Recruitment"
+      title="A year older, a lot bolder."
+      subtitle="We are officially turning 1! Here's to another year of experience, diligence and excellence. "
+      link="/"
+      //daysToLive={1}
       imageSource={Logo}
       secondsBeforeBannerShows={2}
       animateInDuration={500}
