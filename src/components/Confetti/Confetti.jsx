@@ -35,9 +35,9 @@ const Confetti = () => {
     return (
         <>
             <ReactConfetti
-                width={windowSize,width}
+                width={windowSize.width}
                 height={windowSize.height}
-                tweenDuration={5}
+                tweenDuration={1000}
             />    
         </>
     );
