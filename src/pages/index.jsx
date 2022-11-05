@@ -8,14 +8,16 @@ import Banner from "../components/Banner/Banner";
 import Faq from "../components/Faq/faq";
 import Confetti from "react-confetti";
 import "./style.css";
+import { useWindowSize } from "react-use";
 
 const IndexPage = () => {
+  const { width, height } = useWindowSize();
   return (
     <>
       <Seo title="Home" />
       <Layout>
         <Banner />
-        <Confetti />
+        <Confetti width={width} height={height}/>
         <Home />
         <About />
         <Team />
