@@ -77,3 +77,8 @@ li {
   font-family: "Roboto Mono", monospace;
   word-spacing: 0.2rem;
 }
+
+canvas {
+width: 100%; !important
+height: 100vh; !important
+}
