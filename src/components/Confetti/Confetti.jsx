@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { window } from "browser-monads";
-import ReactConfetti from 'react-confetti';
+import Confetti from 'react-confetti';
 
-const Confetti = () => {
+const ConfettiCanvas = () => {
     const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -25,7 +25,7 @@ const Confetti = () => {
 
     return (
         <>
-            <ReactConfetti
+            <Confetti
                 width={windowSize.width}
                 height={windowSize.height}
                 tweenDuration={1000}
@@ -34,4 +34,4 @@ const Confetti = () => {
     );
 };
 
-export default Confetti;
+export default ConfettiCanvas;
