@@ -6,7 +6,7 @@ import About from "../components/About/About";
 import Team from "../components/Team/Team";
 import Banner from "../components/Banner/Banner";
 import Faq from "../components/Faq/faq";
-import Confetti from "../components/Confetti/ConfettiCanvas";
+import Confetti from "../components/Confettii/ConfettiCanvas";
 import "./style.css";
 
 const IndexPage = () => {
