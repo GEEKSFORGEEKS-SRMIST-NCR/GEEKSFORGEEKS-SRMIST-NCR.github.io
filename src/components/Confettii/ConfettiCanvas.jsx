@@ -26,8 +26,8 @@ const ConfettiCanvas = () => {
     return (
         <>
             <Confetti
-                width={windowSize.width}
-                height={windowSize.height}
+                width={100}
+                height={100}
                 tweenDuration={1000}
             />    
         </>
