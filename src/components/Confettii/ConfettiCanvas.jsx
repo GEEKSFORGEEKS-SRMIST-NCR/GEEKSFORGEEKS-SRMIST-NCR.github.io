@@ -1,4 +1,4 @@
-Pimport React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { window } from "browser-monads";
 import Confetti from 'react-confetti';
 
