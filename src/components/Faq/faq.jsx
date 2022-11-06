@@ -18,7 +18,11 @@ const Faq = () => {
       <div className="accordion">
         {FaqApi.map((item, i) => (
           <div className="item" key={i}>
-            <div className="title" onClick={() => toggle(i)}>
+            <div className="title"
+              onClick={() => toggle(i)}
+              onKeyDown={() => toggle(i)}
+              role="button"
+              tabIndex="0">
               <h4> {item.question} </h4>
               <span> {selected === i ? "-" : "+"} </span>
             </div>

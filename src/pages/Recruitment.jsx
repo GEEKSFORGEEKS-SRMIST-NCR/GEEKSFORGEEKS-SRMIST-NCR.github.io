@@ -11,7 +11,7 @@ import emailjs from "@emailjs/browser";
 const Recruitment = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [cookies, removeCookie] = useCookies();
+  const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     removeCookie("banner");

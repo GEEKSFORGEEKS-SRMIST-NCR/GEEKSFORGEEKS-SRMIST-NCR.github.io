@@ -8,7 +8,7 @@ const Team = () => {
     return <Card key={lead.id} data={lead} />;
   });
 
-  let facultyCard = data.facultyList.map((faculty) => {
+  data.facultyList.map((faculty) => {
     return <Card key={faculty.id} data={faculty} />;
   });
 

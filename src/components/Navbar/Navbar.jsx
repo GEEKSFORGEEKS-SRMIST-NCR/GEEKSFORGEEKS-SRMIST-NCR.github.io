@@ -41,7 +41,12 @@ const Navbar = () => {
         <Logo2 />
       </AniLink>
       <div className="navbar">
-        <span className="hamburger-menu" onClick={tooglemenu}>
+        <span
+          className="hamburger-menu"
+          onClick={tooglemenu}
+          onKeyDown={tooglemenu}
+          role="button"
+          tabIndex="0">
           <span className="gfg-burger-1"></span>
           <span className="gfg-burger-2"></span>
           <span className="gfg-burger-3"></span>

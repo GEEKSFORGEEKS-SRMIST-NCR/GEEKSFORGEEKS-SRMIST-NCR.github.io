@@ -4,7 +4,7 @@ import { withCookies, useCookies } from "react-cookie";
 import Logo from "../../images/bell.png";
 
 const Banner = () => {
-  const [cookies, removeCookie] = useCookies();
+  const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     removeCookie("banner");
