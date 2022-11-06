@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+Pimport React, { useEffect, useState } from 'react';
 import { window } from "browser-monads";
 import Confetti from 'react-confetti';
 
@@ -26,8 +26,8 @@ const ConfettiCanvas = () => {
     return (
         <>
             <Confetti
-                width={100}
-                height={100}
+                width={1200}
+                height={1200}
                 tweenDuration={1000}
             />    
         </>
