@@ -6,8 +6,8 @@ const Confetti = () => {
   const { width, height } = useWindowSize()
   return (
     <ReactConfetti
-      width={width}
-      height={height}
+      width={1200}
+      height={1200}
       tweenDuration={5}
     />
   )
