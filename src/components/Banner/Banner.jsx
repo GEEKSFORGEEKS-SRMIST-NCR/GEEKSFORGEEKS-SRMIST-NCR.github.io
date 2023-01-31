@@ -13,7 +13,7 @@ const Banner = () => {
   return (
     <Announcement
       title="Recruitment Started"
-      subtitle="We are hiring for the core members. Feel Free to Register. Click here to Apply />"
+      subtitle="We are hiring for the core members. Feel Free to Register. Click here to Apply"
       link="/Recruitment"
       //daysToLive={1}
       imageSource={Logo}
