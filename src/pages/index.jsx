@@ -4,19 +4,18 @@ import Layout from "../components/Layout";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
 import Team from "../components/Team/Team";
-//import Banner from "../components/Banner/Banner";
+import Banner from "../components/Banner/Banner";
 import Faq from "../components/Faq/faq";
 //import Confetti from "../components/Confetti/Confetti";
 import "./style.css";
 
 const IndexPage = () => {
-
   return (
     <>
       <Seo title="Home" />
       <Layout>
-        {/*<Banner />
-        <Confetti />*/}
+        <Banner />
+        {/*<Confetti />*/}
         <Home />
         <About />
         <Team />
