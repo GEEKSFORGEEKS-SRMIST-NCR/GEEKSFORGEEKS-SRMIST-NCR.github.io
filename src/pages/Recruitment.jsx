@@ -45,7 +45,7 @@ const Recruitment = () => {
         }, 20000);
       })
       .catch((error) => {
-        alert(error.message);
+        console(error.message);
       });
   };
 
@@ -62,7 +62,7 @@ const Recruitment = () => {
         {submitted && (
           <Announcement
             title="Submitted"
-            subtitle="Your application was successfully submitted. Click here to go home />"
+            subtitle="Your application was successfully submitted. Click here to go home."
             link="/"
             imageSource={Logo}
             secondsBeforeBannerShows={0}
