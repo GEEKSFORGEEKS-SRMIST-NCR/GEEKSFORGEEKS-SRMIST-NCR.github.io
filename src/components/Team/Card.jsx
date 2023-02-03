@@ -31,11 +31,13 @@ const Card = ({ data }) => {
     <>
       <div
         onClick={() => toggleModal(id)}
+        onKeyDown={() => toggleModal(id)}
+        role="button"
+        tabIndex="0"
         className="card"
         style={{
-          backgroundImage: `url(${
-            require(`../../images/Team/${img}`).default
-          })`,
+          backgroundImage: `url(${require(`../../images/Team/${img}`).default
+            })`,
         }}
       >
         <div className="card-border">
@@ -78,13 +80,20 @@ const Card = ({ data }) => {
       {/* Modal Container */}
       {popup && (
         <div className="modal">
-          <div onClick={() => toggleModal()} className="overlay"></div>
+          <div
+            onClick={() => toggleModal()}
+            onKeyDown={() => toggleModal()}
+            aria-label="Popup Modal"
+            role="button"
+            tabIndex="0"
+            className="overlay"></div>
           <div className="modal-content">
             <div className="modal-head">
               {logo && (
                 <img
                   className="modal-logo"
                   src={require(`../../images/teamlogo/${logo}`).default}
+                  alt="Team Logo"
                   loading="lazy"
                 />
               )}
@@ -92,13 +101,18 @@ const Card = ({ data }) => {
                 <h3>{team}</h3>
                 {slogan && <q>{slogan}</q>}
               </span>
-              <div className="close-modal" onClick={() => toggleModal()}>
+              <div className="close-modal"
+                onClick={() => toggleModal()}
+                onKeyDown={() => toggleModal()}
+                role="button"
+                tabIndex="0">
                 <AiOutlineClose />
               </div>
             </div>
             <div className="modal-body">
               <img
                 src={require(`../../images/Team/${img}`).default}
+                alt=""
                 loading="lazy"
               />
               <div>

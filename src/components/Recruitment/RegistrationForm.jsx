@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import Loader from "../Loader/Loader";
+import Loader from "../Loader/Loader"; 
 import "./Recruitment.css";
 
 const RegistrationForm = ({ submitData, submitted, loading }) => {
@@ -73,7 +73,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="regno" as="span" />
       </label>
 
-      <label>Year</label>
+      <label htmlFor="year">Year</label>
       <div className="radio">
         <label>
           <input
@@ -149,7 +149,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
 
-      <label className="checkbox">
+      <label htmlFor="team-preference" className="checkbox">
         Which Team you find yourself fit to work under?
       </label>
       <div className="checkbox">
@@ -222,9 +222,9 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled>
-        Submissions Closed
-        {/* {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"} */}
+      <button type="submit">
+        {/* Submissions Closed */}
+        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
       </button>
     </form>
   );

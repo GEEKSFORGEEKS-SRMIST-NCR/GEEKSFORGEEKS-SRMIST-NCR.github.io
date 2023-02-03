@@ -1,29 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactConfetti from 'react-confetti';
+import useWindowSize from 'react-use/lib/useWindowSize'
 
 const Confetti = () => {
-    const [windowDimension, setDimension] = useState({width: window.innerWidth, height: window.innerHeight});
-    
-    const detectSize = () => {
-        setDimension({width: window.innerWidth, height: window.innerHeight});
-    }
-
-    useEffect(()=>{
-        window.addEventListener('resize',detectSize);
-        return ()=>{
-            window.removeEventListener('resize',detectSize)
-        }
-    },[windowDimension]);
-
-    return (
-        <>
-            <ReactConfetti
-                width={windowDimension.width}
-                height={windowDimension.height}
-                tweenDuration={5}
-            />    
-        </>
-    )
+  const { width, height } = useWindowSize()
+  return (
+    <ReactConfetti
+      width={1200}
+      height={1200}
+      tweenDuration={5}
+    />
+  )
 }
 
 export default Confetti;

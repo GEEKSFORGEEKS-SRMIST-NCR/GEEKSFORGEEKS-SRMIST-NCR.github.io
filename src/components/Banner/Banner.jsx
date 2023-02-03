@@ -4,7 +4,7 @@ import { withCookies, useCookies } from "react-cookie";
 import Logo from "../../images/bell.png";
 
 const Banner = () => {
-  const [cookies, removeCookie] = useCookies();
+  const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     removeCookie("banner");
@@ -12,9 +12,9 @@ const Banner = () => {
 
   return (
     <Announcement
-      title="A year older, a lot bolder."
-      subtitle="We are officially turning 1! Here's to another year of experience, diligence and excellence. "
-      link="/Events"
+      title="Recruitment Started"
+      subtitle="We are hiring for the core members. Feel Free to Register. Click here to Apply"
+      link="/Recruitment"
       //daysToLive={1}
       imageSource={Logo}
       secondsBeforeBannerShows={2}

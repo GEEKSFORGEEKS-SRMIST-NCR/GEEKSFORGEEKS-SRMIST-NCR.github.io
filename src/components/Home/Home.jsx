@@ -5,9 +5,9 @@ import { gsap } from "gsap";
 
 const Home = () => {
   const el = useRef();
-  const q = gsap.utils.selector(el);
 
   useEffect(() => {
+    const q = gsap.utils.selector(el);
     gsap.from(q("h1, h2, svg"), {
       y: 50,
       opacity: 0,

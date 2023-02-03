@@ -8,15 +8,15 @@ const Team = () => {
     return <Card key={lead.id} data={lead} />;
   });
 
-  let facultyCard = data.facultyList.map((faculty) => {
+  data.facultyList.map((faculty) => {
     return <Card key={faculty.id} data={faculty} />;
   });
 
   return (
     <section className="team" id="Team">
       <div>
-        <h2 className="section-title">Club Convenor</h2>
-        <div className="team-container">{facultyCard}</div>
+        {/*<h2 className="section-title">Club Convenor</h2>
+        <div className="team-container">{facultyCard}</div>*/}
         <h2 className="section-title">Chapter Lead</h2>
         <div className="team-container">
           {<Card key={data.chapterLead[0].id} data={data.chapterLead[0]} />}
