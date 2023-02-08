@@ -18,11 +18,11 @@ import A12 from '../images/Gallery/IMG12.jpg';
 import A13 from '../images/Gallery/IMG13.jpg';
 import A14 from '../images/Gallery/IMG14.jpg';
 import A15 from '../images/Gallery/IMG15.jpg';
-import A16 from '../images/Gallery/IMG16.jpg';
+import A16 from '../images/Gallery/IMG16.JPG';
 import A17 from '../images/Gallery/IMG17.jpg';
 import A18 from '../images/Gallery/IMG18.jpg';
 import A19 from '../images/Gallery/IMG19.jpg';
-import A20 from '../images/Gallery/IMG20.jpg';
+import A20 from '../images/Gallery/IMG20.JPG';
 import Layout from "../components/Layout";
 
 const images = [
