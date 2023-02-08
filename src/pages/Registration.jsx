@@ -21,7 +21,7 @@ const Registration = () => {
     setLoading(true);
     await supabase
       .from("EventForm")
-      .insert({ ...data})
+      .insert({ ...data })
       .then(() => {
         e.target.reset();
         setLoading(false);
