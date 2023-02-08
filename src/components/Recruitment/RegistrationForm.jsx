@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import Loader from "../Loader/Loader"; 
 import "./Recruitment.css";
 
 const RegistrationForm = ({ submitData, submitted, loading }) => {
@@ -221,9 +222,9 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled>
-        Submissions Closed
-        {/* {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"} */}
+      <button type="submit">
+        {/* Submissions Closed */}
+        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
       </button>
     </form>
   );

@@ -20,12 +20,12 @@ const Recruitment = () => {
   const submitData = async (data, e) => {
     setLoading(true);
     await supabase
-      .from("Recruitment")
+      .from("Recruitment2023")
       .insert({ ...data, resume: data.name + "-" + Date.now() })
       .then(
         await supabase.storage
           .from("recruitment")
-          .upload(`resume/${data.name}-${Date.now()}.pdf`, data.resume[0])
+          .upload(`resume2023/${data.name}-${Date.now()}.pdf`, data.resume[0])
       )
       .then(() => {
         e.target.reset();
@@ -45,7 +45,7 @@ const Recruitment = () => {
         }, 20000);
       })
       .catch((error) => {
-        alert(error.message);
+        console(error.message);
       });
   };
 
@@ -62,7 +62,7 @@ const Recruitment = () => {
         {submitted && (
           <Announcement
             title="Submitted"
-            subtitle="Your application was successfully submitted. Click here to go home />"
+            subtitle="Your application was successfully submitted. Click here to go home."
             link="/"
             imageSource={Logo}
             secondsBeforeBannerShows={0}

@@ -10,13 +10,12 @@ import Faq from "../components/Faq/faq";
 import "./style.css";
 
 const IndexPage = () => {
-
   return (
     <>
       <Seo title="Home" />
       <Layout>
-        {/*<Banner />
-        <Confetti />*/}
+        <Banner />
+        {/*<Confetti />*/}
         <Home />
         <About />
         <Team />
