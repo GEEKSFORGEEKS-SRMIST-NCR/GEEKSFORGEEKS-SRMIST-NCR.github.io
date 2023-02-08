@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Event from "../components/Event/Event";
+import Event2 from "../components/Event/Event2";
 import Seo from "../components/Seo";
 import { EventsApi } from "/lib/EventAPI";
 
@@ -23,10 +24,10 @@ const Events = () => {
         <h1 className="section-title">Events</h1>
         <h2 className="eventh2">Upcoming Events</h2>
         <div className="events-container">
-          <Event
-            title={"Tech Aagaz"}
-            desc="GeeksforGeeks SRM IST Delhi-NCR Student Chapter is inviting students for an inductive session on completing 1-year. There will be an 'Inductive session' with teachers and seniors to briefly introduce GeeksforGeeks and its 1-year journey until now."
-            img={7}
+          <Event2
+            title={"Tech-Darshan'23"}
+            desc=""
+            img={8}
           />
         </div>
         <h2 className="eventh2">
