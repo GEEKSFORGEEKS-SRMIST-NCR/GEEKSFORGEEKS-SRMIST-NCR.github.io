@@ -28,9 +28,6 @@ const Registration = () => {
         setTimeout(() => {
           setSubmitted(false);
         }, 20000);
-      })
-      .catch((error) => {
-        console.log(error.message);
       });
   };
 
@@ -39,6 +36,16 @@ const Registration = () => {
       <Seo title="Event Registration Form 2023" />
       <Layout>
         <h1 className="section-title">Event Registration Form</h1>
+        <h2
+          style={{
+            textAlign: "center",
+            paddingBottom: "50px",
+            marginTop: "-50px",
+            fontSize: "1.5rem",
+          }}
+        >
+          Tech-Darshan'23
+        </h2>
         <RegistrationForm
           submitData={submitData}
           submitted={submitted}
@@ -47,7 +54,7 @@ const Registration = () => {
         {submitted && (
           <Announcement
             title="Submitted"
-            subtitle="Your application was successfully submitted. Click here to go home."
+            subtitle="Successfully registered for the event. Click here to go home."
             link="/"
             imageSource={Logo}
             secondsBeforeBannerShows={0}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RegistrationForm from "../components/Recruitment/RegistrationForm";
+import RecruitmentForm from "../components/Recruitment/RecruitmentForm";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import Announcement from "react-announcement";
@@ -45,16 +45,16 @@ const Recruitment = () => {
         }, 20000);
       })
       .catch((error) => {
-        console(error.message);
+        console.log(error.message);
       });
   };
 
   return (
     <>
-      <Seo title="Recruitment For Core Members 2022" />
+      <Seo title="Recruitment For Core Members 2023" />
       <Layout>
         <h1 className="section-title">Recruitment Form</h1>
-        <RegistrationForm
+        <RecruitmentForm
           submitData={submitData}
           submitted={submitted}
           loading={loading}
