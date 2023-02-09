@@ -25,7 +25,6 @@ const Registration = () => {
         e.target.reset();
         setLoading(false);
         setSubmitted(true);
-        );
         setTimeout(() => {
           setSubmitted(false);
         }, 20000);
