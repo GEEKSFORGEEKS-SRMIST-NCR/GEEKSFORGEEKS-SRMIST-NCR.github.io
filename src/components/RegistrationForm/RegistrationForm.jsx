@@ -194,8 +194,8 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="team_members" as="span" />
       </label>
       <button type="submit">
-        {/* Submissions Closed */}
-        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
+         Submissions will open tomorrow 
+        {/* {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"} */}
       </button>
     </form>
   );
