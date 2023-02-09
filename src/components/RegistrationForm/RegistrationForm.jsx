@@ -147,6 +147,47 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           />
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
+
+        <label>
+          Team Name
+          <input
+            placeholder="Enter Your Team Name"
+            {...register("team_name", {
+              required: "This field is required",
+              pattern: {
+                value: /^[\w]+$/i,
+                message: "Enter alpha-numeric characters only",
+              },
+            })}
+          />
+          <ErrorMessage errors={errors} name="team_name" as="span" />
+        </label>
+
+        <label>
+          Team Leader
+          <input
+            placeholder="Enter Your Team Leader's Name"
+            {...register("team_leader", {
+              required: "This field is required",
+              pattern: {
+                value: /^[A-Za-z]+$/i,
+                message: "Enter alphabetical characters only",
+              },
+            })}
+          />
+          <ErrorMessage errors={errors} name="team_leader" as="span" />
+        </label>
+
+        <label>
+          Team Members
+          <input
+            placeholder="Enter Your Team Members Names"
+            {...register("team_members", {
+              required: "This field is required",
+            })}
+          />
+          <ErrorMessage errors={errors} name="team_members" as="span" />
+        </label>
       </div>
       <button type="submit">
         {/* Submissions Closed */}
