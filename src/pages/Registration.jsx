@@ -6,7 +6,6 @@ import Announcement from "react-announcement";
 import { withCookies, useCookies } from "react-cookie";
 import Logo from "../images/bell.png";
 import { supabase } from "../../lib/supabase";
-import emailjs from "@emailjs/browser";
 
 const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -26,14 +25,6 @@ const Registration = () => {
         e.target.reset();
         setLoading(false);
         setSubmitted(true);
-        emailjs.send(
-          process.env.GATSBY_EMAIL_ID,
-          process.env.GATSBY_TEMPLATE_ID,
-          {
-            name: data.name,
-            email: data.email,
-          },
-          process.env.GATSBY_EMAIL_KEY
         );
         setTimeout(() => {
           setSubmitted(false);
