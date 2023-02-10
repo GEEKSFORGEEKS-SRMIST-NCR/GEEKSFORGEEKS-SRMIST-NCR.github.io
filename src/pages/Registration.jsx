@@ -43,6 +43,7 @@ const Registration = () => {
             paddingBottom: "50px",
             marginTop: "-50px",
             fontSize: "1.5rem",
+            color: "var(--text-main)",
           }}
         >
           Tech-Darshan'23
