@@ -18,6 +18,7 @@ const Registration = () => {
 
   const submitData = async (data, e) => {
     setLoading(true);
+    console.log(data);
     await supabase
       .from("EventForm")
       .insert({ ...data })
