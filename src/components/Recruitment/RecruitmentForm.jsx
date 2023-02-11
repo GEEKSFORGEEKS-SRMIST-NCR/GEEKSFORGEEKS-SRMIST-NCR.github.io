@@ -1,10 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import Loader from "../Loader/Loader"; 
+import Loader from "../Loader/Loader";
 import "./Recruitment.css";
 
-const RegistrationForm = ({ submitData, submitted, loading }) => {
+const RecruitmentForm = ({ submitData, submitted, loading }) => {
   const {
     register,
     handleSubmit,
@@ -12,7 +12,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(submitData)} className="registeration-form">
+    <form onSubmit={handleSubmit(submitData)} className="recruitment-form">
       <label>
         Name
         <input
@@ -58,15 +58,15 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="phone" as="span" />
       </label>
       <label>
-        Registeration Number
+        Registration Number
         <input
-          placeholder="Enter Your College Registeration Number"
+          placeholder="Enter Your College Registration Number"
           {...register("regno", {
             required: "This field is required",
             pattern: {
               value: /^(RA)[0-9]{13}$/,
               message:
-                "Enter valid Registeration Number starting with capital 'RA'",
+                "Enter valid Registration Number starting with capital 'RA'",
             },
           })}
         />
@@ -222,7 +222,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit">
+      <button type="submit" disabled={submitted}>
         {/* Submissions Closed */}
         {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
       </button>
@@ -230,4 +230,4 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   );
 };
 
-export default RegistrationForm;
+export default RecruitmentForm;

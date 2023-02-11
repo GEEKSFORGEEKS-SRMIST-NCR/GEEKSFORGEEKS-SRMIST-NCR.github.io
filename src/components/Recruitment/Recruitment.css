@@ -1,19 +1,19 @@
-.registeration-form {
+.recruitment-form {
   max-width: 40%;
   margin: 0 auto;
 }
 
-.registeration-form span {
+.recruitment-form span {
   color: #bf1650;
   font-size: 0.9rem;
 }
 
-.registeration-form span::before {
+.recruitment-form span::before {
   display: inline;
   content: "⚠ ";
 }
 
-.registeration-form label {
+.recruitment-form label {
   line-height: 1;
   text-align: left;
   display: block;
@@ -24,8 +24,8 @@
   letter-spacing: 1px;
 }
 
-.registeration-form input,
-.registeration-form textarea {
+.recruitment-form input,
+.recruitment-form textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -49,42 +49,42 @@
   align-items: flex-start;
 }
 
-.registeration-form .radio label,
-.registeration-form .checkbox label {
+.recruitment-form .radio label,
+.recruitment-form .checkbox label {
   display: inline-flex;
   justify-content: center;
   font-size: 1rem;
   margin: 10px 0;
 }
 
-.registeration-form input[type="radio"],
-.registeration-form input[type="checkbox"] {
+.recruitment-form input[type="radio"],
+.recruitment-form input[type="checkbox"] {
   width: auto;
   margin-right: 10px;
   margin-top: 0;
   accent-color: #2f8d46;
 }
 
-.registeration-form .box {
+.recruitment-form .box {
   display: flex;
   column-gap: 2rem;
 }
 
-.registeration-form .box label {
+.recruitment-form .box label {
   flex-grow: 1;
 }
 
-.registeration-form input[type="file"] {
+.recruitment-form input[type="file"] {
   padding: 0;
   cursor: pointer;
 }
 
-.registeration-form input[type="file"]::file-selector-button {
+.recruitment-form input[type="file"]::file-selector-button {
   padding: 0.6rem 2rem;
   margin-right: 1rem;
 }
 
-.registeration-form button[type="submit"] {
+.recruitment-form button[type="submit"] {
   background: #2f8d46;
   color: var(--main);
   text-transform: uppercase;
@@ -98,11 +98,11 @@
   cursor: pointer;
 }
 
-.registeration-form button[type="submit"]:hover {
+.recruitment-form button[type="submit"]:hover {
   transition: 0.3s all;
   background: #1f8037;
 }
-.registeration-form button[type="submit"]:disabled {
+.recruitment-form button[type="submit"]:disabled {
   background: #505050;
 }
 
@@ -119,38 +119,38 @@
 }
 
 @media screen and (max-width: 768px) {
-  .registeration-form {
+  .recruitment-form {
     max-width: 60%;
   }
 
-  .registeration-form .box {
+  .recruitment-form .box {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .registeration-form {
+  .recruitment-form {
     max-width: 80%;
   }
-  .registeration-form span {
+  .recruitment-form span {
     font-size: 0.7rem;
   }
 
-  .registeration-form label {
+  .recruitment-form label {
     font-size: 1rem;
   }
 
-  .registeration-form input,
-  .registeration-form textarea {
+  .recruitment-form input,
+  .recruitment-form textarea {
     font-size: 0.9rem;
   }
 
-  .registeration-form .radio label {
+  .recruitment-form .radio label {
     font-size: 0.8rem;
   }
 
-  .registeration-form input[type="submit"] {
+  .recruitment-form input[type="submit"] {
     font-size: 0.8rem;
   }
 }
