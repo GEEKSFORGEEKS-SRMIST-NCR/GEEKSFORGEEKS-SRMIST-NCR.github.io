@@ -12,9 +12,9 @@ const Banner = () => {
 
   return (
     <Announcement
-      title="Recruitment Started"
-      subtitle="We are hiring for the core members. Feel Free to Register. Click here to Apply"
-      link="/Recruitment"
+      title="Tech-Darshan'23"
+      subtitle="Click here to Register for the event!!!"
+      link="/Registration"
       //daysToLive={1}
       imageSource={Logo}
       secondsBeforeBannerShows={2}
