@@ -21,11 +21,19 @@ const Recruitment = () => {
     setLoading(true);
     await supabase
       .from("Recruitment2023")
-      .insert({ ...data, resume: data.name + "-" + Date.now() })
+      .insert({
+        ...data,
+        resume: data.resume.length === 0 ? " " : data.name + "-" + Date.now(),
+      })
       .then(
-        await supabase.storage
-          .from("recruitment")
-          .upload(`resume2023/${data.name}-${Date.now()}.pdf`, data.resume[0])
+        data.resume.length === 0
+          ? ""
+          : await supabase.storage
+              .from("recruitment")
+              .upload(
+                `resume2023/${data.name}-${Date.now()}.pdf`,
+                data.resume[0]
+              )
       )
       .then(() => {
         e.target.reset();
