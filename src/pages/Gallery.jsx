@@ -23,6 +23,10 @@ import A17 from "../images/Gallery/IMG17.jpg";
 import A18 from "../images/Gallery/IMG18.jpg";
 import A19 from "../images/Gallery/IMG19.jpg";
 import A20 from "../images/Gallery/IMG20.jpg";
+import A21 from "../images/Gallery/IMG21.jpg";
+import A22 from "../images/Gallery/IMG22.jpg";
+import A23 from "../images/Gallery/IMG23.jpg";
+import A24 from "../images/Gallery/IMG24.jpg";
 import Layout from "../components/Layout";
 
 const images = [
@@ -46,6 +50,10 @@ const images = [
   A17,
   A19,
   A20,
+  A21,
+  A22,
+  A23,
+  A24,
 ];
 
 const ReactImagesGallery = () => {
