@@ -12,8 +12,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
