@@ -1,11 +1,11 @@
 import React from "react";
-import Layout from "../components/Layout";
 import Event from "../components/Event/Event";
 import Event2 from "../components/Event/Event2";
+import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import { EventsApi } from "/lib/EventAPI";
 
-let eventlist = EventsApi.map((data) => {
+let eventlist = EventsApi.reverse().map((data) => {
   return (
     <Event
       key={data.id}
@@ -24,11 +24,7 @@ const Events = () => {
         <h1 className="section-title">Events</h1>
         <h2 className="eventh2">Upcoming Events</h2>
         <div className="events-container">
-          <Event2
-            title={"Tech-Darshan'23"}
-            desc=""
-            img={8}
-          />
+          <Event2 title={"Tech-Darshan'23"} desc="" img={8} />
         </div>
         <h2 className="eventh2">
           <br></br>Past Events
