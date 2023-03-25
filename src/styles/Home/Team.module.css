@@ -1,0 +1,160 @@
+.team {
+  width: 100%;
+}
+
+.team-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 40px 30px;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  width: 280px;
+  aspect-ratio: 3/4;
+  border-radius: 15px;
+  background-color: var(--card-bg);
+  background-size: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 0 #000000bf;
+  transition: all 0.5s ease;
+}
+
+.card-border {
+  width: 95%;
+  aspect-ratio: 3/4;
+  border-radius: 12px;
+  position: relative;
+  transition: all 1s ease;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  opacity: 0;
+  color: #fff;
+  transition: opacity 0.4s ease;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 1rem;
+}
+
+.social-links {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.card a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 2px;
+  transition: color 0.2s ease;
+}
+
+.card:hover {
+  background-position: center center;
+  background-size: 350px;
+  box-shadow: 2px 2px 10px 0 #000000bf;
+}
+
+.card:hover .card-border {
+  border: 1px solid #fff;
+  background: linear-gradient(transparent 60%, #000);
+}
+
+.card:hover .social-links,
+.card:hover .card-info {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card a:hover {
+  color: #2f8d46;
+}
+
+.member-grid {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.member-grid h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  color: var(--text-main);
+}
+
+.member-grid p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .team-container {
+    width: 80%;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+  }
+
+  .card a {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .team-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    width: 80%;
+  }
+
+  .card {
+    width: 200px;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.7rem;
+  }
+
+  .card a {
+    font-size: 1.2rem;
+  }
+}

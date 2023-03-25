@@ -1,0 +1,92 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-main);
+  padding: 60px 0;
+}
+
+.accordion {
+  width: 60%;
+}
+
+.item {
+  background: var(--secondary);
+  border-radius: 15px;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+}
+
+.title {
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.content hr {
+  margin-bottom: 10px;
+}
+
+.title h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.title span {
+  font-size: 1.8rem;
+  margin-left: 0.4rem;
+}
+
+.content li {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+  list-style: disc;
+  margin: 0.8rem 0;
+}
+
+.content {
+  color: var(--text-secondary);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 500ms ease-out;
+}
+
+.content.show {
+  height: auto;
+  max-height: 100vh;
+  transition: all 500ms ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .accordion {
+    width: 80%;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .title h4 {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .accordion {
+    width: 90%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
