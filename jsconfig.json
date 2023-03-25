@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "styles/*": ["./src/styles/*"],
+      "components/*": ["./src/components/*"],
+      "images/*": ["./src/images/*"],
+      "api/*": ["./lib/*"]
+    }
+  }
+}
