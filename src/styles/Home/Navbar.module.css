@@ -11,6 +11,8 @@
   box-shadow: 0 2px 5px var(--shadow);
   padding: 0.5rem 1rem;
   z-index: 4;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* GFG Logo */
@@ -54,7 +56,7 @@
 
 /* Hamburger icon */
 
-.hamburger-menu {
+.munu_btn {
   -webkit-tap-highlight-color: transparent;
   height: 35px;
   width: 35px;
@@ -63,85 +65,17 @@
   cursor: pointer;
 }
 
-.gfg-burger-1,
-.gfg-burger-2,
-.gfg-burger-3 {
+.munu_btn > span {
   width: 25px;
   height: 2px;
   border-radius: 30px;
-  background-color: var(--text-main);
-  transition: all 0.2s ease;
-}
-
-.gfg-burger-1.open,
-.gfg-burger-2.open,
-.gfg-burger-3.open {
+  background-color: black;
   transition: all 0.2s ease;
   transform-origin: top left;
 }
 
-.gfg-burger-1.open {
-  transform: rotate(45deg) translate(2px, -1px);
-}
-
-.gfg-burger-3.open {
-  transform: rotate(-45deg);
-}
-.gfg-burger-2.open {
-  opacity: 0;
-}
-
-/* Theme toogle btn */
-
-.header label {
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
-}
-
-.header label input {
-  display: none;
-}
-
-.header label input + div {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  box-shadow: inset 10px -10px 0 0 var(--theme-btn);
-  transform: scale(1) rotate(-2deg);
-  transition: box-shadow 0.5s ease-in-out 0s, transform 0.4s ease-in-out;
-}
-
-.header label input + div:after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  margin: -4px 0 0 -4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  box-shadow: 0 -18px 0 var(--theme-btn), 0 18px 0 var(--theme-btn),
-    18px 0 0 var(--theme-btn), -18px 0 0 var(--theme-btn),
-    12px 12px 0 var(--theme-btn), -12px 12px 0 var(--theme-btn),
-    12px -12px 0 var(--theme-btn), -12px -12px 0 var(--theme-btn);
-  transform: scale(0);
-  transition: all 0.3s ease-in-out;
-}
-
-.header label input:checked + div {
-  box-shadow: inset 25px -25px 0 0 var(--theme-btn);
-  transform: scale(0.5) rotate(0deg);
-  transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.header label input:checked + div:after {
-  transform: scale(1.5);
-  transition: transform 0.5s ease-in-out;
-}
-
 @media screen and (max-width: 1024px) {
-  .hamburger-menu {
+  .munu_btn {
     display: grid;
   }
 
@@ -156,12 +90,7 @@
     backdrop-filter: blur(10px);
     border-right: 1px solid var(--secondary);
     box-shadow: 0 2px 5px var(--shadow);
-    transform: translateX(-100%);
     transition: all 0.5s ease 0s;
-  }
-
-  .navbar ul.open {
-    transform: translateX(0);
   }
 
   .navbar ul li {
@@ -187,12 +116,7 @@
     width: 100%;
   }
 
-  .hamburger-menu,
-  .header label input + div {
+  .munu_btn {
     transform: scale(0.8);
-  }
-
-  .header label input:checked + div {
-    transform: scale(0.4);
   }
 }

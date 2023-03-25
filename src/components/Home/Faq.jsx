@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "styles/Home/Faq.module.css";
+import styles from "styles/Home/Faq.module.css";
 import { FaqApi } from "/lib/FaqApi";
 
 const Faq = () => {
@@ -13,20 +13,30 @@ const Faq = () => {
   };
 
   return (
-    <section className="faq" id="faq">
+    <section className={styles.faq} id="faq">
       <h2 className="section-title"> Frequently Asked Questions </h2>
-      <div className="accordion">
+      <div className={styles.accordion}>
         {FaqApi.map((item, i) => (
-          <div className="item" key={i}>
-            <div className="title"
+          <div className={styles.item} key={i}>
+            <div
+              className={styles.title}
               onClick={() => toggle(i)}
               onKeyDown={() => toggle(i)}
               role="button"
-              tabIndex="0">
+              tabIndex="0"
+            >
               <h4> {item.question} </h4>
-              <span> {selected === i ? "-" : "+"} </span>
+              <span style={{ transition: "500ms" }}>
+                {selected === i ? "-" : "+"}
+              </span>
             </div>
-            <div className={selected === i ? "content show" : "content"}>
+            <div
+              className={
+                selected === i
+                  ? `${styles.show + styles.content}`
+                  : styles.content
+              }
+            >
               <hr />
               {item.answer.map((it) => (
                 <li key={it}>{it}</li>

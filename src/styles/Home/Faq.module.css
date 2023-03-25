@@ -5,14 +5,6 @@
   align-items: center;
 }
 
-.section-title {
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  color: var(--text-main);
-  padding: 60px 0;
-}
-
 .accordion {
   width: 60%;
 }
@@ -61,7 +53,7 @@
   transition: all 500ms ease-out;
 }
 
-.content.show {
+.show {
   height: auto;
   max-height: 100vh;
   transition: all 500ms ease-in;
@@ -72,10 +64,6 @@
     width: 80%;
   }
 
-  .section-title {
-    font-size: 3rem;
-  }
-
   .title h4 {
     font-size: 0.75rem;
   }
@@ -84,9 +72,5 @@
 @media screen and (max-width: 480px) {
   .accordion {
     width: 90%;
-  }
-
-  .section-title {
-    font-size: 2rem;
   }
 }

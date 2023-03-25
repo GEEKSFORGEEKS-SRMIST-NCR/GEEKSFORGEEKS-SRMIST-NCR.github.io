@@ -1,96 +1,75 @@
-import { gsap } from "gsap";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import "styles/Home/Navbar.module.css";
+import { useRef, useState } from "react";
+import styles from "styles/Home/Navbar.module.css";
 import { Logo } from "./Logo/Logo";
 import { Logo2 } from "./Logo/Logo2";
 
-function tooglemenu() {
-  if (window.innerWidth <= 1024) {
-    document
-      .querySelectorAll(
-        ".gfg-burger-1, .gfg-burger-2, .gfg-burger-3, .navbar ul"
-      )
-      .forEach(function (el) {
-        el.classList.toggle("open");
-      });
-    document.querySelector("body").classList.toggle("hidden");
-  }
-}
-
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const el = useRef();
 
-  useEffect(() => {
-    gsap.from(el.current, {
-      y: "-100%",
-      opacity: 0,
-      duration: 1,
-      delay: 1.2,
-      stagger: 0.2,
-      ease: "power4.inOut",
-    });
-  }, []);
-
   return (
-    <header className="header" ref={el}>
-      <Link href="/" className="logo">
+    <header className={styles.header} ref={el}>
+      <Link href="/" className={styles.logo}>
         <Logo />
         <Logo2 />
       </Link>
-      <div className="navbar">
+
+      <div className={styles.navbar}>
         <span
-          className="hamburger-menu"
-          onClick={tooglemenu}
-          onKeyDown={tooglemenu}
+          className={styles.munu_btn}
+          onClick={() => setOpen(!open)}
+          onKeyDown={() => setOpen(!open)}
           role="button"
           tabIndex="0"
         >
-          <span className="gfg-burger-1"></span>
-          <span className="gfg-burger-2"></span>
-          <span className="gfg-burger-3"></span>
+          <span
+            style={{
+              transform: open ? "rotate(45deg) translate(2px, -1px)" : "none",
+            }}
+          />
+          <span
+            style={{
+              opacity: open ? "0" : "1",
+            }}
+          />
+          <span
+            style={{
+              transform: open ? "rotate(-45deg)" : "none",
+            }}
+          />
         </span>
-        <ul>
+        <ul
+          style={{
+            transform: open ? "translateX(0)" : "translateX(-100%)",
+          }}
+        >
           <li>
-            <Link href="/" onClick={tooglemenu}>
+            <Link href="/" onClick={() => setOpen(!open)}>
               Home
             </Link>
           </li>
           <li>
-            <Link href="/Events" onClick={tooglemenu}>
+            <Link href="/Events" onClick={() => setOpen(!open)}>
               Events
             </Link>
           </li>
           <li>
-            <Link href="/#Team" onClick={tooglemenu}>
+            <Link href="/#Team" onClick={() => setOpen(!open)}>
               Team
             </Link>
           </li>
           <li>
-            <Link href="/Gallery" onClick={tooglemenu}>
+            <Link href="/Gallery" onClick={() => setOpen(!open)}>
               Gallery
             </Link>
           </li>
           <li>
-            <Link href="/#Contact" onClick={tooglemenu}>
+            <Link href="/#Contact" onClick={() => setOpen(!open)}>
               Contact
             </Link>
           </li>
         </ul>
-        {/* <ThemeToggler>
-          {({ theme, toggleTheme }) => (
-            <label>
-              <input
-                type="checkbox"
-                onChange={(e) =>
-                  toggleTheme(e.target.checked ? "dark" : "light")
-                }
-                checked={theme === "dark"}
-              />
-              <div></div>
-            </label>
-          )}
-        </ThemeToggler> */}
       </div>
     </header>
   );

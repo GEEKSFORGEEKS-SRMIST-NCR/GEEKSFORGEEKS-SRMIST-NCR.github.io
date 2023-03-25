@@ -1,11 +1,11 @@
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import "../styles/Home/Footer.module.css";
+import styles from "../styles/Home/Footer.module.css";
 
 const Footer = () => {
   return (
-    <section className="contacts" id="Contact">
+    <section id="Contact">
       <h2 className="section-title">Get In Touch</h2>
-      <div className="contacts-container">
+      <div className={styles.container}>
         <a
           href="https://www.linkedin.com/company/gfg-srm/"
           target="_blank"
@@ -40,7 +40,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <footer>
+      <footer className={styles.footer}>
         <p> &#9426; Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
       </footer>
     </section>

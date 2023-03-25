@@ -1,14 +1,14 @@
-import "styles/Home/About.module.css";
+import styles from "styles/Home/About.module.css";
 import { Logo } from "../Logo/Logo";
 import { Logo2 } from "../Logo/Logo2";
 
 const About = () => {
   return (
-    <section id="About" className="about">
+    <section id="About">
       <h2 className="section-title"> About Us</h2>
-      <div className="about-container">
-        <div className="title">
-          <Logo className="logo" /> <Logo2 />
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <Logo /> <Logo2 />
         </div>
         <p>
           <strong>Hey there, </strong> <br />

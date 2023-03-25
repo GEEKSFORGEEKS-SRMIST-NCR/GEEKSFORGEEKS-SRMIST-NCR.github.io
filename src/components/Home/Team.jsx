@@ -1,4 +1,4 @@
-import "styles/Home/Team.module.css";
+import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
 import { data } from "/lib/MemberApi";
 
@@ -12,14 +12,14 @@ const Team = () => {
   });
 
   return (
-    <section className="team" id="Team">
+    <section id="Team">
       <div>
         <h2 className="section-title">Chapter Lead</h2>
-        <div className="team-container">
+        <div className={styles.container}>
           {<Card key={data.chapterLead[0].id} data={data.chapterLead[0]} />}
         </div>
         <h2 className="section-title">Team Leads</h2>
-        <div className="team-container">{leadCard}</div>
+        <div className={styles.container}>{leadCard}</div>
       </div>
     </section>
   );

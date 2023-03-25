@@ -1,8 +1,4 @@
-.team {
-  width: 100%;
-}
-
-.team-container {
+.container {
   width: 60%;
   margin: 0 auto;
   display: flex;
@@ -28,7 +24,7 @@
   transition: all 0.5s ease;
 }
 
-.card-border {
+.card_border {
   width: 95%;
   aspect-ratio: 3/4;
   border-radius: 12px;
@@ -36,7 +32,7 @@
   transition: all 1s ease;
 }
 
-.card-info {
+.card_info {
   position: absolute;
   bottom: 0;
   padding: 10px;
@@ -45,17 +41,17 @@
   transition: opacity 0.4s ease;
 }
 
-.card h2 {
+.card_info h3 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.card p {
+.card_info p {
   font-size: 1rem;
 }
 
-.social-links {
+.socials {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -81,13 +77,13 @@
   box-shadow: 2px 2px 10px 0 #000000bf;
 }
 
-.card:hover .card-border {
+.card:hover .card_border {
   border: 1px solid #fff;
   background: linear-gradient(transparent 60%, #000);
 }
 
-.card:hover .social-links,
-.card:hover .card-info {
+.card:hover .socials,
+.card:hover .card_info {
   opacity: 1;
   visibility: visible;
 }
@@ -96,38 +92,16 @@
   color: #2f8d46;
 }
 
-.member-grid {
-  background-color: var(--card-bg);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 30px 0;
-  text-align: center;
-}
-
-.member-grid h3 {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-  text-decoration: underline;
-  color: var(--text-main);
-}
-
-.member-grid p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin: 10px 0;
-}
-
 @media screen and (max-width: 1100px) {
-  .team-container {
+  .container {
     width: 80%;
   }
 
-  .card h2 {
+  .card_info h3 {
     font-size: 1.2rem;
   }
 
-  .card p {
+  .card_info p {
     font-size: 0.8rem;
   }
 
@@ -137,7 +111,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .team-container {
+  .container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     width: 80%;
   }
@@ -146,15 +120,15 @@
     width: 200px;
   }
 
-  .card h2 {
+  .card_info h3 {
     font-size: 1rem;
   }
 
-  .card p {
+  .card_info p {
     font-size: 0.7rem;
   }
 
-  .card a {
+  .card_info a {
     font-size: 1.2rem;
   }
 }
