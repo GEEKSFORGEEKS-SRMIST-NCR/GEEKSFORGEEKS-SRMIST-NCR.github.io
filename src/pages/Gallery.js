@@ -1,52 +1,41 @@
-import { Gallary } from "api/GallaryAPI";
-import Image from "next/image";
+import { photos } from "api/GallaryAPI";
 import { useCallback, useState } from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import ImageViewer from "react-simple-image-viewer";
-
-import "styles/gallery.module.css";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import Gallery from "react-photo-gallery";
+import styles from "styles/Gallery.module.css";
 
 const ReactImagesGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const openImageViewer = useCallback((index) => {
+  const openLightbox = useCallback((event, { index }) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
   }, []);
 
-  const closeImageViewer = () => {
+  const closeLightbox = () => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
   return (
     <>
       <h1 className="section-title">Gallery</h1>
-      {/* Image Opener */}
-      {isViewerOpen && (
-        <ImageViewer
-          src={Gallary}
-          currentIndex={currentImage}
-          disableScroll={false}
-          closeOnClickOutside={true}
-          onClose={closeImageViewer}
+      {/* Lightbox / Image Viewer */}
+      <ModalGateway>
+        {isViewerOpen ? (
+          <Modal onClose={closeLightbox}>
+            <Carousel currentIndex={currentImage} views={photos} />
+          </Modal>
+        ) : null}
+      </ModalGateway>
+      {/* Masonry Main Body */}
+      <div className={styles.container}>
+        <Gallery
+          photos={photos}
+          onClick={openLightbox}
+          margin={10}
+          direction={"column"}
         />
-      )}
-      ;{/* Masonry Main Body */}
-      <div className="main-body">
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-          <Masonry gutter="15px">
-            {Gallary.map((image, i) => (
-              <div
-                key={i}
-                className="image-card"
-                onClick={() => openImageViewer(i)}
-              >
-                <Image src={image} fill alt="Events Gallery" />
-              </div>
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
       </div>
     </>
   );
