@@ -1,0 +1,24 @@
+import Image from "next/image";
+import styles from "styles/Event.module.css";
+
+const EventCard = ({ title, desc, img }) => {
+  return (
+    <>
+      <div className={styles.card}>
+        <Image
+          src={`/images/Events/${img}.png`}
+          alt={title}
+          width={400}
+          height={400}
+          className={styles.banner}
+        />
+        <div className={styles.card_details}>
+          <h2>{title}</h2>
+          <p> {desc} </p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default EventCard;
