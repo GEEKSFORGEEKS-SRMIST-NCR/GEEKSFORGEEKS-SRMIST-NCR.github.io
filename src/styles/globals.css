@@ -31,10 +31,33 @@ body {
   height: 100vh;
   background: var(--main);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body.hidden {
   overflow: hidden;
+}
+
+/* Page Transitions */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 400ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: all 400ms;
 }
 
 /* Custom Scroll bar */
