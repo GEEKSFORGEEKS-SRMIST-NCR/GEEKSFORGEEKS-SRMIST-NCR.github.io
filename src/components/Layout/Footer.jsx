@@ -1,9 +1,9 @@
 import { FaDiscord, FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import styles from "../styles/Home/Footer.module.css";
+import styles from "styles/Home/Footer.module.css";
 
 const Footer = () => {
   return (
-    <section id="Contact">
+    <footer id="Contact">
       <h2 className="section-title">Get In Touch</h2>
       <div className={styles.container}>
         <a
@@ -40,10 +40,10 @@ const Footer = () => {
         </a>
       </div>
 
-      <footer className={styles.footer}>
+      <span className={styles.footer}>
         <p> &#9426; Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
-      </footer>
-    </section>
+      </span>
+    </footer>
   );
 };
 
