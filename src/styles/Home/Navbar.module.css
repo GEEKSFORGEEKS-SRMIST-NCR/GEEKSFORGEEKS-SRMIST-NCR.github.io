@@ -1,18 +1,16 @@
 .header {
   position: fixed;
-  top: 0;
+  inset: 0;
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--secondary);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--secondary);
   box-shadow: 0 2px 5px var(--shadow);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   z-index: 4;
-  transform: translateY(0);
-  opacity: 1;
 }
 
 /* GFG Logo */
@@ -20,27 +18,18 @@
 .logo {
   position: absolute;
   left: 50%;
-  top: 50%;
-  display: flex;
-  align-items: center;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   z-index: 4;
 }
 
 /* nav - links */
 
-.navbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 3;
-}
-
 .ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  row-gap: 1rem;
+  column-gap: 1.5rem;
   list-style: none;
 }
 
@@ -48,19 +37,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
 }
 
-.ul li a {
-  padding: 0.5rem 1rem;
-}
-
-.navbar a {
+.ul a {
   color: var(--text-main);
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -85,7 +69,60 @@
   transform-origin: top left;
 }
 
+/* Theme toogle btn */
+
+.toogleTheme {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.toogleTheme input {
+  display: none;
+}
+
+.toogleTheme input + div {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  box-shadow: inset 10px -10px 0 0 var(--theme-btn);
+  transform: scale(1) rotate(-2deg);
+  transition: box-shadow 0.5s ease-in-out 0s, transform 0.4s ease-in-out;
+}
+
+.toogleTheme input + div:after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin: -4px 0 0 -4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 -18px 0 var(--theme-btn), 0 18px 0 var(--theme-btn),
+    18px 0 0 var(--theme-btn), -18px 0 0 var(--theme-btn),
+    12px 12px 0 var(--theme-btn), -12px 12px 0 var(--theme-btn),
+    12px -12px 0 var(--theme-btn), -12px -12px 0 var(--theme-btn);
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.toogleTheme input:checked + div {
+  box-shadow: inset 25px -25px 0 0 var(--theme-btn);
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.toogleTheme input:checked + div:after {
+  transform: scale(1.5);
+  transition: transform 0.5s ease-in-out;
+}
+
 @media screen and (max-width: 1024px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+
   .munu_btn {
     display: grid;
   }
@@ -121,7 +158,12 @@
     width: 100%;
   }
 
-  .munu_btn {
+  .munu_btn,
+  .toogleTheme input + div {
     transform: scale(0.8);
+  }
+
+  .toogleTheme input:checked + div {
+    transform: scale(0.4);
   }
 }
