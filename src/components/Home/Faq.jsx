@@ -33,7 +33,7 @@ const Faq = () => {
             <div
               className={
                 selected === i
-                  ? `${styles.show + styles.content}`
+                  ? `${styles.show + " " + styles.content}`
                   : styles.content
               }
             >
