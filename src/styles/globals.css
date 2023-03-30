@@ -10,7 +10,7 @@
   --text-secondary: #273239;
 }
 
-body.dark {
+[data-theme="dark"] {
   --main: #131417;
   --secondary: #0c0c0cf2;
   --theme-btn: #ffc13c;
