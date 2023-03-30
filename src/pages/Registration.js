@@ -9,13 +9,16 @@ const Registration = () => {
   const [loading, setLoading] = useState(false);
   const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
 
+  // Remove Cookies before loading the page
   useEffect(() => {
     removeCookie("banner");
   }, [removeCookie]);
 
+  // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
-    console.log(data);
+
+    // Sending data to Supabase
     await supabase
       .from("EventForm")
       .insert({ ...data })
@@ -26,7 +29,8 @@ const Registration = () => {
         setTimeout(() => {
           setSubmitted(false);
         }, 20000);
-      });
+      })
+      .then((e) => console.log(e));
   };
 
   return (

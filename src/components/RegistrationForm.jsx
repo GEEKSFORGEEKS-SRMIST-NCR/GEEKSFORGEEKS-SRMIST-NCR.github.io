@@ -1,6 +1,6 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { useForm } from "react-hook-form";
-import "styles/Registration.module.css";
+import styles from "styles/Form.module.css";
 import Loader from "./Loader";
 
 const RegistrationForm = ({ submitData, submitted, loading }) => {
@@ -13,14 +13,14 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   return (
     <form
       onSubmit={handleSubmit(submitData)}
-      className="registration-form"
+      className={styles.form}
       autoComplete="on"
     >
       {/* Team Name Box */}
       <label>
         Team Name
         <input
-          placeholder="Enter Your Team&apos;s Name"
+          placeholder="Enter Your Team's Name"
           {...register("team_name", {
             required: "This field is required",
             pattern: {
@@ -34,7 +34,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
 
       {/* Team Leader Details container */}
       <h2>Team Leader Details</h2>
-      <div className="box">
+      <div className={styles.box}>
         <label>
           Name
           <input
@@ -59,7 +59,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               pattern: {
                 value: /^(RA)[0-9]{13}$/,
                 message:
-                  "Enter valid Registration Number starting with capital &apos;RA&apos;",
+                  "Enter valid Registration Number starting with capital 'RA'",
               },
             })}
           />
@@ -67,7 +67,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
 
-      <div className="box">
+      <div className={styles.box}>
         <label>
           Email
           <input
@@ -76,7 +76,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               required: "This field is required",
               pattern: {
                 value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
-                message: "Enter a valid email ending with &apos;@srmist.edu.in&apos;",
+                message: "Enter a valid email ending with '@srmist.edu.in'",
               },
             })}
           />
@@ -101,7 +101,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
 
-      <div className="box">
+      <div className={styles.box}>
         <label>
           Year
           <input
@@ -137,7 +137,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
 
       {/* Member 1  */}
       <h3>Member 1</h3>
-      <div className="box box_3">
+      <div className={styles.box_3}>
         <label>
           Name
           <input
@@ -160,7 +160,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               pattern: {
                 value: /^(RA)[0-9]{13}$/,
                 message:
-                  "Enter valid Registration Number starting with capital &apos;RA&apos;",
+                  "Enter valid Registration Number starting with capital 'RA'",
               },
             })}
           />
@@ -179,52 +179,11 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           />
           <ErrorMessage errors={errors} name="member1_year" as="span" />
         </label>
-
-        <label>
-          Team Name
-          <input
-            placeholder="Enter Your Team Name"
-            {...register("team_name", {
-              required: "This field is required",
-              pattern: {
-                value: /^[\w]+$/i,
-                message: "Enter alpha-numeric characters only",
-              },
-            })}
-          />
-          <ErrorMessage errors={errors} name="team_name" as="span" />
-        </label>
-
-        <label>
-          Team Leader
-          <input
-            placeholder="Enter Your Team Leader&apos;s Name"
-            {...register("team_leader", {
-              required: "This field is required",
-              pattern: {
-                value: /^[A-Za-z]+$/i,
-                message: "Enter alphabetical characters only",
-              },
-            })}
-          />
-          <ErrorMessage errors={errors} name="team_leader" as="span" />
-        </label>
-
-        <label>
-          Team Members
-          <input
-            placeholder="Enter Your Team Members Names"
-            {...register("team_members", {
-              required: "This field is required",
-            })}
-          />
-          <ErrorMessage errors={errors} name="team_members" as="span" />
-        </label>
       </div>
 
       {/* Member 2  */}
       <h3>Member 2</h3>
-      <div className="box box_3">
+      <div className={styles.box_3}>
         <label>
           Name
           <input
@@ -247,7 +206,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               pattern: {
                 value: /^(RA)[0-9]{13}$/,
                 message:
-                  "Enter valid Registration Number starting with capital &apos;RA&apos;",
+                  "Enter valid Registration Number starting with capital 'RA'",
               },
             })}
           />
@@ -270,7 +229,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
 
       {/* Member 3 */}
       <h3>Member 3</h3>
-      <div className="box box_3">
+      <div className={styles.box_3}>
         <label>
           Name
           <input
@@ -293,7 +252,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               pattern: {
                 value: /^(RA)[0-9]{13}$/,
                 message:
-                  "Enter valid Registration Number starting with capital &apos;RA&apos;",
+                  "Enter valid Registration Number starting with capital 'RA'",
               },
             })}
           />
@@ -315,7 +274,6 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
       </div>
 
       <button type="submit" disabled={submitted}>
-        {/* Submissions will open tomorrow */}
         {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
       </button>
     </form>

@@ -1,19 +1,31 @@
-.recruitment-form {
+.form {
   max-width: 40%;
   margin: 0 auto;
 }
 
-.recruitment-form span {
+.form h2 {
+  color: var(--text-main);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 -1rem;
+}
+
+.form h3 {
+  color: var(--text-main);
+  font-size: 1.15rem;
+  margin: 1.2rem 0 -1.2rem;
+}
+
+.form span {
   color: #bf1650;
   font-size: 0.9rem;
 }
 
-.recruitment-form span::before {
+.form span::before {
   display: inline;
   content: "⚠ ";
 }
 
-.recruitment-form label {
+.form label {
   line-height: 1;
   text-align: left;
   display: block;
@@ -24,8 +36,13 @@
   letter-spacing: 1px;
 }
 
-.recruitment-form input,
-.recruitment-form textarea {
+.form > label,
+.form > div > label {
+  font-weight: 600;
+}
+
+.form input,
+.form textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -49,42 +66,52 @@
   align-items: flex-start;
 }
 
-.recruitment-form .radio label,
-.recruitment-form .checkbox label {
+.radio label,
+.checkbox label {
   display: inline-flex;
   justify-content: center;
   font-size: 1rem;
   margin: 10px 0;
 }
 
-.recruitment-form input[type="radio"],
-.recruitment-form input[type="checkbox"] {
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
   width: auto;
   margin-right: 10px;
   margin-top: 0;
   accent-color: #2f8d46;
 }
 
-.recruitment-form .box {
+.box {
   display: flex;
   column-gap: 2rem;
 }
 
-.recruitment-form .box label {
+.box label,
+.box_3 label {
   flex-grow: 1;
 }
 
-.recruitment-form input[type="file"] {
+.box_3 {
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.box_3 label:last-child {
+  flex-basis: 20%;
+}
+
+.form input[type="file"] {
   padding: 0;
   cursor: pointer;
 }
 
-.recruitment-form input[type="file"]::file-selector-button {
+.form input[type="file"]::file-selector-button {
   padding: 0.6rem 2rem;
   margin-right: 1rem;
 }
 
-.recruitment-form button[type="submit"] {
+.form button[type="submit"] {
   background: #2f8d46;
   color: var(--main);
   text-transform: uppercase;
@@ -98,59 +125,48 @@
   cursor: pointer;
 }
 
-.recruitment-form button[type="submit"]:hover {
+.form button[type="submit"]:hover {
   transition: 0.3s all;
   background: #1f8037;
 }
-.recruitment-form button[type="submit"]:disabled {
+.form button[type="submit"]:disabled {
   background: #505050;
 }
 
-.Announcement_fadein__2X6vU {
-  background-color: #1f8037 !important;
-}
-
-.Announcement_fadein__2X6vU div h3 {
-  color: #fff !important;
-}
-
-.Announcement_fadein__2X6vU div p {
-  color: #e6e6e6 !important;
-}
-
 @media screen and (max-width: 768px) {
-  .recruitment-form {
+  .form {
     max-width: 60%;
   }
 
-  .recruitment-form .box {
+  .box,
+  .box_3 {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .recruitment-form {
+  .form {
     max-width: 80%;
   }
-  .recruitment-form span {
+  .form span {
     font-size: 0.7rem;
   }
 
-  .recruitment-form label {
+  .form label {
     font-size: 1rem;
   }
 
-  .recruitment-form input,
-  .recruitment-form textarea {
+  .form input,
+  .form textarea {
     font-size: 0.9rem;
   }
 
-  .recruitment-form .radio label {
+  .form .radio label {
     font-size: 0.8rem;
   }
 
-  .recruitment-form input[type="submit"] {
+  .form input[type="submit"] {
     font-size: 0.8rem;
   }
 }

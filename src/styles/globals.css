@@ -91,6 +91,19 @@ canvas {
   padding: 60px 0;
 }
 
+/* React Announcement CSS */
+.Announcement_fadein__2X6vU {
+  background-color: #1f8037 !important;
+}
+
+.Announcement_fadein__2X6vU div h3 {
+  color: #fff !important;
+}
+
+.Announcement_fadein__2X6vU div p {
+  color: #e6e6e6 !important;
+}
+
 @media screen and (max-width: 768px) {
   .section-title {
     font-size: 4rem;
