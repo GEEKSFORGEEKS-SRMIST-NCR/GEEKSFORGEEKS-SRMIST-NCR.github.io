@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { supabase } from "api/supabase";
+import { supabase } from "api/Supabase";
 import { Banner } from "components/index";
 import RecruitmentForm from "components/RecruitmentForm";
 import { useEffect, useState } from "react";

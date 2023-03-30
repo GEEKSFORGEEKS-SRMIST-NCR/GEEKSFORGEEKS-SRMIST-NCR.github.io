@@ -1,4 +1,4 @@
-import { FaqApi } from "api/FaqApi";
+import { FaqApi } from "api/FaqAPI";
 import { useState } from "react";
 import styles from "styles/Home/Faq.module.css";
 

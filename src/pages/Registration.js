@@ -1,4 +1,4 @@
-import { supabase } from "api/supabase";
+import { supabase } from "api/Supabase";
 import { Banner } from "components/index";
 import RegistrationForm from "components/RegistrationForm";
 import { useEffect, useState } from "react";

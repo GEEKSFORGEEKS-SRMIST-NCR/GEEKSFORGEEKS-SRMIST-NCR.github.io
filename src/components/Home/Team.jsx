@@ -1,4 +1,4 @@
-import { data } from "api/MemberApi";
+import { data } from "api/MemberAPI";
 import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
 
