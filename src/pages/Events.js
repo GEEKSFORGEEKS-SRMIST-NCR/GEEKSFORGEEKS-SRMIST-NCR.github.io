@@ -1,6 +1,6 @@
+import { EventsApi } from "api/EventAPI";
 import { EventCard } from "components/index";
 import styles from "styles/Event.module.css";
-import { EventsApi } from "/lib/EventAPI";
 
 let eventList = EventsApi.reverse().map((data) => {
   return (

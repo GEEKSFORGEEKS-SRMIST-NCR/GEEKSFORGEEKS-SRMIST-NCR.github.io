@@ -1,6 +1,6 @@
+import { data } from "api/MemberApi";
 import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
-import { data } from "/lib/MemberApi";
 
 const Team = () => {
   let leadCard = data.leadList.map((lead) => {

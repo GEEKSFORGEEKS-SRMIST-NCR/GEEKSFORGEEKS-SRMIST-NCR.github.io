@@ -1,6 +1,6 @@
+import { FaqApi } from "api/FaqApi";
 import { useState } from "react";
 import styles from "styles/Home/Faq.module.css";
-import { FaqApi } from "/lib/FaqApi";
 
 const Faq = () => {
   const [selected, setSelected] = useState(null);
