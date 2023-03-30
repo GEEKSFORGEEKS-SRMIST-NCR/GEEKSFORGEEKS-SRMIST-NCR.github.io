@@ -37,7 +37,7 @@
 }
 
 .form > label,
-.form > div > label {
+.form > div > label:not(.checkbox > label, .radio > label) {
   font-weight: 600;
 }
 

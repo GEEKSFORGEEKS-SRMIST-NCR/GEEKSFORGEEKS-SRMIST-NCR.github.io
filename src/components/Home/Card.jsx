@@ -28,6 +28,36 @@ const Card = ({ data }) => {
     setPopup(id);
   };
 
+  // Created social icons
+  const Socials = ({ classStyle }) => {
+    return (
+      <div className={classStyle}>
+        {!link1 ? (
+          <></>
+        ) : (
+          <a href={link1} target="_blank" rel="noreferrer" title="LinkedIn">
+            <AiFillLinkedin />
+          </a>
+        )}
+        {!link2 ? (
+          <></>
+        ) : (
+          <a href={link2} target="_blank" rel="noreferrer" title="Github">
+            <AiFillGithub />
+          </a>
+        )}
+        {!link3 ? (
+          <></>
+        ) : (
+          <a href={link3} target="_blank" rel="noreferrer" title="Instagram">
+            <AiFillInstagram />
+          </a>
+        )}
+      </div>
+    );
+  };
+
+  // Card Module
   return (
     <>
       <div
@@ -45,35 +75,7 @@ const Card = ({ data }) => {
             <h3>{name}</h3>
             <p>{position}</p>
           </div>
-
-          <div className={styles.socials}>
-            {!link1 ? (
-              <></>
-            ) : (
-              <a href={link1} target="_blank" rel="noreferrer" title="LinkedIn">
-                <AiFillLinkedin />
-              </a>
-            )}
-            {!link2 ? (
-              <></>
-            ) : (
-              <a href={link2} target="_blank" rel="noreferrer" title="Github">
-                <AiFillGithub />
-              </a>
-            )}
-            {!link3 ? (
-              <></>
-            ) : (
-              <a
-                href={link3}
-                target="_blank"
-                rel="noreferrer"
-                title="Instagram"
-              >
-                <AiFillInstagram />
-              </a>
-            )}
-          </div>
+          <Socials classStyle={styles.socials} />
         </div>
       </div>
 
@@ -116,54 +118,18 @@ const Card = ({ data }) => {
             </div>
             <div className={Popup_styles.modal_body}>
               <Image
-                width={400}
-                height={400}
+                width={300}
+                height={300}
                 src={`/images/Team/${img}`}
                 alt=""
+                style={{ objectFit: "cover" }}
               />
               <div>
                 <h4>{name}</h4>
                 <h5>{position}</h5>
                 <hr />
                 <p>{desc}</p>
-                <div className={Popup_styles.socials}>
-                  {!link1 ? (
-                    <></>
-                  ) : (
-                    <a
-                      href={link1}
-                      target="_blank"
-                      rel="noreferrer"
-                      title="LinkedIn"
-                    >
-                      <AiFillLinkedin />
-                    </a>
-                  )}
-                  {!link2 ? (
-                    <></>
-                  ) : (
-                    <a
-                      href={link2}
-                      target="_blank"
-                      rel="noreferrer"
-                      title="Github"
-                    >
-                      <AiFillGithub />
-                    </a>
-                  )}
-                  {!link3 ? (
-                    <></>
-                  ) : (
-                    <a
-                      href={link3}
-                      target="_blank"
-                      rel="noreferrer"
-                      title="Instagram"
-                    >
-                      <AiFillInstagram />
-                    </a>
-                  )}
-                </div>
+                <Socials classStyle={Popup_styles.socials} />
               </div>
             </div>
           </div>
