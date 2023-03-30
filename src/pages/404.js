@@ -17,15 +17,6 @@ const paragraphStyles = {
   marginBottom: 10,
 };
 
-const homelink = {
-  color: "var(--text-main)",
-  transition: "all 0.2s ease-in-out",
-  "&:hover": {
-    color: "#2c3e50",
-    borderBottom: "1px solid #2c3e50",
-  },
-};
-
 const NotFoundPage = () => {
   return (
     <>
@@ -38,7 +29,7 @@ const NotFoundPage = () => {
           Sorry 😔 we couldn’t find what you were looking for.
           <br />
           <br />
-          <Link href="/" style={homelink}>
+          <Link href="/" style={{ color: "var(--text-main)" }}>
             Go home
           </Link>
         </p>

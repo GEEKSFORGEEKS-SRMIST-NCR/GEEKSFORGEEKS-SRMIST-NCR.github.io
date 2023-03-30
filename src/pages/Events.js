@@ -1,9 +1,10 @@
-import { Event } from "components/index";
+import { EventCard } from "components/index";
+import styles from "styles/Event.module.css";
 import { EventsApi } from "/lib/EventAPI";
 
-let eventlist = EventsApi.reverse().map((data) => {
+let eventList = EventsApi.reverse().map((data) => {
   return (
-    <Event
+    <EventCard
       key={data.id}
       title={data.title}
       desc={data.description}
@@ -16,15 +17,17 @@ const Events = () => {
   return (
     <>
       <h1 className="section-title">Events</h1>
-      <h2 className="eventh2">Upcoming Events</h2>
-      <div className="events-container">
-        <Event title={"Tech-Darshan'23"} desc="" img={8} />
+      {/* Upcomming Events */}
+      <h2 className={styles.heading + " " + styles.h_2}>Upcoming Events</h2>
+      <div className={styles.container}>
+        <EventCard title={"Tech-Darshan'23"} desc="" img={8} />
       </div>
-      <h2 className="eventh2">
+      {/* Past Events */}
+      <h2 className={styles.heading}>
         <br></br>Past Events
       </h2>
-      <div className="events-container">{eventlist}</div>
-      <h2 className="upcoming">MORE EVENTS COMING SOON !!!</h2>
+      <div className={styles.container}>{eventList}</div>
+      <h2 className={styles.heading}>MORE EVENTS COMING SOON !!!</h2>
     </>
   );
 };
