@@ -3,19 +3,22 @@ import { supabase } from "api/supabase";
 import { Banner } from "components/index";
 import RecruitmentForm from "components/RecruitmentForm";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useCookies, withCookies } from "react-cookie";
 
 const Recruitment = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
 
+  // Remove Cookies before loading the page
   useEffect(() => {
     removeCookie("banner");
   }, [removeCookie]);
 
+  // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
+    // Sending data to Supabase
     await supabase
       .from("Recruitment2023")
       .insert({
@@ -33,9 +36,11 @@ const Recruitment = () => {
               )
       )
       .then(() => {
+        // Reset form on submitting
         e.target.reset();
         setLoading(false);
         setSubmitted(true);
+        // Sending email to user
         emailjs.send(
           process.env.GATSBY_EMAIL_ID,
           process.env.GATSBY_TEMPLATE_ID,
@@ -49,8 +54,8 @@ const Recruitment = () => {
           setSubmitted(false);
         }, 20000);
       })
-      .catch((error) => {
-        console.log(error.message);
+      .then((e) => {
+        console.log(e);
       });
   };
 

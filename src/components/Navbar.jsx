@@ -1,15 +1,14 @@
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styles from "styles/Home/Navbar.module.css";
 import { Logo } from "./Logo/Logo";
 import { Logo2 } from "./Logo/Logo2";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const el = useRef();
 
   return (
-    <header className={styles.header} ref={el}>
+    <header className={styles.header}>
       <Link href="/" className={styles.logo}>
         <Logo />
         <Logo2 />
@@ -39,11 +38,7 @@ const Navbar = () => {
             }}
           />
         </span>
-        <ul
-          style={{
-            transform: open ? "translateX(0)" : "translateX(-100%)",
-          }}
-        >
+        <ul className={open ? `${styles.ul + styles.open}` : styles.ul}>
           <li>
             <Link href="/" onClick={() => setOpen(!open)}>
               Home

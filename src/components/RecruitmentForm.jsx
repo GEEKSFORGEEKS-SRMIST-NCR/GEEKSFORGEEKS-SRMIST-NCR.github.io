@@ -1,6 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { useForm } from "react-hook-form";
-import "styles/Recruitment.module.css";
+import styles from "styles/Form.module.css";
+import Loader from "./Loader";
 
 const RecruitmentForm = ({ submitData, submitted, loading }) => {
   const {
@@ -10,7 +11,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
   } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(submitData)} className="recruitment-form">
+    <form onSubmit={handleSubmit(submitData)} className={styles.form}>
       <label>
         Name
         <input
@@ -72,7 +73,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       </label>
 
       <label htmlFor="year">Year</label>
-      <div className="radio">
+      <div className={styles.radio}>
         <label>
           <input
             {...register("year", {
@@ -115,7 +116,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
       <ErrorMessage errors={errors} name="year" as="span" />
-      <div className="box">
+      <div className={styles.box}>
         <label>
           Section
           <input
@@ -147,10 +148,10 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
 
-      <label htmlFor="team-preference" className="checkbox">
+      <label htmlFor="team" className={styles.checkbox}>
         Which Team you find yourself fit to work under?
       </label>
-      <div className="checkbox">
+      <div className={styles.checkbox}>
         <label>
           <input
             {...register("team", {
@@ -220,9 +221,9 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled>
-        Submissions Closed
-     {/* submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit" */}
+      <button type="submit" disabled={submitted}>
+        {/* Submissions Closed */}
+        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
       </button>
     </form>
   );
