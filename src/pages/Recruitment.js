@@ -1,7 +1,8 @@
 import emailjs from "@emailjs/browser";
 import { supabase } from "api/Supabase";
+import RecruitmentForm from "components/Forms/RecruitmentForm";
 import { Banner } from "components/index";
-import RecruitmentForm from "components/RecruitmentForm";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useCookies, withCookies } from "react-cookie";
 
@@ -59,6 +60,9 @@ const Recruitment = () => {
 
   return (
     <>
+      <Head>
+        <title>Recruitment Form | GFG SRMIST</title>
+      </Head>
       <h1 className="section-title">Recruitment Form</h1>
       <RecruitmentForm
         submitData={submitData}

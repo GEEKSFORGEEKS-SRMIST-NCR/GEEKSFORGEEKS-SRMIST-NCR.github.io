@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <>
       <Head>
-        <title>Welcome to GeeksForGeeks Chapter.</title>
+        <title>Welcome to GeeksForGeeks SRMIST Chapter.</title>
       </Head>
 
       {/* Announcement Banner */}

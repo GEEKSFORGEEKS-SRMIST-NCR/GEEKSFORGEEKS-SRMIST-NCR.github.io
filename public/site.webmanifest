@@ -1,0 +1,16 @@
+{
+  "theme_color": "#131417",
+  "background_color": "#2f8d46",
+  "display": "browser",
+  "start_url": "/",
+  "name": "GeeksForGeeks SRMIST NCR",
+  "short_name": "GFG SRMIST",
+  "description": "Geeksforgeeks Students' chapter at SRMIST NCR.",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { EventsApi } from "api/EventAPI";
 import { EventCard } from "components/index";
+import Head from "next/head";
 import styles from "styles/Event.module.css";
 
 let eventList = EventsApi.reverse().map((data) => {
@@ -16,6 +17,9 @@ let eventList = EventsApi.reverse().map((data) => {
 const Events = () => {
   return (
     <>
+      <Head>
+        <title>Events | GFG SRMIST</title>
+      </Head>
       <h1 className="section-title">Events</h1>
       {/* Upcomming Events */}
       <h2 className={styles.heading + " " + styles.h_2}>Upcoming Events</h2>

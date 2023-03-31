@@ -1,6 +1,7 @@
 import { supabase } from "api/Supabase";
+import RegistrationForm from "components/Forms/RegistrationForm";
 import { Banner } from "components/index";
-import RegistrationForm from "components/RegistrationForm";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useCookies, withCookies } from "react-cookie";
 
@@ -35,6 +36,9 @@ const Registration = () => {
 
   return (
     <>
+      <Head>
+        <title>Event Registration Form </title>
+      </Head>
       <h1 className="section-title">Event Registration Form</h1>
       <h2
         style={{

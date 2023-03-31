@@ -1,4 +1,5 @@
 import { photos } from "api/GallaryAPI";
+import Head from "next/head";
 import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
@@ -19,6 +20,9 @@ const ReactImagesGallery = () => {
   };
   return (
     <>
+      <Head>
+        <title>Events | GFG SRMIST</title>
+      </Head>
       <h1 className="section-title">Gallery</h1>
       {/* Lightbox / Image Viewer */}
       <ModalGateway>
