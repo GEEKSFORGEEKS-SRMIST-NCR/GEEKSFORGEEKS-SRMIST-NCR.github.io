@@ -43,13 +43,13 @@ const Recruitment = () => {
         setSubmitted(true);
         // Sending email to user
         emailjs.send(
-          process.env.GATSBY_EMAIL_ID,
-          process.env.GATSBY_TEMPLATE_ID,
+          process.env.NEXT_EMAIL_ID,
+          process.env.NEXT_TEMPLATE_ID,
           {
             name: data.name,
             email: data.email,
           },
-          process.env.GATSBY_EMAIL_KEY
+          process.env.NEXT_EMAIL_KEY
         );
         setTimeout(() => {
           setSubmitted(false);
