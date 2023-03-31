@@ -54,9 +54,7 @@ const Recruitment = () => {
           setSubmitted(false);
         }, 20000);
       })
-      .then((e) => {
-        console.log(e);
-      });
+      .then((e) => console.log(e));
   };
 
   return (

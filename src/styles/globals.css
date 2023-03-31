@@ -29,12 +29,8 @@
 body {
   width: 100%;
   height: 100vh;
-  scroll-behavior: smooth;
   overflow-x: hidden;
-}
-
-main,
-footer {
+  scroll-behavior: smooth;
   background: var(--main);
 }
 
@@ -44,23 +40,11 @@ body.hidden {
 
 /* Page Transitions */
 
-main {
-  border-radius: 20px 20px 0 0;
-}
-
-.effect {
-  z-index: 1;
-}
-
-.effect::after {
-  content: "";
-  display: block;
+.privacy-screen {
   position: fixed;
-  height: 100%;
-  width: 100%;
   inset: 0;
-  background: #1f8037;
-  z-index: -1;
+  z-index: 99;
+  background-color: #1f8037;
 }
 
 /* Custom Scroll bar */
@@ -104,11 +88,6 @@ li {
   word-spacing: 0.2rem;
 }
 
-canvas {
-  height: 100vh !important;
-  width: 100% !important;
-}
-
 .section-title {
   font-size: 5.5rem;
   font-weight: bold;
@@ -128,6 +107,16 @@ canvas {
 
 .Announcement_fadein__2X6vU div p {
   color: #e6e6e6 !important;
+}
+
+/* Loader Spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 768px) {

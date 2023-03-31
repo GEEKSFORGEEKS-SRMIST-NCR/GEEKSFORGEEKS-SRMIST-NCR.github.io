@@ -3,12 +3,9 @@ import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
 
 const Team = () => {
+  // Leader Card Map
   let leadCard = data.leadList.map((lead) => {
     return <Card key={lead.id} data={lead} />;
-  });
-
-  data.facultyList.map((faculty) => {
-    return <Card key={faculty.id} data={faculty} />;
   });
 
   return (

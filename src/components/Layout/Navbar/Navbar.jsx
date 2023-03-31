@@ -21,13 +21,7 @@ const Navbar = () => {
         <Logo />
       </Link>
       {/* Menu Toogle Btn */}
-      <div
-        className={styles.munu_btn}
-        onClick={openMenu}
-        onKeyDown={openMenu}
-        role="button"
-        tabIndex="0"
-      >
+      <div className={styles.munu_btn} onClick={openMenu}>
         <span
           style={{
             transform: open ? "rotate(45deg) translate(2px, -1px)" : "none",
@@ -68,11 +62,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/#Contact" onClick={openMenu}>
+          <Link href="#Contact" onClick={openMenu}>
             Contact
           </Link>
         </li>
       </ul>
+      {/* Theme Toogle Btn */}
       <ThemeToogle />
     </header>
   );

@@ -274,7 +274,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
       </div>
 
       <button type="submit" disabled={submitted}>
-        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Submit"}
+        {submitted ? "Submitted Successfully" : !loading ? <Loader /> : "Submit"}
       </button>
     </form>
   );

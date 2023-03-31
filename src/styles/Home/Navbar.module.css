@@ -64,7 +64,7 @@
   width: 25px;
   height: 2px;
   border-radius: 30px;
-  background-color: black;
+  background-color: var(--text-main);
   transition: all 0.2s ease;
   transform-origin: top left;
 }
