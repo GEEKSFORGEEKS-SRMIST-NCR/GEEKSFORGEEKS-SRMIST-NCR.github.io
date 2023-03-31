@@ -4,12 +4,14 @@ import {
   AiFillGithub,
   AiFillInstagram,
   AiFillLinkedin,
-  AiOutlineClose
+  AiOutlineClose,
 } from "react-icons/ai";
 import Popup_styles from "styles/Home/Popup.module.css";
 import styles from "styles/Home/Team.module.css";
 
 const Card = ({ data }) => {
+  const [popup, setPopup] = useState(null);
+  // Destructuring Data
   const {
     id,
     name,
@@ -18,8 +20,6 @@ const Card = ({ data }) => {
     links: { link1, link2, link3 },
     modal: { team, logo, slogan, desc },
   } = data;
-
-  const [popup, setPopup] = useState(null);
 
   const toggleModal = (id) => {
     if (popup === id) {
@@ -62,9 +62,6 @@ const Card = ({ data }) => {
     <>
       <div
         onClick={() => toggleModal(id)}
-        onKeyDown={() => toggleModal(id)}
-        role="button"
-        tabIndex="0"
         className={styles.card}
         style={{
           backgroundImage: `url(${`/images/Team/${img})`}`,
@@ -99,7 +96,7 @@ const Card = ({ data }) => {
                   className={Popup_styles.logo}
                   src={`/images/teamlogo/${logo}`}
                   alt="Team Logo"
-                  loading="lazy"
+                  quality={50}
                 />
               )}
               <span>
@@ -121,8 +118,9 @@ const Card = ({ data }) => {
                 width={300}
                 height={300}
                 src={`/images/Team/${img}`}
-                alt=""
+                alt={name}
                 style={{ objectFit: "cover" }}
+                quality={50}
               />
               <div>
                 <h4>{name}</h4>

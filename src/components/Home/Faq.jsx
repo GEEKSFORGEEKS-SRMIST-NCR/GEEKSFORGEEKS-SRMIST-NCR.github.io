@@ -15,6 +15,8 @@ const Faq = () => {
   return (
     <section className={styles.faq} id="faq">
       <h2 className="section-title"> Frequently Asked Questions </h2>
+
+      {/* Accordion list */}
       <div className={styles.accordion}>
         {FaqApi.map((item, i) => (
           <div className={styles.item} key={i}>

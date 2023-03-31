@@ -1,12 +1,29 @@
-
 export const Logo2 = () => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" width="155" height="21.281" viewBox="0 0 205.805 21.281">
-        <g id="Group_156" data-name="Group 156" transform="translate(26.144 4.527)">
-          <line id="Line_1" data-name="Line 1" x1="1.046" fill="var(--text-main)"></line>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="155"
+        height="21.281"
+        viewBox="0 0 205.805 21.281"
+      >
+        <g
+          id="Group_156"
+          data-name="Group 156"
+          transform="translate(26.144 4.527)"
+        >
+          <line
+            id="Line_1"
+            data-name="Line 1"
+            x1="1.046"
+            fill="var(--text-main)"
+          ></line>
         </g>
-        <g id="Group_157" data-name="Group 157" transform="translate(56.695 0.004)">
+        <g
+          id="Group_157"
+          data-name="Group 157"
+          transform="translate(56.695 0.004)"
+        >
           <path
             id="Path_243"
             data-name="Path 243"
@@ -15,7 +32,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_158" data-name="Group 158" transform="translate(113.247 6.427)">
+        <g
+          id="Group_158"
+          data-name="Group 158"
+          transform="translate(113.247 6.427)"
+        >
           <path
             id="Path_244"
             data-name="Path 244"
@@ -24,7 +45,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_159" data-name="Group 159" transform="translate(70.943 6.509)">
+        <g
+          id="Group_159"
+          data-name="Group 159"
+          transform="translate(70.943 6.509)"
+        >
           <path
             id="Path_245"
             data-name="Path 245"
@@ -33,7 +58,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_160" data-name="Group 160" transform="translate(96.285 6.525)">
+        <g
+          id="Group_160"
+          data-name="Group 160"
+          transform="translate(96.285 6.525)"
+        >
           <path
             id="Path_246"
             data-name="Path 246"
@@ -42,7 +71,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_161" data-name="Group 161" transform="translate(23.011 6.524)">
+        <g
+          id="Group_161"
+          data-name="Group 161"
+          transform="translate(23.011 6.524)"
+        >
           <path
             id="Path_247"
             data-name="Path 247"
@@ -51,7 +84,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_162" data-name="Group 162" transform="translate(39.461 6.524)">
+        <g
+          id="Group_162"
+          data-name="Group 162"
+          transform="translate(39.461 6.524)"
+        >
           <path
             id="Path_248"
             data-name="Path 248"
@@ -60,13 +97,17 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_163" data-name="Group 163" transform="translate(85.044 0.245)">
+        <g
+          id="Group_163"
+          data-name="Group 163"
+          transform="translate(85.044 0.245)"
+        >
           <path
             id="Path_249"
             data-name="Path 249"
             d="M1430.636 598.566a2.5 2.5.0 011.8-.549 4.2 4.2.0 011.657.281v-2.752a7.24 7.24.0 00-2.3-.337 4.82 4.82.0 00-3.455 1.278 4.666 4.666.0 00-1.349 3.554v1.417h-2.922v2.752h2.922v12.036h3.091V604.209h4.016v-2.752h-4.016V600.4A2.5 2.5.0 011430.636 598.566z"
             transform="translate(-1424.063 -595.209)"
-            fill="var(--text-main)"
+            fill="#2f8d46"
           ></path>
         </g>
         <g id="Group_164" data-name="Group 164" transform="translate(0)">
@@ -75,10 +116,14 @@ export const Logo2 = () => {
             data-name="Path 250"
             d="M1202.443 605.147a10.637 10.637.0 11-2.72-7.1l-1.983 1.982a7.837 7.837.0 101.656 7.09h-6.883v-2.851h9.895Q1202.443 604.7 1202.443 605.147z"
             transform="translate(-1181.169 -594.51)"
-            fill="var(--text-main)"
+            fill="#2f8d46"
           ></path>
         </g>
-        <g id="Group_165" data-name="Group 165" transform="translate(179.788 0.004)">
+        <g
+          id="Group_165"
+          data-name="Group 165"
+          transform="translate(179.788 0.004)"
+        >
           <path
             id="Path_251"
             data-name="Path 251"
@@ -87,7 +132,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_166" data-name="Group 166" transform="translate(194.036 6.509)">
+        <g
+          id="Group_166"
+          data-name="Group 166"
+          transform="translate(194.036 6.509)"
+        >
           <path
             id="Path_252"
             data-name="Path 252"
@@ -96,7 +145,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_167" data-name="Group 167" transform="translate(146.104 6.524)">
+        <g
+          id="Group_167"
+          data-name="Group 167"
+          transform="translate(146.104 6.524)"
+        >
           <path
             id="Path_253"
             data-name="Path 253"
@@ -105,7 +158,11 @@ export const Logo2 = () => {
             fill="var(--text-main)"
           ></path>
         </g>
-        <g id="Group_168" data-name="Group 168" transform="translate(162.554 6.524)">
+        <g
+          id="Group_168"
+          data-name="Group 168"
+          transform="translate(162.554 6.524)"
+        >
           <path
             id="Path_254"
             data-name="Path 254"
@@ -120,7 +177,7 @@ export const Logo2 = () => {
             data-name="Path 255"
             d="M1554.01 605.147a10.636 10.636.0 11-2.72-7.1l-1.983 1.982a7.837 7.837.0 101.656 7.09h-6.884v-2.851h9.895Q1554.01 604.7 1554.01 605.147z"
             transform="translate(-1532.736 -594.51)"
-            fill="var(--text-main)"
+            fill="#2f8d46"
           ></path>
         </g>
       </svg>
