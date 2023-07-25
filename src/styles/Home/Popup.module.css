@@ -107,6 +107,10 @@
 .modal_body hr {
   margin: 8px 0 12px;
 }
+.socials{
+  display:flex;
+  justify-items:baseline ;
+}
 
 .socials {
   margin-top: 1rem;
@@ -137,7 +141,7 @@
   }
 
   .socials {
-    text-align: center;
+    text-align:center;
   }
 }
 
