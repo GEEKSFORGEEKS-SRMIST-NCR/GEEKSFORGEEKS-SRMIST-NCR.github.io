@@ -57,13 +57,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/Certificates" onClick={openMenu}>
+          <Link href="/Gallery" onClick={openMenu}>
             Gallery
           </Link>
         </li>
         <li>
-          <Link href="#Contact" onClick={openMenu}>
-            Contact
+          <Link href="/Certificates" onClick={openMenu}>
+            Certificates
           </Link>
         </li>
       </ul>
