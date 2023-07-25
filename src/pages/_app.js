@@ -24,7 +24,8 @@ export default function App({ Component }) {
 
         p,
         q,
-        li {
+        li,
+        button {
           font-family: ${Roboto.style.fontFamily};
           word-spacing: 0.2rem;
         }
