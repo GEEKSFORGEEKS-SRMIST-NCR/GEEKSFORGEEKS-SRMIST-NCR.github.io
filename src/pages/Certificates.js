@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import styles from "styles/Gallery.module.css";
+import { saveAs } from "file-saver";
 
 
 const Certificates = () => {
@@ -25,6 +26,7 @@ const Certificates = () => {
     element.value = "";
     for (let i = 0; i < certificates.length; i++) {
       if (value in certificates[i]) {
+        saveAs(certificates[i]["src"],value);
         openLightbox(certificates[i][value]);
         return;
       }
@@ -39,7 +41,7 @@ const Certificates = () => {
       <h1 className="section-title">Verify Your Certificates</h1>
       <div className={styles.container}>
         <input type="text" placeholder="Verification Code" id="code" />
-        <button onClick={certify}>Verify</button>
+        <button onClick={certify}>Verify & Download</button>
       </div>
       {/* Lightbox / Image Viewer */}
       <ModalGateway>
