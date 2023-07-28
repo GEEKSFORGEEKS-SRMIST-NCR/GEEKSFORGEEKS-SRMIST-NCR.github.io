@@ -19,8 +19,8 @@ const Card = ({ data }) => {
     img,
     links: { link1, link2, link3 },
     modal: { team, logo, slogan, desc },
-    members: { mem1, mem2,mem3,mem4,mem5,mem6,mem7,mem8,mem9},
-    details:{det1,det2,det3,det4,det5,det6,det7,det8,det9},
+    members: { mem1, mem2,mem3,mem4,mem5,mem6,mem7,mem8,mem9,mem10,mem11,mem12},
+    details:{det1,det2,det3,det4,det5,det6,det7,det8,det9,det10,det11,det12},
   } = data;
 
   const TestDiv = ({ time }) => {
@@ -39,7 +39,7 @@ const Card = ({ data }) => {
   };
 
   // Created social icons
-  const Socials = ({classStyle}) => {
+  const Socials = ({ classStyle }) => {
     return (
       <div className={classStyle}>
         {!link1 ? (
@@ -114,6 +114,18 @@ const Card = ({ data }) => {
                     <tr>
                       <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem9}</td>
                       <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det9}</td>
+                    </tr>
+                    <tr>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem10}</td>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det10}</td>
+                    </tr>
+                    <tr>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem11}</td>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det11}</td>
+                    </tr>
+                    <tr>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem12}</td>
+                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det12}</td>
                     </tr>
                   </table>
                 </div>
@@ -200,7 +212,7 @@ const Card = ({ data }) => {
                   <Socials classStyle={Popup_styles.socials} />
                 </div>
               </div>
-              <Core_Members/>
+              <Core_Members />
             </div>
           </div>
         </div>
