@@ -13,7 +13,6 @@
   transform: scale(1.05);
 }
 
-
 .container input {
   margin-top: 30px !important;
   display: block;
@@ -47,8 +46,9 @@
 }
 
 .container button:hover {
-  background-color: #1a1a1a;
+  background-color: var(--text-main);
   border-color: #2F8D46;
+  color: var(--card-bg);
 }
 
 .container button:focus,
