@@ -19,8 +19,8 @@ const Card = ({ data }) => {
     img,
     links: { link1, link2, link3 },
     modal: { team, logo, slogan, desc },
-    members: { mem1, mem2,mem3,mem4,mem5,mem6,mem7,mem8,mem9},
-    details:{det1,det2,det3,det4,det5,det6,det7,det8,det9},
+    members: { mem1, mem2, mem3, mem4, mem5, mem6, mem7, mem8, mem9 },
+    details: { det1, det2, det3, det4, det5, det6, det7, det8, det9 },
   } = data;
 
   const TestDiv = ({ time }) => {
@@ -39,7 +39,7 @@ const Card = ({ data }) => {
   };
 
   // Created social icons
-  const Socials = ({classStyle}) => {
+  const Socials = ({ classStyle }) => {
     return (
       <div className={classStyle}>
         {!link1 ? (
@@ -69,55 +69,55 @@ const Card = ({ data }) => {
   const Core_Members = () => {
     return (
       <div>
-      {!det1 ? (
-        <></>
-      ) : (
-                 <div>
-                  <h2 style={{textAlign:"center"}}>Core Team Members</h2>
-                  <table style={{width:"100%",border:"2px solid white",borderRadius:"15px"}}>
-                    <tr>
-                      <th style={{borderBottom:"1px solid white",paddingTop:"4px",paddingBottom:"4px",textAlign:"center",width:"50%"}}>Names</th>
-                      <th style={{borderBottom:"1px solid white",paddingTop:"4px",paddingBottom:"4px",textAlign:"center",width:"50%"}}>Details</th>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem1}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det1}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem2}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det2}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem3}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det3}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem4}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det4}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem5}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det5}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem6}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det6}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem7}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det7}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem8}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det8}</td>
-                    </tr>
-                    <tr>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{mem9}</td>
-                      <td style={{textAlign:"center",padding:"2px",fontSize:"1rem",fontWeight:"300",lineHeight:"1.4"}}>{det9}</td>
-                    </tr>
-                  </table>
-                </div>
-      )}
+        {!det1 ? (
+          <></>
+        ) : (
+          <div>
+            <h2 style={{ textAlign: "center" }}>Core Team Members</h2>
+            <table style={{ width: "100%", border: "2px solid white", borderRadius: "15px" }}>
+              <tr>
+                <th style={{ borderBottom: "1px solid white", paddingTop: "4px", paddingBottom: "4px", textAlign: "center", width: "50%" }}>Names</th>
+                <th style={{ borderBottom: "1px solid white", paddingTop: "4px", paddingBottom: "4px", textAlign: "center", width: "50%" }}>Details</th>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem1}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det1}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem2}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det2}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem3}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det3}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem4}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det4}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem5}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det5}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem6}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det6}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem7}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det7}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem8}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det8}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{mem9}</td>
+                <td style={{ textAlign: "center", padding: "2px", fontSize: "1rem", fontWeight: "300", lineHeight: "1.4" }}>{det9}</td>
+              </tr>
+            </table>
+          </div>
+        )}
       </div>
     );
   };
@@ -200,7 +200,7 @@ const Card = ({ data }) => {
                   <Socials classStyle={Popup_styles.socials} />
                 </div>
               </div>
-              <Core_Members/>
+              <Core_Members />
             </div>
           </div>
         </div>
