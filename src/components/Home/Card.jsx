@@ -39,7 +39,7 @@ const Card = ({ data }) => {
   };
 
   // Created social icons
-  const Socials = ({classStyle}) => {
+  const Socials = ({ classStyle }) => {
     return (
       <div className={classStyle}>
         {!link1 ? (
@@ -212,7 +212,7 @@ const Card = ({ data }) => {
                   <Socials classStyle={Popup_styles.socials} />
                 </div>
               </div>
-              <Core_Members/>
+              <Core_Members />
             </div>
           </div>
         </div>
