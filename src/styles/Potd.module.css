@@ -3,24 +3,34 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 3rem;
-  width: 80%;
+  width: 100%;
   margin: auto;
+
 }
 
 .heading {
   font-size: 2.2rem;
   text-align: center;
   color: var(--text-secondary);
-  padding-bottom: 30px;
+  text-decoration:underline;
+  
+  padding-bottom: 15px;
+  padding-top: 20px;
+
 }
 
 .h_2 {
   margin-top: -50px;
+
+
 }
 
 .card {
   width: 400px;
   transition: transform 0.2s ease-in-out;
+
+  
+  
 }
 
 .card:hover {
@@ -48,6 +58,32 @@
 .card_details p {
   font-size: 1.2rem;
   color: var(--text-secondary);
+  padding-bottom: 20px;
+}
+.card_details p small {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.card_details a{
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+.card_details button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+}
+.card_details button:hover{
+  background-color: green;
 }
 
 @media screen and (max-width: 768px) {
