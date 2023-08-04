@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
+  width: 80%;
+  margin: auto;
+}
+
+.heading {
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  padding-bottom: 30px;
+}
+
+.h_2 {
+  margin-top: -50px;
+}
+
+.card {
+  width: 400px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.banner {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  object-fit: fill;
+}
+
+.card_details {
+  background-color: var(--card-bg);
+  border-radius: 0 0 10px 10px;
+  padding: 5px 20px 20px;
+}
+
+.card_details h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.card_details p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+@media screen and (max-width: 768px) {
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .card {
+    width: 80%;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .heading {
+    font-size: 1.4rem;
+  }
+}

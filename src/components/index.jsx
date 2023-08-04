@@ -5,6 +5,7 @@ export { default as RegisterationForm } from "./Forms/RegistrationForm";
 export { default as About } from "./Home/About";
 export { default as Faq } from "./Home/Faq";
 export { default as Home } from "./Home/Home";
+export { default as PotdCard } from "./PotdCard";
 export { default as Team } from "./Home/Team";
 export { default as Footer } from "./Layout/Footer";
 export { default as Layout } from "./Layout/Layout";

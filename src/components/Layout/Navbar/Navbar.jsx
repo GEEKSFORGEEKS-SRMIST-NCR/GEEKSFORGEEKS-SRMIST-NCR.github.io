@@ -66,6 +66,11 @@ const Navbar = () => {
             Contact
           </Link>
         </li>
+        <li>
+          <Link href="/Potd" onClick={openMenu}>
+          &lt;/POTD&gt;
+          </Link>
+        </li>
       </ul>
       {/* Theme Toogle Btn */}
       <ThemeToogle />
