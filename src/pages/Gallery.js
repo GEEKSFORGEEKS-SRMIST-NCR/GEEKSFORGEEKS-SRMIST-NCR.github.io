@@ -21,7 +21,7 @@ const ReactImagesGallery = () => {
   return (
     <>
       <Head>
-        <title>Events | GFG SRMIST</title>
+        <title>Gallery | GFG SRMIST</title>
       </Head>
       <h1 className="section-title">Gallery</h1>
       {/* Lightbox / Image Viewer */}
