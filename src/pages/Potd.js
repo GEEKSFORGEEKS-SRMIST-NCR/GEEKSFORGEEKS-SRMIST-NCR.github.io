@@ -24,7 +24,6 @@ const Events = () => {
         <title>Problem of the Day | GFG SRMIST</title>
       </Head>
       <h1 className="section-title">Problem Of The Day</h1>
-      <h2 className={styles.heading + " " + styles.h_2}>Today's Problem of the Day</h2>
       <div className={styles.container}>{ProblemList[0]}
        
       </div> 

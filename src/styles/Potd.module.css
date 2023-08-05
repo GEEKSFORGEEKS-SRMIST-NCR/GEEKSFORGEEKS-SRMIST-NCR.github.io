@@ -74,21 +74,24 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  background-color: green;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 
+
 }
 .card_details button:hover{
-  background-color: green;
+  background-color: white;
+  color: green;
 }
 
 @media screen and (max-width: 768px) {
+  
   .card h2 {
     font-size: 1.2rem;
+    
   }
 
   .card p {
@@ -96,9 +99,10 @@
   }
 
   .heading {
-    font-size: 1.8rem;
+    font-size: 1.23rem;
   }
 }
+
 
 @media screen and (max-width: 480px) {
   .container {
@@ -117,7 +121,10 @@
     font-size: 0.9rem;
   }
 
-  .heading {
-    font-size: 1.4rem;
+  .heading h2 br {
+    font-size: 1rem;
+  }
+  .heading h2{
+    font-size: 1.20rem;
   }
 }

@@ -70,7 +70,23 @@
 }
 
 /* Theme toogle btn */
+.navContainer {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
 
+}
+
+.navContainer a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+  padding: 1rem;
+
+
+
+}
 .toogleTheme {
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
@@ -161,6 +177,7 @@
   .munu_btn,
   .toogleTheme input + div {
     transform: scale(0.8);
+    margin-right: -0.5rem;
   }
 
   .toogleTheme input:checked + div {
