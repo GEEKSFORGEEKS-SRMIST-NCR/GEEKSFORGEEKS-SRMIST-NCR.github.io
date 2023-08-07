@@ -31,8 +31,7 @@ const Events = () => {
       <h2 className={styles.heading}>
         <br></br>Previous Problem of the Day
       </h2>
-      <div className={styles.container}>{ProblemList.slice(1,4)}</div>
-      <h2 className={styles.heading}>MORE PROBLEMS ARE COMING SOON !!!</h2>
+      <div className={styles.container}>{ProblemList.slice(1, ProblemList.length)}</div>
     </>
   );
 };
