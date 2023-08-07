@@ -83,9 +83,6 @@
   font-weight: 500;
   color: var(--text-main);
   padding: 1rem;
-
-
-
 }
 .toogleTheme {
   -webkit-tap-highlight-color: transparent;
