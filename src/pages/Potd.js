@@ -8,7 +8,6 @@ let ProblemList = PotdAPI.reverse().map((data) => {
     <PotdCard
       key={data.id}
       title={data.title}
-      desc={data.problem}
       img={data.id}
       url={data.url}
       date={data.date}
