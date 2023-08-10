@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
 
       <span className={styles.footer}>
-        <p> &#9426; Copyrights 2022 by GFG SRMIST NCR. All Rights Reserved.</p>
+        <p> &#9426; Copyrights 2023 by GFG SRMIST DELHI NCR. All Rights Reserved.</p>
       </span>
     </footer>
   );
