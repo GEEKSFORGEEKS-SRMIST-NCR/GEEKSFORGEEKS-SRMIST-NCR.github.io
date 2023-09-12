@@ -14,7 +14,7 @@
     "@supabase/supabase-js": "^2.12.1",
     "file-saver": "^2.0.5",
     "framer-motion": "^10.10.0",
-    "next": "13.2.4",
+    "next": "^13.2.4",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-announcement": "^1.1.3",
