@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        Tech-Darshan&apos;23
+        DSA Workshop and Resume Building Session
       </h2>
       <RegistrationForm
         submitData={submitData}

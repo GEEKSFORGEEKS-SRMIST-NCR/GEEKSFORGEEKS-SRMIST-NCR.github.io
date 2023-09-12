@@ -8,12 +8,12 @@ const IndexPage = () => {
         <title>Welcome to GeeksForGeeks SRMIST Chapter.</title>
       </Head>
 
-      {/* Announcement Banner 
+      {/* Announcement Banner */} 
       <Banner
-        title="Tech-Darshan'23"
+        title="DSA Workshop and Resume Building Session"
         subtitle="Click here to Register for the event!!!"
         link="/Registration"
-      />*/}
+      />
       <Home />
       <About />
       <Team />
