@@ -4,16 +4,15 @@ import Card from "./Card";
 import React from "react";
 
 
-const Team = () => {
+const PreviousTeam = () => {
   // Leader Card Map
-  let leadCard = data1.leadList.map((lead) => {
+  let leadCard = data.leadList.map((lead) => {
     return <Card key={lead.id} data={lead} />;
   });
 
   return (
-    <>
-    <h1 className="section-title">Core Team Members 2022-2023</h1>
     <section id="Team">
+      <h2 className="section-title">Core Team 2022</h2>
       <div>
         <h2 className="section-title">Chapter Lead</h2>
         <div className={styles.container}>
@@ -23,8 +22,7 @@ const Team = () => {
         <div className={styles.container}>{leadCard}</div>
       </div>
     </section>
-    </>
   );
 };
 
-export default Team;
+export default PreviousTeam;

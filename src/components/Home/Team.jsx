@@ -2,6 +2,8 @@ import { data1 } from "api/MemberAPI";
 import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
 import React from "react";
+import Link from "next/link";
+import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 
 const Team = () => {
@@ -20,9 +22,11 @@ const Team = () => {
         <h2 className="section-title">Team Leads</h2>
         <div className={styles.container}>{leadCard}</div>
       </div>
-      <button className={styles.container1} Link to="/PreviousTeam.jsx">
-        Previous Members
-      </button>
+      <Link href="/Core-Team-22" style={{ textDecoration:'none'}}>
+        <button className={styles.container1}>
+          Previous Members
+        </button>
+      </Link>
     </section>
   );
 };

@@ -21,16 +21,11 @@
 
 .h_2 {
   margin-top: -50px;
-
-
 }
 
 .card {
   width: 400px;
   transition: transform 0.2s ease-in-out;
-
-  
-  
 }
 
 .card:hover {
@@ -69,6 +64,7 @@
   text-decoration: none;
   color: var(--text-secondary);
 }
+
 .card_details button {
   margin-top: 20px;
   padding: 10px 20px;
