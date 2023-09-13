@@ -7,6 +7,19 @@
   gap: 40px 30px;
 }
 
+.container1{
+  width:17%;
+  height:7%;
+  display: flex;
+  margin: 5.5% auto;
+  margin-bottom: auto;
+  justify-content: space-evenly;
+  border: 1px solid white;
+  background-color: #0c0c0cf2;
+  flex-wrap: wrap;
+  padding: 0.7%;
+  font-size:large;
+}
 .card {
   cursor: pointer;
   position: relative;
@@ -130,5 +143,32 @@
 
   .card_info a {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 508px) {
+  .container1 {
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 45%;
+    margin-bottom: -10%;
+    margin-top: 9%;
+  }
+}
+@media (min-width: 510px) and (max-width:600px) {
+  .container1 {
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 45%;
+    margin-bottom: -8%;
+    margin-top: 8%;
+  }
+}
+@media (min-width: 602px) and (max-width:1145px) {
+  .container1 {
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 25%;
+    margin-bottom: -3%;
   }
 }
