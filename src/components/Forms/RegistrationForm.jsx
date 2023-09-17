@@ -123,7 +123,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
             {...register("branch", {
               required: "This field is required",
               pattern: {
-                value: /^[A-Za-z][A-Za-Z ]+$/i,
+                value: /^[a-zA-Z][a-zA-Z ]+$/,
                 message: "Enter alphabetical characters only",
               },
             })}
