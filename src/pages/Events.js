@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EventsApi } from "api/EventAPI";
 import { EventCard } from "components/index";
 import Head from "next/head";
@@ -21,8 +22,14 @@ const Events = () => {
         <title>Events | GFG SRMIST</title>
       </Head>
       <h1 className="section-title">Events</h1>
-      {/* Upcomming Events */}
-      <h2 className={styles.heading + " " + styles.h_2}>MORE EVENTS SOON!!</h2>
+      <h2 className={styles.heading}>
+        <br></br>Upcoming Events
+      </h2>
+      <div className={styles.container}>
+        {<Link style={{textDecoration: "none"}} href="/Registration"><EventCard title={"DSA Workshop"} desc="" img={10}
+        /></Link>}
+      </div>
+      {/* <h2 className={styles.heading + " " + styles.h_2}>MORE EVENTS SOON!!</h2> */}
       <div className={styles.container}>
         {/*<EventCard title={"Tech-Darshan'23"} desc="" img={8} />*/}
       </div>
