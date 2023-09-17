@@ -123,7 +123,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
             {...register("branch", {
               required: "This field is required",
               pattern: {
-                value: /^[A-Za-z]+$/i,
+                value: /^[A-Za-z]+[" "]$/i,
                 message: "Enter alphabetical characters only",
               },
             })}
@@ -131,7 +131,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
       </div>
-      <label>
+      {/*<label>
         What makes us stand apart from the rest?
         <textarea
           placeholder="Type here (Min 100 Words)"
@@ -141,7 +141,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      {/* Team Name Box 
+      Team Name Box 
       <label>
         Team Name
         <input
