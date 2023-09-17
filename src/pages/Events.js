@@ -22,7 +22,17 @@ const Events = () => {
       </Head>
       <h1 className="section-title">Events</h1>
       {/* Upcomming Events */}
-      <h2 className={styles.heading + " " + styles.h_2}>MORE EVENTS SOON!!</h2>
+      <h2 className={styles.heading + " " + styles.h2}>
+        <br></br>Upcoming Events
+        </h2>
+      <div className={styles.container}>
+        {<EventCard title={"DSA Workshop"} desc={"Hola amigos 💫 📢 GeeksforGeeks SRMIST NCR student chapter is delighted to share with  you the details of the exclusive workshop on DSA.🚀And there is a little surprise✨✨ for you all along with our honourable guest speaker: Karan MashruAssociate mentorGeeksForGeeksTheir expertise and insights will provide invaluable knowledge for your professional journey. 🗣Don't miss the exclusive opportunity to strengthen your DSA skills📈 with a resume that opens doors to exciting opportunities as there are only 40 slots availableHere is the registration link: https://www.srmist-ncr-gfg.org/Registration  📅 Date: 18th September, 2023 🕑 Time: 2:00 pm to 4:00 pm See you there!🙌🎉"} img={10} 
+        />}
+      </div>
+      <br></br>
+      <h2 className={styles.heading + " " + styles.h2}>
+        <br></br>MORE EVENTS SOON!!
+        </h2>
       <div className={styles.container}>
         {/*<EventCard title={"Tech-Darshan'23"} desc="" img={8} />*/}
       </div>
