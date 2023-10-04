@@ -25,11 +25,14 @@ const Events = () => {
       <h2 className={styles.heading}>
         <br></br>Upcoming Events
       </h2>
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         {<Link style={{textDecoration: "none"}} href="/Registration"><EventCard title={"DSA Workshop"} desc="" img={10}
         /></Link>}
-      </div>
-      {/* <h2 className={styles.heading + " " + styles.h_2}>MORE EVENTS SOON!!</h2> */}
+      </div> */}
+      <h2 className={styles.heading + " " + styles.h_2}>
+        <br></br>MORE EVENTS SOON!!
+      </h2>
+
       <div className={styles.container}>
         {/*<EventCard title={"Tech-Darshan'23"} desc="" img={8} />*/}
       </div>
