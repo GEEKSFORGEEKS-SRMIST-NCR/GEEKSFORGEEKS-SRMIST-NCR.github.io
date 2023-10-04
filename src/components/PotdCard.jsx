@@ -2,7 +2,7 @@ import styles from "styles/Potd.module.css";
 import { Link } from "next/link";
 
 
-const PotdCard = ({ title, desc, url,date,difficult }) => {
+const PotdCard = ({ title, desc, url,date,topic}) => {
     return (
       <>
         <div className={styles.card}>
@@ -20,7 +20,7 @@ const PotdCard = ({ title, desc, url,date,difficult }) => {
             <h2>{title}</h2>
             <p> {desc} </p>
             <p><small>Date:{date}</small></p>
-            <p><small>Difficulty:{difficult}</small></p>
+            <p><small>Topic:{topic}</small></p>
             <a href={url}><button>Solve Now !!!</button></a>
           </div>
         </div>
