@@ -51,7 +51,7 @@ const Panel = () => {
       >
         Problem of the Day
       </h2>
-      <RegistrationForm
+      <POTDForm
         submitData={submitData}
         submitted={submitted}
         loading={loading}
