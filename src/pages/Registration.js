@@ -18,10 +18,10 @@ const Registration = () => {
   // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
-
+    
     // Sending data to Supabase
     await supabase
-      .from("EventForm")
+      .from("EventForm2")
       .insert({ ...data })
       .then(() => {
         e.target.reset();
