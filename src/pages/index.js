@@ -9,11 +9,11 @@ const IndexPage = () => {
       </Head>
 
       {/* Announcement Banner */} 
-      {/* <Banner
-        title="DSA Workshop and Resume Building Session"
-        subtitle="Click here to Register for the event!!!"
-        link="/Registration"
-      /> */}
+      <Banner
+        title="Recruitment Has Started!"
+        subtitle="Click here to get a chance to be a Geek!!"
+        link="/Recruitment"
+      />
       <Home />
       <About />
       <Team />
