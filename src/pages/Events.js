@@ -26,9 +26,9 @@ const Events = () => {
         <br></br>Upcoming Events
       </h2>
       <div className={styles.container}>
-        {/* {<Link style={{textDecoration: "none"}} href="/Registration"><EventCard title={"DSA Workshop"} desc="" img={10}
-        /></Link>} */}
-        <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2>
+        {<Link style={{textDecoration: "none"}} href="/Recruitment"><EventCard title={"Recruitment"} desc="Greetings from GeeksforGeeks SRMIST Delhi NCR Chapter, It's time to turn the page. We are thrilled to announce that the recruitment for ✨CORE TEAM MEMBERS✨ for the next academic year is now open! Joining 💥GeeksforGeeks core team💥 will help you get the exposure you need to launch your career in tech. We are looking for students who are passionate about technology and who are eager to learn and grow. Be it Freshman, Sophomore, Junior or Senior. We encourage you to apply!" img={11}
+        /></Link>}
+        {/* <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2> */}
       </div>
       {/* Past Events */}
       <h2 className={styles.heading}>
