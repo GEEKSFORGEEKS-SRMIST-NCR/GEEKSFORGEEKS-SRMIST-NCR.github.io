@@ -21,7 +21,7 @@ const Registration = () => {
     
     // Sending data to Supabase
     await supabase
-      .from("EventForm2")
+      .from("EventForm")
       .insert({ ...data })
       .then(() => {
         e.target.reset();
