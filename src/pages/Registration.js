@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        DSA Workshop and Resume Building Session
+        Web Explore-Web Dev Workshop
       </h2>
       <RegistrationForm
         submitData={submitData}
