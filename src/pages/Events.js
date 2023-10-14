@@ -26,9 +26,10 @@ const Events = () => {
         <br></br>Upcoming Events
       </h2>
       <div className={styles.container}>
-        {/* {<Link style={{textDecoration: "none"}} href="/Registration"><EventCard title={"DSA Workshop"} desc="" img={10}
-        /></Link>} */}
-        <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2>
+        {<Link style={{textDecoration: "none"}} href="/Registration"><EventCard title={"Web Explore"} desc=" Web Explore is a web development workshop designed to take you deep into the world of web technologies and design, and we invite tech enthusiasts of all academic years to join us." img={11}
+        /></Link>}
+        
+        {/* <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2> */}
       </div>
       {/* Past Events */}
       <h2 className={styles.heading}>
