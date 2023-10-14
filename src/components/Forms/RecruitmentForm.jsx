@@ -151,13 +151,13 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       <label htmlFor="team" className={styles.checkbox}>
         Which Team you find yourself fit to work under?
       </label>
-      <div className={styles.checkbox}>
+      <div className={styles.radio}>
         <label>
           <input
             {...register("team", {
               required: "This field is required",
             })}
-            type="checkbox"
+            type="radio"
             value="Technical"
           />
           Technical
@@ -167,7 +167,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
             {...register("team", {
               required: "This field is required",
             })}
-            type="checkbox"
+            type="radio"
             value="Event Management"
           />
           Event Management
@@ -175,7 +175,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="checkbox"
+            type="radio"
             value="Design/Branding"
           />
           Design/Branding
@@ -183,7 +183,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="checkbox"
+            type="radio"
             value="Public Relation & Outreach"
           />
           Public Relation & Outreach
@@ -191,7 +191,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="checkbox"
+            type="radio"
             value=" Marketing"
           />
           Marketing
@@ -199,7 +199,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <label>
           <input
             {...register("team", { required: "This field is required" })}
-            type="checkbox"
+            type="radio"
             value=" Social Media"
           />
           Social Media
@@ -207,7 +207,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       </div>
       <ErrorMessage errors={errors} name="team" as="span" />
       <label>
-        Upload your Resume
+        Upload your Resume (Required for 2nd and 3rd year)
         <input type="file" accept="application/pdf" {...register("resume")} />
         <ErrorMessage errors={errors} name="resume" as="span" />
       </label>

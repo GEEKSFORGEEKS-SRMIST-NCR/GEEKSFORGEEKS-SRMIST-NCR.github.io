@@ -3,15 +3,18 @@ import { PotdCard } from "components/index";
 import Head from "next/head";
 import styles from "styles/Potd.module.css";
 
+// let { data: POTDForm, error } = await supabase
+//   .from('POTDForm')
+//   .select('id,title,url,date,topic')
+
 let ProblemList = PotdAPI.reverse().map((data) => {
   return (
     <PotdCard
       key={data.id}
       title={data.title}
-      img={data.id}
       url={data.url}
       date={data.date}
-      difficult={data.difficult}
+      topic={data.topic}
     />
   );
 });

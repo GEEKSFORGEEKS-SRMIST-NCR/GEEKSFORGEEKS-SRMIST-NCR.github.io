@@ -203,7 +203,6 @@ const Card = ({ data }) => {
                   style={{ objectFit: "cover" }}
                   quality={50}
                 />
-                <hr />
                 <div>
                   <h4>{name}</h4>
                   <h5>{position}</h5>

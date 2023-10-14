@@ -1,11 +1,11 @@
 import { supabase } from "api/Supabase";
-import RegistrationForm from "components/Forms/RegistrationForm";
+import POTDForm from "components/Forms/POTDForm";
 import { Banner } from "components/index";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useCookies, withCookies } from "react-cookie";
 
-const Registration = () => {
+const Panel = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
@@ -18,10 +18,10 @@ const Registration = () => {
   // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
-    
+
     // Sending data to Supabase
     await supabase
-      .from("EventForm")
+      .from("POTDForm")
       .insert({ ...data })
       .then(() => {
         e.target.reset();
@@ -37,9 +37,9 @@ const Registration = () => {
   return (
     <>
       <Head>
-        <title>Event Registration Form </title>
+        <title>POTD Admin Portal</title>
       </Head>
-      <h1 className="section-title">Event Registration Form</h1>
+      <h1 className="section-title">POTD Admin Portal</h1>
       <h2
         style={{
           textAlign: "center",
@@ -49,17 +49,17 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        Web Explore-Web Dev Workshop
+        Problem of the Day
       </h2>
-      <RegistrationForm
+      <POTDForm
         submitData={submitData}
         submitted={submitted}
         loading={loading}
       />
       {submitted && (
         <Banner
-          title="Submitted"
-          subtitle="Successfully registered for the event. Click here to go home."
+          title="Problem Added"
+          subtitle="Successfully added the problem for the day."
           link="/"
         />
       )}
@@ -67,4 +67,4 @@ const Registration = () => {
   );
 };
 
-export default withCookies(Registration);
+export default withCookies(Panel);
