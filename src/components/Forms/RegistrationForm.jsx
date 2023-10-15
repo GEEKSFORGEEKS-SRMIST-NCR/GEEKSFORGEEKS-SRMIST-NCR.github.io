@@ -397,8 +397,8 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         </label>
       </div>
       {/*add disabled to disable the button */}
-      <button type="submit">
-        {submitted ? "Registration Successfully" : loading ? <Loader /> : "Register Your Team"}
+      <button type="submit" disabled>
+        {submitted ? "Registration Successfully" : loading ? <Loader /> : "Slots Full!"}
       </button>
     </form >
   );
