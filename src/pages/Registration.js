@@ -21,7 +21,7 @@ const Registration = () => {
     
     // Sending data to Supabase
     await supabase
-      .from("EventForm2")
+      .from("EventForm")
       .insert({ ...data })
       .then(() => {
         e.target.reset();
@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        DSA Workshop and Resume Building Session
+        Web Explore-Web Dev Workshop
       </h2>
       <RegistrationForm
         submitData={submitData}

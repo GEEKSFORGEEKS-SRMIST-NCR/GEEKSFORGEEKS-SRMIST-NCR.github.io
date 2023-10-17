@@ -11,12 +11,8 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   } = useForm();
 
   return (
-    <form
-      onSubmit={handleSubmit(submitData)}
-      className={styles.form}
-      autoComplete="on"
-    >
-      {/* <label>
+    <form onSubmit={handleSubmit(submitData)} className={styles.form} autoComplete="on">
+      <label>
         Name
         <input
           placeholder="Enter Your Name"
@@ -68,14 +64,12 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
             required: "This field is required",
             pattern: {
               value: /^(RA)[0-9]{13}$/,
-              message:
-                "Enter valid Registration Number starting with capital 'RA'",
+              message: "Enter valid Registration Number starting with capital 'RA'",
             },
           })}
         />
         <ErrorMessage errors={errors} name="regno" as="span" />
       </label>
-
       <label htmlFor="year">Year</label>
       <div className={styles.radio}>
         <label>
@@ -115,7 +109,6 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           />
           <ErrorMessage errors={errors} name="section" as="span" />
         </label>
-
         <label>
           Branch
           <input
@@ -131,7 +124,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
       </div>
-      <label>
+      {/* <label>
         What makes us stand apart from the rest?
         <textarea
           placeholder="Type here (Min 100 Words)"
@@ -141,267 +134,253 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label> */}
-      {/*Team Name Box*/}
-      <label>
-        Team Name
-        <input
-          placeholder="Enter Your Team's Name"
-          {...register("team_name", {
-            required: "This field is required",
-            pattern: {
-              value: /^[\w\-\s]+$/i,
-              message: "Enter alpha-numeric characters only",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="team_name" as="span" />
-      </label>
+      <button type="submit" disabled>
+        {submitted ? "Book your slot" : loading ? <Loader /> : "Slots Full!"}
+      </button>
+    </form>
+  );
+};
 
-      {/* Team Leader Details container */}
-      <h2>Team Leader Details</h2>
-      <h2>Name</h2>
-      <div className={styles.box}>
-        <label>
-          Name
-          <input
+{/* 
+<label>
+    Team Name
+    <input
+      placeholder="Enter Your Team's Name"
+      {...register("team_name", {
+        required: "This field is required",
+        pattern: {
+          value: /^[\w\-\s]+$/i,
+          message: "Enter alpha-numeric characters only",
+        },
+      })}
+    />
+    <ErrorMessage errors={errors} name="team_name" as="span" />
+</label>
+
+Team Leader Details container
+<h2>Team Leader Details</h2>
+<h2>Name</h2>
+<div className={styles.box}>
+    <label>
+        Name
+        <input
             placeholder="Enter The Name"
             {...register("leader_name", {
-              required: "This field is required",
-              pattern: {
-                value: /^[a-zA-Z][a-zA-Z ]+$/,
-                message: "Alphabetical characters only",
-              },
+                required: "This field is required",
+                pattern: {
+                    value: /^[a-zA-Z][a-zA-Z ]+$/,
+                    message: "Alphabetical characters only",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_name" as="span" />
-        </label>
+        />
+        <ErrorMessage errors={errors} name="leader_name" as="span" />
+    </label>
 
-        <label>
-          Registration Number
-          <input
+    <label>
+        Registration Number
+        <input
             placeholder="Enter The Registration Number"
             {...register("leader_regno", {
-              required: "This field is required",
-              pattern: {
-                value: /^(RA)[0-9]{13}$/,
-                message:
-                  "Enter valid Registration Number starting with capital 'RA'",
-              },
+                required: "This field is required",
+                pattern: {
+                    value: /^(RA)[0-9]{13}$/,
+                    message:
+                        "Enter valid Registration Number starting with capital 'RA'",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_regno" as="span" />
-        </label>
-      </div>
+        />
+        <ErrorMessage errors={errors} name="leader_regno" as="span" />
+    </label>
+</div>
 
-      <div className={styles.box}>
-        <label>
-          Email
-          <input
+<div className={styles.box}>
+    <label>
+        Email
+        <input
             placeholder="Enter The College email"
             {...register("leader_email", {
-              required: "This field is required",
-              pattern: {
-                value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
-                message: "Enter a valid email ending with '@srmist.edu.in'",
-              },
+                required: "This field is required",
+                pattern: {
+                    value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
+                    message: "Enter a valid email ending with '@srmist.edu.in'",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_email" as="span" />
-        </label>
+        />
+        <ErrorMessage errors={errors} name="leader_email" as="span" />
+    </label>
 
-        <label>
-          WhatsApp Number
-          <input
+    <label>
+        WhatsApp Number
+        <input
             type="tel"
             placeholder="Enter Your Whatsapp Number"
             {...register("leader_phone", {
-              required: "This field is required",
-              pattern: {
-                value:
-                  /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
-                message: "Enter a valid Phone Number",
-              },
+                required: "This field is required",
+                pattern: {
+                    value:
+                        /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
+                    message: "Enter a valid Phone Number",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_phone" as="span" />
-        </label>
-      </div>
+        />
+        <ErrorMessage errors={errors} name="leader_phone" as="span" />
+    </label>
+</div>
 
-      <div className={styles.box}>
-        <label>
-          Year
-          <input
+<div className={styles.box}>
+    <label>
+        Year
+        <input
             placeholder="Enter The Year"
             {...register("leader_year", {
-              required: "This field is required",
-              pattern: {
-                value: /^[1-4]{1}$/,
-                message: "Enter a numeric value only from (1-4)",
-              },
+                required: "This field is required",
+                pattern: {
+                    value: /^[1-4]{1}$/,
+                    message: "Enter a numeric value only from (1-4)",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_year" as="span" />
-        </label>
-        <label>
-          Section
-          <input
+        />
+        <ErrorMessage errors={errors} name="leader_year" as="span" />
+    </label>
+    <label>
+        Section
+        <input
             placeholder="Enter The section"
             {...register("leader_section", {
-              required: "This field is required",
-              pattern: {
-                value: /^[A-Z]{1}$/,
-                message: "Enter a capital alphabetical character only",
-              },
+                required: "This field is required",
+                pattern: {
+                    value: /^[A-Z]{1}$/,
+                    message: "Enter a capital alphabetical character only",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="leader_section" as="span" />
-        </label>
-      </div>
-      {/* Team Members Details */}
-      <h2>Team Members Details</h2>
-      {/* Member 1 */}
-      <h3>Member 1</h3>
-      <div className={styles.box_3}>
-        <label>
-          Name
-          <input
+        />
+        <ErrorMessage errors={errors} name="leader_section" as="span" />
+    </label>
+</div>
+
+Team Members Details
+<h2>Team Members Details
+
+Member 1
+<h3>Member 1</h3>
+<div className={styles.box_3}>
+    <label>
+        Name
+        <input
             placeholder="Enter The Name"
             {...register("member1_name", {
-              pattern: {
-                value: /^[a-zA-Z][a-zA-Z ]+$/,
-                message: "Alphabetical characters only",
-              },
+                pattern: {
+                    value: /^[a-zA-Z][a-zA-Z ]+$/,
+                    message: "Alphabetical characters only",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member1_name" as="span" />
-        </label>
+        />
+        <ErrorMessage errors={errors} name="member1_name" as="span" />
+    </label>
 
-        <label>
-          Registration Number
-          <input
+    <label>
+        Registration Number
+        <input
             placeholder="Enter The Registration Number"
             {...register("member1_regno", {
-              pattern: {
-                value: /^(RA)[0-9]{13}$/,
-                message:
-                  "Enter valid Registration Number starting with capital 'RA'",
-              },
+                pattern: {
+                    value: /^(RA)[0-9]{13}$/,
+                    message:
+                        "Enter valid Registration Number starting with capital 'RA'",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member1_regno" as="span" />
-        </label>
-        <label>
-          Year
-          <input
+        />
+        <ErrorMessage errors={errors} name="member1_regno" as="span" />
+    </label>
+    <label>
+        Year
+        <input
             placeholder="Enter The Year"
             {...register("member1_year", {
-              pattern: {
-                value: /^[1-4]{1}$/,
-                message: "Enter a numeric value only from (1-4)",
-              },
+                pattern: {
+                    value: /^[1-4]{1}$/,
+                    message: "Enter a numeric value only from (1-4)",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member1_year" as="span" />
-        </label>
-      </div>
+        />
+        <ErrorMessage errors={errors} name="member1_year" as="span" />
+    </label>
+</div>
 
-      {/* Member 2 */}
-      <h3>Member 2</h3>
-      <div className={styles.box_3}>
-        <label>
-          Name
-          <input
+Member 2
+<h3>Member 2</h3>
+<div className={styles.box_3}>
+    <label>
+        Name
+        <input
             placeholder="Enter The Name"
             {...register("member2_name", {
-              pattern: {
-                value: /^[a-zA-Z][a-zA-Z ]+$/,
-                message: "Alphabetical characters only",
-              },
+                pattern: {
+                    value: /^[a-zA-Z][a-zA-Z ]+$/,
+                    message: "Alphabetical characters only",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member2_name" as="span" />
-        </label>
+        />
+        <ErrorMessage errors={errors} name="member2_name" as="span" />
+    </label>
 
-        <label>
-          Registration Number
-          <input
+    <label>
+        Registration Number
+        <input
             placeholder="Enter The Registration Number"
             {...register("member2_regno", {
-              pattern: {
-                value: /^(RA)[0-9]{13}$/,
-                message:
-                  "Enter valid Registration Number starting with capital 'RA'",
-              },
+                pattern: {
+                    value: /^(RA)[0-9]{13}$/,
+                    message:
+                        "Enter valid Registration Number starting with capital 'RA'",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member2_regno" as="span" />
-        </label>
-        <label>
-          Year
-          <input
+        />
+        <ErrorMessage errors={errors} name="member2_regno" as="span" />
+    </label>
+    <label>
+        Year
+        <input
             placeholder="Enter The Year"
             {...register("member2_year", {
-              pattern: {
-                value: /^[1-4]{1}$/,
-                message: "Enter a numeric value only from (1-4)",
-              },
+                pattern: {
+                    value: /^[1-4]{1}$/,
+                    message: "Enter a numeric value only from (1-4)",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member2_year" as="span" />
-        </label>
-      </div>
+        />
+        <ErrorMessage errors={errors} name="member2_year" as="span" />
+    </label>
+</div>
 
-      {/* Member 3 */}
-      <h3>Member 3</h3>
-      <div className={styles.box_3}>
-        <label>
-          Name
-          <input
+Member 3
+<h3>Member 3</h3>
+<div className={styles.box_3}>
+    <label>
+        Name
+        <input
             placeholder="Enter The Name"
             {...register("member3_name", {
-              pattern: {
-                value: /^[a-zA-Z][a-zA-Z ]+$/,
-                message: "Alphabetical characters only",
-              },
+                pattern: {
+                    value: /^[a-zA-Z][a-zA-Z ]+$/,
+                    message: "Alphabetical characters only",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member3_name" as="span" />
-        </label>
+        />
+        <ErrorMessage errors={errors} name="member3_name" as="span" />
+    </label>
 
-        <label>
-          Registration Number
-          <input
+    <label>
+        Registration Number
+        <input
             placeholder="Enter The Registration Number"
             {...register("member3_regno", {
-              pattern: {
-                value: /^(RA)[0-9]{13}$/,
-                message:
-                  "Enter valid Registration Number starting with capital 'RA'",
-              },
+                pattern: {
+                    value: /^(RA)[0-9]{13}$/,
+                    message:
+                        "Enter valid Registration Number starting with capital 'RA'",
+                },
             })}
-          />
-          <ErrorMessage errors={errors} name="member3_regno" as="span" />
-        </label>
-        <label>
-          Year
-          <input
-            placeholder="Enter The Year"
-            {...register("member3_year", {
-              pattern: {
-                value: /^[1-4]{1}$/,
-                message: "Enter a numeric value only from (1-4)",
-              },
-            })}
-          />
-          <ErrorMessage errors={errors} name="member3_section" as="span" />
-        </label>
-      </div>
-      {/*add disabled to disable the button */}
-      <button type="submit" disabled>
-        {submitted ? "Registration Successfully" : loading ? <Loader /> : "Slots Full!"}
-      </button>
-    </form >
-  );
-};
+      */}
 
 export default RegistrationForm;
