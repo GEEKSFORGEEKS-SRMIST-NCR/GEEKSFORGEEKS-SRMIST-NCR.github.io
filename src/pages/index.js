@@ -14,6 +14,11 @@ const IndexPage = () => {
         subtitle="Click here to get a chance to be a Geek!!"
         link="/Recruitment"
       /> */}
+      <Banner
+        title="Register for Web Explore 2.0!"
+        subtitle="Click here to learn about Web Development!"
+        link="/Registration"
+      />
       <Home />
       <About />
       <Team />
