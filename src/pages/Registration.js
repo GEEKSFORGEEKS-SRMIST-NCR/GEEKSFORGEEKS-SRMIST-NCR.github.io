@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        Web Explore-Web Dev Workshop
+        Web Explore-Web Dev Workshop 2.0
       </h2>
       <RegistrationForm
         submitData={submitData}
