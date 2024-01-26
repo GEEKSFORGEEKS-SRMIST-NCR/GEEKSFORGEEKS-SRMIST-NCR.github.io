@@ -15,9 +15,9 @@ const IndexPage = () => {
         link="/Recruitment"
       /> */}
       <Banner
-        title="Register for Web Explore 2.0!"
-        subtitle="Click here to learn about Web Development!"
-        link="/Registration"
+        title="Web Explore 2.0!"
+        subtitle="All Slots Booked!"
+        link="/"
       />
       <Home />
       <About />
