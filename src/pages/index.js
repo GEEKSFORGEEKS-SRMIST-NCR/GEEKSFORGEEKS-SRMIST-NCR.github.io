@@ -16,7 +16,7 @@ const IndexPage = () => {
       /> */}
       <Banner
         title="ML Workshop Registration Open!"
-        // subtitle="All Slots Booked!"
+        subtitle="Registrations Open!"
         link="/Registration"
       />
       <Home />
