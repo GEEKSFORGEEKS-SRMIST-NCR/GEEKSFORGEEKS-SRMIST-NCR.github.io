@@ -134,10 +134,11 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label> */}
-      {/* <button type="submit" disabled> */}
+      <button type="submit" disabled>
       <button type="submit" >
-        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"} */}
-        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"}
+        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"}
+        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"} */}
+      </button>
       </button>
     </form>
   );
