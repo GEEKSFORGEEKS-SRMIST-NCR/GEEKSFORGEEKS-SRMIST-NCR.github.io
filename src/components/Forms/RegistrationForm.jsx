@@ -123,6 +123,32 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           />
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
+        <label>
+        LeetCode ID
+        <input
+          placeholder="Enter Your LeetCode ID"
+          {...register("Leetcode ID", {
+            required: "This field is required",
+            pattern: {
+              message: "Enter a valid leetcode id",
+            },
+          })}
+        />
+        <ErrorMessage errors={errors} name="email" as="span" />
+      </label>
+      <label>
+        HackerRank ID 
+        <input
+          placeholder="Enter Your HackerRank ID"
+          {...register("HackerRank ID", {
+            required: "This field is required",
+            pattern: {
+              message: "Enter a valid HackerRank id",
+            },
+          })}
+        />
+        <ErrorMessage errors={errors} name="email" as="span" />
+      </label>
       </div>
       {/* <label>
         What makes us stand apart from the rest?
@@ -135,9 +161,9 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label> */}
       {/* <button type="submit" disabled> */}
-      <button type="submit" disabled >
-        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"}
-        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"} */}
+      <button type="submit" >
+        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"} */}
+        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"}
       </button>
     </form>
   );

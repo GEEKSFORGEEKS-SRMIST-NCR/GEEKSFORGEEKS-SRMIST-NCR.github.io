@@ -15,8 +15,8 @@ const IndexPage = () => {
         link="/Recruitment"
       /> */}
       <Banner
-        title="ML Workshop"
-        subtitle="Registrations Closed!"
+        title="Kodation 4.0"
+        subtitle="Registrations Open!"
         link="/Registration"
       />
       <Home />

@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        ML Workshop 
+        Kodation 4.0
       </h2>
       <RegistrationForm
         submitData={submitData}
