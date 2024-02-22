@@ -123,19 +123,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           />
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
-        <label>
-        LeetCode ID
-        <input
-          placeholder="Enter Your LeetCode ID"
-          {...register("Leetcode ID", {
-            required: "This field is required",
-            pattern: {
-              message: "Enter a valid leetcode id",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="email" as="span" />
-      </label>
+      </div>
       <label>
         HackerRank ID 
         <input
@@ -149,7 +137,19 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="email" as="span" />
       </label>
-      </div>
+      <label>
+        LeetCode ID
+        <input
+          placeholder="Enter Your LeetCode ID"
+          {...register("Leetcode ID", {
+            required: "This field is required",
+            pattern: {
+              message: "Enter a valid leetcode id",
+            },
+          })}
+        />
+        <ErrorMessage errors={errors} name="email" as="span" />
+      </label>
       {/* <label>
         What makes us stand apart from the rest?
         <textarea
