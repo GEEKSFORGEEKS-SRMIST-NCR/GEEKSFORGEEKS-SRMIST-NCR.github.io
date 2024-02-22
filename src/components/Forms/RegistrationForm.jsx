@@ -128,27 +128,27 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         HackerRank ID 
         <input
           placeholder="Enter Your HackerRank ID"
-          {...register("HackerRank ID", {
+          {...register("hackerrank", {
             required: "This field is required",
             pattern: {
               message: "Enter a valid HackerRank id",
             },
           })}
         />
-        <ErrorMessage errors={errors} name="email" as="span" />
+        <ErrorMessage errors={errors} name="hackerrank" as="span" />
       </label>
       <label>
         LeetCode ID
         <input
           placeholder="Enter Your LeetCode ID"
-          {...register("Leetcode ID", {
+          {...register("leetcode", {
             required: "This field is required",
             pattern: {
               message: "Enter a valid leetcode id",
             },
           })}
         />
-        <ErrorMessage errors={errors} name="email" as="span" />
+        <ErrorMessage errors={errors} name="leetcode" as="span" />
       </label>
       {/* <label>
         What makes us stand apart from the rest?
