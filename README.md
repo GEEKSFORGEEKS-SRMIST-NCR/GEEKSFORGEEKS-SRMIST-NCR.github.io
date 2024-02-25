@@ -4,7 +4,7 @@
 
 <h1 align="center">HacktoberFest Accepted</h1>
 <h2 align="center">
-<a href="https://www.srmist-ncr-gfg.org/" target="_blank">Visit Our Website💻</a>
+<a href="https://www.srmist-ncr-gfg.club/" target="_blank">Visit Our Website💻</a>
 </h2>
 
 <h2 align="center"> Contribution Guidelines 🏗 </h2>
