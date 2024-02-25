@@ -16,7 +16,7 @@ const IndexPage = () => {
       /> */}
       <Banner
         title="Kodation 4.0"
-        subtitle="Registrations Open!"
+        subtitle="Registrations Closed!"
         link="/Registration"
       />
       <Home />
