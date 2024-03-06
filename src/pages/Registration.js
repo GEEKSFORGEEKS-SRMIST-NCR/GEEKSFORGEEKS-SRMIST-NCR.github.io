@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        Kodation 4.0
+        CODYSSEY 
       </h2>
       <RegistrationForm
         submitData={submitData}
