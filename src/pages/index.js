@@ -14,11 +14,11 @@ const IndexPage = () => {
         subtitle="Click here to get a chance to be a Geek!!"
         link="/Recruitment"
       /> */}
-      <Banner
+      {/* <Banner
         title="Kodation 4.0"
-        subtitle="Registrations Open!"
+        subtitle="Registrations Closed!"
         link="/Registration"
-      />
+      /> */}
       <Home />
       <About />
       <Team />

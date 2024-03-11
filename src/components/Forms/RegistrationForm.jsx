@@ -124,7 +124,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           <ErrorMessage errors={errors} name="branch" as="span" />
         </label>
       </div>
-      <label>
+      {/* <label>
         HackerRank ID 
         <input
           placeholder="Enter Your HackerRank ID"
@@ -149,7 +149,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
           })}
         />
         <ErrorMessage errors={errors} name="leetcode" as="span" />
-      </label>
+      </label> */}
       {/* <label>
         What makes us stand apart from the rest?
         <textarea
@@ -160,10 +160,10 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label> */}
-      {/* <button type="submit" disabled> */}
-      <button type="submit" >
-        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"} */}
-        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"}
+      <button type="submit" disabled>
+      {/* <button type="submit" > */}
+        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"}
+        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"} */}
       </button>
     </form>
   );
