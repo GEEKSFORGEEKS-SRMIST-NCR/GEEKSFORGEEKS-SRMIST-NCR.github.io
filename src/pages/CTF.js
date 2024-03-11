@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CTFAPI } from "api/CTFAPI";
 import { CTFCard } from "components/index";
+import { supabase } from "api/Supabase";
 import Head from "next/head";
 import styles from "styles/Event.module.css";
 
