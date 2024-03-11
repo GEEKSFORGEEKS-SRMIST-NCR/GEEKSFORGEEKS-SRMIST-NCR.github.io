@@ -12,7 +12,6 @@ const CTFCard = ({ title, desc, img }) => {
     } = useForm();
 
     const submitData = async (data, e) => {
-        console.log(data);
         // Sending data to Supabase
         await supabase
             .from("CTFForm")
