@@ -14,12 +14,14 @@
 }
 
 .home h1 {
+  user-select: none;
   font-size: 4rem;
   font-weight: bold;
   color: var(--text-main);
 }
 
 .home h2 {
+  user-select: none;
   font-size: 2rem;
   font-weight: 400;
   color: var(--text-secondary);

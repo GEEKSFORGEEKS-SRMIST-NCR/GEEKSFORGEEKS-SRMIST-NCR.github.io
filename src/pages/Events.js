@@ -26,9 +26,14 @@ const Events = () => {
         <br></br>Upcoming Events
       </h2>
       <div className={styles.container}>
-        {/* <Link style={{ textDecoration: "none" }} href="/Registration"><EventCard title={"Web Explore"} desc=" Web Explore is a web development workshop designed to take you deep into the world of web technologies and design, and we invite tech enthusiasts of all academic years to join us." img={11}
-        /></Link> */}
-        <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2>
+        <Link style={{ textDecoration: "none" }} href="/Registration">
+          <EventCard
+            title={"Machine Learning Workshop 2.0"}
+            desc="🚀🤖 Get ready for ML Workshop 2.0! Building on the success of our first workshop, this upcoming event promises to be even more exciting. Participants will dive deeper into advanced Machine Learning concepts, engaging in hands-on projects and learning from industry-leading mentors. The energy will be palpable as attendees explore the latest trends and techniques, further cultivating our vibrant community of innovation and expertise. Don't miss this opportunity to elevate your ML skills to the next level!"
+            img={24}
+          />
+        </Link>
+        {/* <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2> */}
       </div>
       {/* Past Events */}
       <h2 className={styles.heading}>

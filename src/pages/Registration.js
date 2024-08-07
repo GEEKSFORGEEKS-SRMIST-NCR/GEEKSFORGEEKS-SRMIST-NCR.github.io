@@ -21,7 +21,7 @@ const Registration = () => {
     
     // Sending data to Supabase
     await supabase
-      .from("KodationForm")
+      .from("EventForm3")
       .insert({ ...data })
       .then(() => {
         e.target.reset();
@@ -49,7 +49,7 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        CODYSSEY 
+        MACHINE LEARNING WORKSHOP 2.0
       </h2>
       <RegistrationForm
         submitData={submitData}

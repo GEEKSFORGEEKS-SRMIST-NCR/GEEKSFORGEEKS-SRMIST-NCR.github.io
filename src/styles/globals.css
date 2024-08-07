@@ -72,6 +72,7 @@ body.hidden {
 }
 
 .section-title {
+  user-select: none;
   font-size: 5.5rem;
   font-weight: bold;
   text-align: center;
@@ -105,12 +106,14 @@ body.hidden {
 
 @media screen and (max-width: 768px) {
   .section-title {
+    user-select: none;
     font-size: 4rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .section-title {
+    user-select: none;  
     font-size: 3rem;
   }
 }

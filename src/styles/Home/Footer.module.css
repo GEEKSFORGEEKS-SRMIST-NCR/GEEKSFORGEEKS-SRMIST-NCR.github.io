@@ -19,6 +19,7 @@
 }
 
 .footer {
+  user-select: none;
   color: var(--text-main);
   width: 100%;
   padding: 30px 0;
@@ -35,6 +36,7 @@
   }
 
   .footer {
+    user-select: none;
     padding: 20px 0;
     font-size: 0.8rem;
   }
