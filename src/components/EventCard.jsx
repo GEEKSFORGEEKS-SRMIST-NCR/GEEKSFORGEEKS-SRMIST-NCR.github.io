@@ -8,8 +8,8 @@ const EventCard = ({ title, desc, img }) => {
         <Image
           src={`/images/Events/${img}.png`}
           alt={title}
-          width={300}
-          height={400}
+          width={280}
+          height={475}
           quality={60}
           priority
           className={styles.banner}

@@ -11,6 +11,7 @@ let eventList = EventsApi.reverse().map((data) => {
       title={data.title}
       desc={data.description}
       img={data.id}
+      
     />
   );
 });
@@ -30,7 +31,7 @@ const Events = () => {
           <EventCard
             title={"Machine Learning Workshop 2.0"}
             desc="🚀🤖 Get ready for ML Workshop 2.0! Building on the success of our first workshop, this upcoming event promises to be even more exciting. Participants will dive deeper into advanced Machine Learning concepts, engaging in hands-on projects and learning from industry-leading mentors. The energy will be palpable as attendees explore the latest trends and techniques, further cultivating our vibrant community of innovation and expertise. Don't miss this opportunity to elevate your ML skills to the next level!"
-            img={24}
+            img={15}
           />
         </Link>
         {/* <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2> */}
