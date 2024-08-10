@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --main: #fcfcfc;
   --secondary: #f5f5f5f2;
@@ -113,7 +117,7 @@ body.hidden {
 
 @media screen and (max-width: 480px) {
   .section-title {
-    user-select: none;  
+    user-select: none;
     font-size: 3rem;
   }
 }

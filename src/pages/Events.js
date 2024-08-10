@@ -11,7 +11,6 @@ let eventList = EventsApi.reverse().map((data) => {
       title={data.title}
       desc={data.description}
       img={data.id}
-      
     />
   );
 });
@@ -40,6 +39,7 @@ const Events = () => {
       <h2 className={styles.heading}>
         <br></br>Past Events
       </h2>
+
       <div className={styles.container}>{eventList}</div>
     </>
   );
