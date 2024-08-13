@@ -1,4 +1,4 @@
-import { data1 } from "api/MemberAPI";
+import { data2 } from "api/MemberAPI";
 import styles from "styles/Home/Team.module.css";
 import Card from "./Card";
 import React from "react";
@@ -8,7 +8,7 @@ import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 const Team = () => {
   // Leader Card Map
-  let leadCard = data1.leadList.map((lead) => {
+  let leadCard = data2.leadList.map((lead) => {
     return <Card key={lead.id} data={lead} />;
   });
 
@@ -17,7 +17,7 @@ const Team = () => {
       <div>
         <h2 className="section-title">Chapter Lead</h2>
         <div className={styles.container}>
-          {<Card key={data1.chapterLead[0].id} data={data1.chapterLead[0]} />}
+          {<Card key={data2.chapterLead[0].id} data={data2.chapterLead[0]} />}
         </div>
         <h2 className="section-title">Team Leads</h2>
         <div className={styles.container}>{leadCard}</div>

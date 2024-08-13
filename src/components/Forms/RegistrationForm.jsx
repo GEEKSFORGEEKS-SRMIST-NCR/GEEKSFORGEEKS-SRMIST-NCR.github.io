@@ -112,7 +112,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <label>
           Branch
           <input
-            placeholder="Enter Your section"
+            placeholder="Enter Your Branch"
             {...register("branch", {
               required: "This field is required",
               pattern: {
