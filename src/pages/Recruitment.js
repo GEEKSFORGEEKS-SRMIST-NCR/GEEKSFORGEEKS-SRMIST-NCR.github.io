@@ -21,7 +21,7 @@ const Recruitment = () => {
     setLoading(true);
     // Sending data to Supabase
     await supabase
-      .from("RECRUITMENT'24")
+      .from("Recruitment2023")
       .insert({
         ...data,
         resume: data.resume.length === 0 ? " " : data.name + "-" + Date.now(),
@@ -37,8 +37,9 @@ const Recruitment = () => {
               )
       )
       .then(() => {
-        // Reset form on submitting
-        e.target.reset();
+        if (e) {
+          e.target.reset();
+        }
         setLoading(false);
         setSubmitted(true);
         // Sending email to user

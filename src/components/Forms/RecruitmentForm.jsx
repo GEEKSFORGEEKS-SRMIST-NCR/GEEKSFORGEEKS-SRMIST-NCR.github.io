@@ -9,9 +9,26 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
     handleSubmit,
     control,
     formState: { errors },
+    getValues,
   } = useForm();
   const selectedTeam = useWatch({ control, name: "team" });
+  
+  const onSubmit = (data) => {
+    const technicalSkills = getValues("technicalSkills") || [];
+    const designSkills = getValues("designSkills") || [];
+    const finalData = {
+      ...data,
+      technicalSkills: technicalSkills.filter(Boolean), // Filter out any falsy values
+      designSkills: designSkills.filter(Boolean),
+    };
 
+    submitData(finalData);
+  };
+
+  const yearOptions = [
+    { value: 2, label: "IInd Year" },
+    { value: 3, label: "IIIrd Year" },
+  ];
   const technicalOptions = [
     "Frontend Development",
     "Backend Development",
@@ -29,7 +46,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
   ];
 
   return (
-    <form onSubmit={handleSubmit(submitData)} className={styles.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <label>
         Name
         <input
@@ -92,14 +109,14 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
 
       <label htmlFor="year">Year</label>
       <div className={styles.radio}>
-        {["IInd Year", "IIIrd Year"].map((year) => (
-          <label key={year}>
+        {yearOptions.map((year) => (
+          <label key={year.value}>
             <input
               {...register("year", { required: "This field is required" })}
               type="radio"
-              value={year}
+              value={year.value}
             />
-            {year}
+            {year.label}
           </label>
         ))}
       </div>
@@ -161,9 +178,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       <ErrorMessage errors={errors} name="team" as="span" />
       {selectedTeam === "Technical" && (
         <div className=" space-y-4 py-4 ">
-          <p className="font-semibold">
-            Select Technical Skills :
-          </p>
+          <p className="font-semibold">Select Technical Skills :</p>
           {technicalOptions.map((option) => (
             <label key={option}>
               <input
@@ -179,9 +194,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
 
       {selectedTeam === "Design/Branding" && (
         <div className="space-y-4 py-4">
-          <p className="font-semibold">
-            Select Design Skills :
-          </p>
+          <p className="font-semibold">Select Design Skills :</p>
           <div className="space-y-6 ">
             {designOptions.map((option) => (
               <label key={option} className="flex items-center space-x-2">
