@@ -1,5 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import styles from "styles/Form.module.css";
 import Loader from "./Loader";
 
@@ -7,8 +7,26 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
+  const selectedTeam = useWatch({ control, name: "team" });
+
+  const technicalOptions = [
+    "Frontend Development",
+    "Backend Development",
+    "App Development",
+    "DevOps",
+    "Machine Learning",
+  ];
+
+  const designOptions = [
+    "UI/UX Design",
+    "Video Editing (Premiere Pro)",
+    "Graphic Design (Photoshop)",
+    "Motion Graphics (After Effects)",
+    "Illustration (Illustrator)",
+  ];
 
   return (
     <form onSubmit={handleSubmit(submitData)} className={styles.form}>
@@ -74,46 +92,16 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
 
       <label htmlFor="year">Year</label>
       <div className={styles.radio}>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="1"
-          />
-          Ist Year
-        </label>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="2"
-          />
-          IInd Year
-        </label>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="3"
-          />
-          IIIrd Year
-        </label>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="4"
-          />
-          IVth Year
-        </label>
+        {["IInd Year", "IIIrd Year"].map((year) => (
+          <label key={year}>
+            <input
+              {...register("year", { required: "This field is required" })}
+              type="radio"
+              value={year}
+            />
+            {year}
+          </label>
+        ))}
       </div>
       <ErrorMessage errors={errors} name="year" as="span" />
       <div className={styles.box}>
@@ -135,7 +123,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <label>
           Branch
           <input
-            placeholder="Enter Your section"
+            placeholder="Enter Your Branch"
             {...register("branch", {
               required: "This field is required",
               pattern: {
@@ -152,60 +140,64 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         Which Team you find yourself fit to work under?
       </label>
       <div className={styles.radio}>
-        <label>
-          <input
-            {...register("team", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="Technical"
-          />
-          Technical
-        </label>
-        <label>
-          <input
-            {...register("team", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="Event Management"
-          />
-          Event Management
-        </label>
-        <label>
-          <input
-            {...register("team", { required: "This field is required" })}
-            type="radio"
-            value="Design/Branding"
-          />
-          Design/Branding
-        </label>
-        <label>
-          <input
-            {...register("team", { required: "This field is required" })}
-            type="radio"
-            value="Public Relation & Outreach"
-          />
-          Public Relation & Outreach
-        </label>
-        <label>
-          <input
-            {...register("team", { required: "This field is required" })}
-            type="radio"
-            value=" Marketing"
-          />
-          Marketing
-        </label>
-        <label>
-          <input
-            {...register("team", { required: "This field is required" })}
-            type="radio"
-            value=" Social Media"
-          />
-          Social Media
-        </label>
+        {[
+          "Technical",
+          "Event Management",
+          "Design/Branding",
+          "Public Relation & Outreach",
+          "Marketing",
+          "Social Media",
+        ].map((team) => (
+          <label key={team}>
+            <input
+              {...register("team", { required: "This field is required" })}
+              type="radio"
+              value={team}
+            />
+            {team}
+          </label>
+        ))}
       </div>
       <ErrorMessage errors={errors} name="team" as="span" />
+      {selectedTeam === "Technical" && (
+        <div className=" space-y-4 py-4 ">
+          <p className="font-semibold">
+            Select Technical Skills :
+          </p>
+          {technicalOptions.map((option) => (
+            <label key={option}>
+              <input
+                {...register("technicalSkills")}
+                type="checkbox"
+                value={option}
+              />
+              {option}
+            </label>
+          ))}
+        </div>
+      )}
+
+      {selectedTeam === "Design/Branding" && (
+        <div className="space-y-4 py-4">
+          <p className="font-semibold">
+            Select Design Skills :
+          </p>
+          <div className="space-y-6 ">
+            {designOptions.map((option) => (
+              <label key={option} className="flex items-center space-x-2">
+                <input
+                  {...register("designSkills")}
+                  type="checkbox"
+                  value={option}
+                  className="form-checkbox ml-6"
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
       <label>
         Upload your Resume (Required for 2nd and 3rd year)
         <input type="file" accept="application/pdf" {...register("resume")} />
@@ -221,9 +213,15 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled/*={submitted}*/>
+      <button type="submit" disabled={submitted}>
         {/* Submissions Closed */}
-        {submitted ? "Submitted Successfully" : loading ? <Loader /> : "Alas! The Last Date have Passed."/*"Submit"*/}
+        {submitted ? (
+          "Submitted Successfully"
+        ) : loading ? (
+          <Loader />
+        ) : (
+          /*"Alas! The Last Date have Passed."*/ "Submit"
+        )}
       </button>
     </form>
   );

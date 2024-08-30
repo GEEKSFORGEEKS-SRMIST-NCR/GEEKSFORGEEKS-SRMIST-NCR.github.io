@@ -21,7 +21,7 @@ const Recruitment = () => {
     setLoading(true);
     // Sending data to Supabase
     await supabase
-      .from("Recruitment2023")
+      .from("RECRUITMENT'24")
       .insert({
         ...data,
         resume: data.resume.length === 0 ? " " : data.name + "-" + Date.now(),
