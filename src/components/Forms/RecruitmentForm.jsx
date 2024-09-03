@@ -226,14 +226,14 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled={submitted}>
+      <button type="submit" disabled/*={submitted}*/>
         {/* Submissions Closed */}
         {submitted ? (
           "Submitted Successfully"
         ) : loading ? (
           <Loader />
         ) : (
-          /*"Alas! The Last Date have Passed."*/ "Submit"
+          "Alas! The Last Date have Passed." /*"Submit"*/
         )}
       </button>
     </form>

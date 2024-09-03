@@ -14,4 +14,3 @@ export { default as Layout } from "./Layout/Layout";
 export { default as Navbar } from "./Layout/Navbar/Navbar";
 export { default as Seo } from "./Seo";
 export { default as CTFCard } from "./CTFCard";
-
