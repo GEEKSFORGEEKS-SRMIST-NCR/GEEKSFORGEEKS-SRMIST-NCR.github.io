@@ -1,7 +1,6 @@
-import Link from "next/link";
-import { EventsApi } from "api/EventAPI";
 import { EventCard } from "components/index";
 import Head from "next/head";
+import { getAllEventPosters } from "../utils/contentful";
 import styles from "styles/Event.module.css";
 
 let eventList = EventsApi.reverse().map((data) => {
@@ -16,6 +15,19 @@ let eventList = EventsApi.reverse().map((data) => {
 });
 
 const Events = () => {
+  useEffect(() => {
+    const fetchImages = async () => {
+      const contentfulImages = await getAllEventPosters();
+      const images = contentfulImages.map((image) => ({
+        src: image.src,
+        width: 4,
+        height: 3,
+      }));
+      setPhotos(images);
+    };
+
+    fetchImages();
+  }, []);
   return (
     <>
       <Head>
@@ -33,7 +45,9 @@ const Events = () => {
             img={15}
           />
         </Link> */}
-        <h2 className={styles.heading + " " + styles.h_2}><br></br>MORE EVENTS SOON!!</h2>
+        <h2 className={styles.heading + " " + styles.h_2}>
+          <br></br>MORE EVENTS SOON!!
+        </h2>
       </div>
       {/* Past Events */}
       <h2 className={styles.heading}>

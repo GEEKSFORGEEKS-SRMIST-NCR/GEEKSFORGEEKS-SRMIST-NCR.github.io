@@ -1,42 +1,73 @@
-import { cache } from 'react';
-
-import { Asset, createClient } from 'contentful';
+import { createClient } from "contentful";
 
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
-
-export const getAllImages = cache(async () => {
+export const getAllGalleryImages = async () => {
   try {
-    const { items } = await client.getEntries({
-      content_type: 'images',
-      order: ['fields.index'],
-      select: ['fields.name', 'fields.slug', 'fields.tags', 'fields.image']
-    });
+    const response = await client.getEntries({ content_type: "gallery" });
+    const { includes } = response;
 
-    const projects = await Promise.all(
-      items.map(async ({ fields }) => {
-        const image = fields?.image as Asset<undefined, string>;
-        const imgSrc = image ? `https:${image?.fields?.file?.url}` : '';
-        const imgBase64 = '';
+    if (!includes || !includes.Asset) {
+      console.warn("No assets found in the response");
+      return [];
+    }
 
-        return {
-          name: fields.name,
-          slug: fields.slug,
-          tags: fields.tags,
-          image: {
-            src: imgSrc,
-            alt: image ? image.fields?.description : fields.name,
-            base64: imgBase64
-          }
-        };
-      })
-    );
+    const photos = includes.Asset.map((asset) => {
+      const { fields } = asset;
+      if (!fields || !fields.file) {
+        console.warn(`Asset ${asset.sys.id} is missing file information`);
+        return null;
+      }
 
-    return projects;
+      const { url } = fields.file;
+
+      return {
+        src: `https:${url}`,
+        width: 4,
+        height: 3,
+      };
+    }).filter((photo) => photo !== null); 
+
+    return photos;
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching images:", error);
+    return [];
   }
-});
+};
+
+
+export const getAllEventPosters=async()=>{
+  try {
+    const response = await client.getEntries({ content_type: "events" });
+    const { includes } = response;
+
+    if (!includes || !includes.Asset) {
+      console.warn("No assets found in the response");
+      return [];
+    }
+
+    const photos = includes.Asset.map((asset) => {
+      const { fields } = asset;
+      if (!fields || !fields.file) {
+        console.warn(`Asset ${asset.sys.id} is missing file information`);
+        return null;
+      }
+
+      const { url } = fields.file;
+
+      return {
+        src: `https:${url}`,
+        width: 4,
+        height: 3,
+      };
+    }).filter((photo) => photo !== null); 
+
+    return photos;
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    return [];
+  }
+}
