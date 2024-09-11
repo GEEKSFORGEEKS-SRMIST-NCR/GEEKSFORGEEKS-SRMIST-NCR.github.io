@@ -16,7 +16,7 @@
     "contentful": "^10.15.0",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.3.31",
-    "next": "^14.2.6",
+    "next": "^14.2.9",
     "next-themes": "^0.3.0",
     "react": "18.3.1",
     "react-announcement": "^1.1.3",

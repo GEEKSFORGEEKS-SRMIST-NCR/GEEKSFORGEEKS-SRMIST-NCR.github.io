@@ -21,6 +21,6 @@
     "allowImportingTsExtensions": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/contentful.ts"],
   "exclude": ["node_modules"]
 }

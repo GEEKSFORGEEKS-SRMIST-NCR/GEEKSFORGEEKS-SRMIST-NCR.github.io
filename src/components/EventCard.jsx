@@ -6,7 +6,7 @@ const EventCard = ({ title, desc, img }) => {
     <>
       <div className={styles.card}>
         <Image
-          src={`/images/Events/${img}.png`}
+          src={img}
           alt={title}
           width={280}
           height={475}

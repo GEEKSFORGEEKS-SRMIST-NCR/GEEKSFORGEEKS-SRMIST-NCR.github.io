@@ -6,6 +6,11 @@
   align-content: center;
   place-items: center center;
   text-align: center;
+  background-image: url(/backdrop.jpeg);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
 }
 
 .home svg {
@@ -36,6 +41,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .home {
+    padding-top: 20px;
+    background-image: none;
+  }
   .home svg {
     width: 90%;
   }
