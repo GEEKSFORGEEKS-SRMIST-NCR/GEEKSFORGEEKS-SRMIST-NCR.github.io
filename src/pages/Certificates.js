@@ -4,8 +4,6 @@ import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import styles from "styles/Gallery.module.css";
 import { saveAs } from "file-saver";
-// import Gallery from "react-photo-gallery";
-
 
 
 const Certificates = () => {
@@ -60,7 +58,7 @@ const Certificates = () => {
           margin={10}
           direction={"column"}
         />
-      </div> */}
+      </div>*/}
     </>
   );
 };
