@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import styles from "styles/Gallery.module.css";
 import { saveAs } from "file-saver";
-import Gallery from "react-photo-gallery";
+// import Gallery from "react-photo-gallery";
 
 
 
