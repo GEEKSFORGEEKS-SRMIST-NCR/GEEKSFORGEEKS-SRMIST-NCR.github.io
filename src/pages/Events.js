@@ -2,8 +2,9 @@ import { EventCard } from "components/index";
 import Head from "next/head";
 import styles from "styles/Event.module.css";
 import { getAllEventPosters, getActiveEventPoster } from "../utils/contentful";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
+import { memo } from "react";
 
 const Events = () => {
   const [activePoster, setActivePoster] = useState([]);
@@ -22,6 +23,10 @@ const Events = () => {
     fetchActivePoster();
     fetchPosters();
   }, []);
+
+  const memoizedposters = useMemo(() => posters, [posters]);
+  const memoizedActivePoster = useMemo(() => activePoster, [activePoster]);
+
   return (
     <>
       <Head>
@@ -32,12 +37,12 @@ const Events = () => {
         <br></br>Upcoming Events
       </h2>
       <div className={styles.container}>
-        {activePoster.length > 0 ? (
+        {memoizedActivePoster.length > 0 ? (
           <Link style={{ textDecoration: "none" }} href="/Registration">
             <EventCard
-              title={activePoster[0].title}
-              desc={activePoster[0].desc}
-              img={activePoster[0].img}
+              title={memoizedActivePoster[0].title}
+              desc={memoizedActivePoster[0].desc}
+              img={memoizedActivePoster[0].img}
             />
           </Link>
         ) : (
@@ -54,8 +59,8 @@ const Events = () => {
       </h2>
 
       <div className={`${styles.container} select-none`}>
-        {posters.length > 0 ? (
-          posters.map((data) => {
+        {memoizedposters.length > 0 ? (
+          memoizedposters.map((data) => {
             return (
               <EventCard
                 key={data.key}
@@ -73,4 +78,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default memo(Events);

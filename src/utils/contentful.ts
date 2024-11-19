@@ -23,11 +23,12 @@ export const getAllGalleryImages = async () => {
       }
 
       const { url } = fields.file;
+      const { width, height } = fields.file.details.image;
 
       return {
         src: `https:${url}`,
-        width: 4,
-        height: 3,
+        width,
+        height,
       };
     }).filter((photo) => photo !== null);
 
@@ -97,7 +98,7 @@ export const getActiveEventPoster = async () => {
         img: asset.fields.file ? `https:${asset.fields.file.url}` : null,
       };
     });
-    
+
     return currentposter;
   } catch (error) {
     // console.error("Error fetching active event:", error);

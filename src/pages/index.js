@@ -1,6 +1,6 @@
 import { About, Banner, Faq, Home, Team } from "components/index";
 import Head from "next/head";
-
+import { memo } from "react";
 const IndexPage = () => {
   return (
     <>
@@ -8,7 +8,7 @@ const IndexPage = () => {
         <title>Welcome to GeeksForGeeks SRMIST Chapter.</title>
       </Head>
 
-      {/* Announcement Banner */} 
+      {/* Announcement Banner */}
       {/* <Banner
         title="Recruitment Has Started!"
         subtitle="Click here to get a chance to be a Geek!!"
@@ -27,4 +27,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default memo(IndexPage);

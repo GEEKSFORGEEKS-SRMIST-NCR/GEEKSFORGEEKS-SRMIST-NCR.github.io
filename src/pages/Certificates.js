@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import styles from "styles/Gallery.module.css";
 import { saveAs } from "file-saver";
-
+import { memo } from "react";
 
 const Certificates = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -26,13 +26,13 @@ const Certificates = () => {
     element.value = "";
     for (let i = 0; i < certificates.length; i++) {
       if (value in certificates[i]) {
-        saveAs(certificates[i]["src"],value);
+        saveAs(certificates[i]["src"], value);
         openLightbox(certificates[i][value]);
         return;
       }
     }
     openLightbox(0);
-  }
+  };
   return (
     <>
       <Head>
@@ -47,7 +47,11 @@ const Certificates = () => {
       <ModalGateway>
         {isViewerOpen ? (
           <Modal onClose={closeLightbox}>
-            <Carousel trackProps={{viewsToMove:0}} currentIndex={currentImage} views={certificates}/>
+            <Carousel
+              trackProps={{ viewsToMove: 0 }}
+              currentIndex={currentImage}
+              views={certificates}
+            />
           </Modal>
         ) : null}
       </ModalGateway>
@@ -63,4 +67,4 @@ const Certificates = () => {
   );
 };
 
-export default Certificates;
+export default memo(Certificates);

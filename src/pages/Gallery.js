@@ -1,10 +1,10 @@
-import { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Head from "next/head";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 import styles from "styles/Gallery.module.css";
 import { getAllGalleryImages } from "../utils/contentful";
-
+import { memo } from "react";
 const ReactImagesGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -16,8 +16,8 @@ const ReactImagesGallery = () => {
       const contentfulImages = await getAllGalleryImages();
       const images = contentfulImages.map((image) => ({
         src: image.src,
-        width: 4,
-        height: 3,
+        width: image.width,
+        height: image.height,
       }));
       setPhotos(images);
     };
@@ -25,6 +25,7 @@ const ReactImagesGallery = () => {
     fetchImages();
   }, []);
 
+  const memoizedPhotos = useMemo(() => photos, [photos]);
   // Open lightbox with the clicked image
   const openLightbox = useCallback((event, { index }) => {
     setCurrentImage(index);
@@ -48,7 +49,7 @@ const ReactImagesGallery = () => {
       <ModalGateway>
         {isViewerOpen ? (
           <Modal onClose={closeLightbox}>
-            <Carousel currentIndex={currentImage} views={photos} />
+            <Carousel currentIndex={currentImage} views={memoizedPhotos} />
           </Modal>
         ) : null}
       </ModalGateway>
@@ -57,7 +58,7 @@ const ReactImagesGallery = () => {
       <div className={styles.container}>
         {photos.length > 0 ? (
           <Gallery
-            photos={photos}
+            photos={memoizedPhotos}
             onClick={openLightbox}
             margin={10}
             direction={"column"}
@@ -70,4 +71,4 @@ const ReactImagesGallery = () => {
   );
 };
 
-export default ReactImagesGallery;
+export default memo(ReactImagesGallery);
