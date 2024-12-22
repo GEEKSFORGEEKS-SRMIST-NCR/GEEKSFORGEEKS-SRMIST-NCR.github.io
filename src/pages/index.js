@@ -1,6 +1,7 @@
-import { About, Banner, Faq, Home, Team } from "components/index";
+import { About, Banner, Faq, Home, Team, Potw } from "components/index";
 import Head from "next/head";
 import { memo } from "react";
+
 const IndexPage = () => {
   return (
     <>
@@ -19,8 +20,11 @@ const IndexPage = () => {
         subtitle="Registrations Closed!"
         link="/Registration"
       /> */}
+
+      {/* Sections */}
       <Home />
       <About />
+      <Potw />
       <Team />
       <Faq />
     </>

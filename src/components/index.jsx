@@ -7,6 +7,7 @@ export { default as About } from "./Home/About";
 export { default as Faq } from "./Home/Faq";
 export { default as Home } from "./Home/Home";
 export { default as PotdCard } from "./PotdCard";
+export { default as Potw } from "./Home/Potw";
 export { default as Team } from "./Home/Team";
 export { default as PreviousTeam } from "./Home/PreviousTeam";
 export { default as Footer } from "./Layout/Footer";
