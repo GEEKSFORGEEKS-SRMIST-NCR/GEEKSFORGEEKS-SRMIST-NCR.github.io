@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Head from "next/head";
-import Carousel, { Modal, ModalGateway } from "react-images";
 import Gallery from "react-photo-gallery";
 import styles from "styles/Gallery.module.css";
 import { getAllGalleryImages } from "../utils/contentful";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 
 const ReactImagesGallery = () => {
   const [currentImage, setCurrentImage] = useState(0);

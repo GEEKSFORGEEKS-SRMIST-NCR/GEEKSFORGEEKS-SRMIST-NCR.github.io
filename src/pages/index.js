@@ -1,7 +1,7 @@
-import { About, Banner, Faq, Home, Team } from "components/index";
 import Head from "next/head";
 import { memo, useEffect, useState } from "react";
 import { getBannerData } from "../utils/contentful";
+import { About, Banner, Faq, Home, Team } from "components/index";
 
 const IndexPage = () => {
   const [banners, setBanners] = useState([]);
