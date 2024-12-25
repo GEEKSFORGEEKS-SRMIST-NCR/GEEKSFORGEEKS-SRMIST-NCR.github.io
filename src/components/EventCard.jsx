@@ -11,7 +11,7 @@ const EventCard = ({ title, desc, img }) => {
           width={280}
           height={475}
           quality={60}
-          priority
+          loading="lazy"
           className={styles.banner}
         />
         <div className={styles.card_details}>

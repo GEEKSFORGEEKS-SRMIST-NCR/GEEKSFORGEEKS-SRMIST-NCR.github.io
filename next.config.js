@@ -1,5 +1,12 @@
 module.exports = {
-    images: {
-        domains: ['images.ctfassets.net'],
-    },
-}
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "**",
+      },
+    ],
+
+  },
+};

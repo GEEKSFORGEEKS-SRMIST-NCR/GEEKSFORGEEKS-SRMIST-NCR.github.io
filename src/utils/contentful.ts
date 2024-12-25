@@ -5,6 +5,13 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
 
+export const getBannerData = async () => {
+  const response = await client.getEntries({
+    content_type: "announcementBanner",
+  });
+  return response.items;
+};
+
 export const getAllGalleryImages = async () => {
   try {
     const response = await client.getEntries({ content_type: "gallery" });
@@ -43,7 +50,7 @@ export const getAllEventPosters = async () => {
   try {
     const response = await client.getEntries({
       content_type: "events",
-      order: ["fields.order", "sys.createdAt"], // Sort by order field, then by creation date
+      order: ["-fields.order"], 
     });
 
     if (!response.items || response.items.length === 0) {
