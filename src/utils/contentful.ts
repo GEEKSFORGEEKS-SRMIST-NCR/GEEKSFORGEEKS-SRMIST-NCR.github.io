@@ -1,9 +1,45 @@
-import { createClient } from "contentful";
+import { Asset, createClient, EntrySkeletonType } from "contentful";
+
+interface IPerformerFields {
+  name: string;
+  position: string;
+  image: Asset;
+}
+
+interface IPerformer extends EntrySkeletonType {
+  fields: IPerformerFields;
+}
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 });
+
+export const getPotwData = async () => {
+  try {
+    const response = await client.getEntries<IPerformer>({
+      content_type: "performerOfTheWeek",
+    });
+
+    if (!response.items || response.items.length === 0) {
+      console.warn("No entries found in the response");
+      return [];
+    }
+
+    // Extract the first item since POTW is typically a single entry
+    const performer = response.items[0].fields as IPerformerFields; 
+    return {
+      name: performer.name || "Coming Soon", 
+      position: performer.position || "Stay Tuned", 
+      img: `https:${performer.image?.fields?.file.url}`,
+      links: {}, 
+      id: response.items[0].sys.id, 
+    };
+  } catch (error) {
+    console.error("Error fetching performer of the week:", error);
+    return null;
+  }
+};
 
 export const getBannerData = async () => {
   const response = await client.getEntries({
@@ -15,7 +51,7 @@ export const getBannerData = async () => {
 export const getAllGalleryImages = async () => {
   try {
     const response = await client.getEntries({ content_type: "gallery" });
-    const { includes } = response;
+    const { includes } = response ;
 
     if (!includes || !includes.Asset) {
       console.warn("No assets found in the response");
@@ -29,8 +65,8 @@ export const getAllGalleryImages = async () => {
         return null;
       }
 
-      const { url } = fields.file;
-      const { width, height } = fields.file.details.image;
+      const { url } = fields.file  ;
+      const { width, height } = fields.file.details.image ;
 
       return {
         src: `https:${url}`,
@@ -50,7 +86,7 @@ export const getAllEventPosters = async () => {
   try {
     const response = await client.getEntries({
       content_type: "events",
-      order: ["-fields.order"], 
+      order: ["-fields.order"],
     });
 
     if (!response.items || response.items.length === 0) {
@@ -108,7 +144,6 @@ export const getActiveEventPoster = async () => {
 
     return currentposter;
   } catch (error) {
-    // console.error("Error fetching active event:", error);
     return null;
   }
 };

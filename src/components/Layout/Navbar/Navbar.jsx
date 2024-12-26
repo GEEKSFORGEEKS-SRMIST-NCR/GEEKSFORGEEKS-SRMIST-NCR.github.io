@@ -68,7 +68,7 @@ const Navbar = () => {
               </Link>
             </li>
           ) : (
-            <li>
+            <li key={banner.sys.id}>
               <Link href="/Certificates" onClick={openMenu}>
                 Certificates
               </Link>

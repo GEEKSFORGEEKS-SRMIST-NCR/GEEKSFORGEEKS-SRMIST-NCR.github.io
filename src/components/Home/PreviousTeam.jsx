@@ -1,5 +1,5 @@
 import styles from "styles/Home/Team.module.css";
-import Card from "./Card";
+import {Card} from "./Card";
 import React from "react";
 import { previousMembers } from "../../../lib/MemberAPI";
 

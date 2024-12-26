@@ -1,6 +1,6 @@
 import { currentMembers } from "api/MemberAPI";
 import styles from "styles/Home/Team.module.css";
-import Card from "./Card";
+import {Card} from "./Card";
 import React from "react";
 import Link from "next/link";
 const Team = () => {

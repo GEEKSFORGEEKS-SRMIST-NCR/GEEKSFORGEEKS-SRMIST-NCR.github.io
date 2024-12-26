@@ -1,26 +1,28 @@
 import React from "react";
-import styles from "styles/Home/Potw.module.css"; 
-import Card from "./Card"; 
-import { SparklesCore } from "../ui/sparkles"; 
+import styles from "styles/Home/Potw.module.css";
+import { PotwCard } from "./Card";
+import { SparklesCore } from "../ui/sparkles";
+import { memo, useEffect, useState } from "react";
+import { getPotwData } from "../../utils/contentful";
 
 const Potw = () => {
-  const potwData = {
-    name: "John Doe",
+  const [potwData, setPotwData] = useState({
+    name: "",
     position: "",
     img: "",
-    links: {},
-    modal: {
-      team: "GFG Chapter",
-      logo: "main.webp",
-      slogan: "",
-      desc: "",
-    },
-    members: {},
-    details: {},
-  };
+  });
+
+  useEffect(() => {
+    getPotwData().then(setPotwData);
+  }, []);
+
+  console.log(potwData);
 
   return (
-    <section id="Potw" className={`${styles.potwSection} relative overflow-hidden`}>
+    <section
+      id="Potw"
+      className={`${styles.potwSection} relative overflow-hidden`}
+    >
       {/* Sparkles Background */}
       <div className="absolute inset-0 w-full h-full">
         <SparklesCore
@@ -28,7 +30,7 @@ const Potw = () => {
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
-          particleDensity={110} 
+          particleDensity={110}
           className="w-full h-full"
           particleColor="#C3FFC9"
         />
@@ -40,7 +42,7 @@ const Potw = () => {
         <div className={styles.container}>
           <div className={styles.cardWrapper}>
             <div className={styles.cardBorder}>
-              <Card key={potwData.id} data={potwData} />
+              <PotwCard data={potwData} />
             </div>
           </div>
         </div>
