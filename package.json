@@ -12,6 +12,8 @@
     "@emailjs/browser": "^4.4.1",
     "@hookform/error-message": "^2.0.1",
     "@supabase/supabase-js": "^2.12.1",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.7.1",
     "clsx": "^2.1.1",
     "contentful": "^10.15.0",
     "file-saver": "^2.0.5",

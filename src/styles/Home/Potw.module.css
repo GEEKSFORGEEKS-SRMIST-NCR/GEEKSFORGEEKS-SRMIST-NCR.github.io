@@ -1,0 +1,70 @@
+   .potwSection {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1200px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .potwSection h2 {
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardWrapper {
+    position: relative;
+    padding: 3px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #2f8d41, #79E697, #C3FFC9, #79E697, #2f8d41);
+    background-size: 400% 400%;
+    animation: gradientBorder 15s ease infinite;
+  }
+  
+  .cardBorder {
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  .cardBorder:hover {
+    transform: translateY(-5px);
+  }
+  
+  .cardBorder::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: linear-gradient(45deg, #2f8d41, #79E697, #C3FFC9);
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 16px;
+  }
+  
+  .cardBorder:hover::before {
+    opacity: 0.5;
+  }
+  
+  @media (max-width: 768px) {
+    .potwSection {
+      padding: 1rem;
+      margin: 1rem auto;
+    }
+    
+    .cardWrapper {
+      padding: 2px;
+    }
+  }

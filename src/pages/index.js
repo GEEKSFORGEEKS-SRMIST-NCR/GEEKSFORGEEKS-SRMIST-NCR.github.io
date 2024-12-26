@@ -27,6 +27,7 @@ const IndexPage = () => {
       ))}
       <Home />
       <About />
+      <Potw />
       <Team />
       <Faq />
     </>
