@@ -2,7 +2,7 @@ import React from "react";
 import styles from "styles/Home/Potw.module.css";
 import { PotwCard } from "./Card";
 import { SparklesCore } from "../ui/sparkles";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getPotwData } from "../../utils/contentful";
 
 const Potw = () => {
@@ -15,8 +15,6 @@ const Potw = () => {
   useEffect(() => {
     getPotwData().then(setPotwData);
   }, []);
-
-  console.log(potwData);
 
   return (
     <section
@@ -42,7 +40,7 @@ const Potw = () => {
         <div className={styles.container}>
           <div className={styles.cardWrapper}>
             <div className={styles.cardBorder}>
-              <PotwCard data={potwData} />
+              <PotwCard  data={potwData} />
             </div>
           </div>
         </div>
