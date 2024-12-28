@@ -21,7 +21,7 @@ const Recruitment = () => {
     setLoading(true);
     // Sending data to Supabase
     await supabase
-      .from("Recruitment2023")
+      .from("Recruitment-2024")
       .insert({
         ...data,
         resume: data.resume.length === 0 ? " " : data.name + "-" + Date.now(),
@@ -30,9 +30,9 @@ const Recruitment = () => {
         data.resume.length === 0
           ? ""
           : await supabase.storage
-              .from("recruitment")
+              .from("recruitment-resume")
               .upload(
-                `resume2023/${data.name}-${Date.now()}.pdf`,
+                `resume2024/${data.name}-${Date.now()}.pdf`,
                 data.resume[0]
               )
       )

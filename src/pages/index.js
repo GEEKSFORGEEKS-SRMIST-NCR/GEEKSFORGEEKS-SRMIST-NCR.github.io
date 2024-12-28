@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { memo, useEffect, useState } from "react";
 import { getBannerData } from "../utils/contentful";
-import { About, Banner, Faq, Home, Team,Potw } from "components/index";
+import { About, Banner, Faq, Home, Team, Potw } from "components/index";
 
 const IndexPage = () => {
   const [banners, setBanners] = useState([]);
@@ -15,16 +15,20 @@ const IndexPage = () => {
       <Head>
         <title>Welcome to GeeksForGeeks SRMIST Chapter.</title>
       </Head>
-      {banners.map((banner) => (
+      {banners.map((banner) =>
         banner.fields.recruitment || banner.fields.eventRegistration ? (
           <Banner
             key={banner.sys.id}
-            title={banner.fields.eventName}
-            subtitle={banner.fields.eventRegistration ? "Registrations Open!" : "Recruitment Open!"}
+            title={banner.fields.announcement}
+            subtitle={
+              banner.fields.eventRegistration
+                ? "Registrations Open!"
+                : "Recruitment Open!"
+            }
             link={banner.fields.recruitment ? "/Recruitment" : "/Registration"}
           />
         ) : null
-      ))}
+      )}
       <Home />
       <About />
       <Potw />

@@ -4,7 +4,6 @@ import styles from "styles/Home/Navbar.module.css";
 import { Logo } from "../../Logo/Logo";
 import ThemeToogle from "./ThemeToogle";
 import { getBannerData } from "../../../utils/contentful";
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [banners, setBanners] = useState([]);
@@ -18,6 +17,27 @@ const Navbar = () => {
       setOpen(!open);
     }
   };
+
+  const getNavLink = () => {
+    if (banners.some(banner => banner.fields.recruitment)) {
+      return {
+        href: "/Recruitment",
+        text: "Recruitment"
+      };
+    } else if (banners.some(banner => banner.fields.eventRegistration)) {
+      return {
+        href: "/Registration",
+        text: "Registration"
+      };
+    } else {
+      return {
+        href: "/Certificates",
+        text: "Certificates"
+      };
+    }
+  };
+
+  const navLink = getNavLink();
 
   return (
     <header className={styles.header}>
@@ -55,26 +75,11 @@ const Navbar = () => {
             Gallery
           </Link>
         </li>
-        {banners.map((banner) =>
-          banner.fields.recruitment || banner.fields.eventRegistration ? (
-            <li key={banner.sys.id}>
-              <Link
-                href={
-                  banner.fields.recruitment ? "/Recruitment" : "/Registration"
-                }
-                onClick={openMenu}
-              >
-                {banner.fields.recruitment ? "Recruitment" : "Registration"}
-              </Link>
-            </li>
-          ) : (
-            <li key={banner.sys.id}>
-              <Link href="/Certificates" onClick={openMenu}>
-                Certificates
-              </Link>
-            </li>
-          )
-        )}
+        <li>
+          <Link href={navLink.href} onClick={openMenu}>
+            {navLink.text}
+          </Link>
+        </li>
       </ul>
       <ThemeToogle />
     </header>

@@ -1,9 +1,17 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { useForm } from "react-hook-form";
+import { useState, useEffect } from "react";
+
 import styles from "styles/Form.module.css";
 import Loader from "./Loader";
+import { getBannerData } from "../../utils/contentful";
 
 const RegistrationForm = ({ submitData, submitted, loading }) => {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    getBannerData().then(setBanners);
+  }, []);
   const {
     register,
     handleSubmit,
@@ -11,7 +19,11 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(submitData)} className={styles.form} autoComplete="on">
+    <form
+      onSubmit={handleSubmit(submitData)}
+      className={styles.form}
+      autoComplete="on"
+    >
       <label>
         Name
         <input
@@ -64,7 +76,8 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
             required: "This field is required",
             pattern: {
               value: /^(RA)[0-9]{13}$/,
-              message: "Enter valid Registration Number starting with capital 'RA'",
+              message:
+                "Enter valid Registration Number starting with capital 'RA'",
             },
           })}
         />
@@ -160,16 +173,34 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label> */}
-      <button type="submit" disabled>
-      {/* <button type="submit" > */}
-        {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "All Slots Booked!"}
-        {/* {submitted ? "Slot Successfully Booked!" : loading ? <Loader /> : "Book your slot now!"} */}
-      </button>
+
+      {banners.length > 0 ? (
+        banners.some((banner) => banner.fields.eventRegistration) ? (
+          <button type="submit" disabled={submitted}>
+            {submitted ? (
+              "Registered Successfully!"
+            ) : loading ? (
+              <Loader />
+            ) : (
+              "Register Now!"
+            )}
+          </button>
+        ) : (
+          <button type="submit" disabled>
+            Alas! The Last Date has Passed.
+          </button>
+        )
+      ) : (
+        <button type="submit" disabled>
+          <Loader />
+        </button>
+      )}
     </form>
   );
 };
 
-{/* 
+{
+  /* 
 <label>
     Team Name
     <input
@@ -409,6 +440,7 @@ Member 3
                         "Enter valid Registration Number starting with capital 'RA'",
                 },
             })}
-      */}
+      */
+}
 
 export default RegistrationForm;

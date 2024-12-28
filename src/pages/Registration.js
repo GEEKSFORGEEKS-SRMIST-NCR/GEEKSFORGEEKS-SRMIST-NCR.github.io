@@ -4,21 +4,23 @@ import { Banner } from "components/index";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useCookies, withCookies } from "react-cookie";
+import { getBannerData } from "../utils/contentful";
 
 const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(false);
   const [_, removeCookie] = useCookies(); // eslint-disable-line no-unused-vars
-
   // Remove Cookies before loading the page
   useEffect(() => {
     removeCookie("banner");
+    getBannerData().then(setBanners);
   }, [removeCookie]);
 
   // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
-    
+
     // Sending data to Supabase
     await supabase
       .from("EventForm3")
@@ -49,7 +51,9 @@ const Registration = () => {
           color: "var(--text-main)",
         }}
       >
-        MACHINE LEARNING WORKSHOP 2.0
+        {/* get name from cms */}
+        {(banners.find((banner) => banner.fields.eventRegistration)?.fields
+          .eventName || "New Events Coming Soon !!! ").toUpperCase()}
       </h2>
       <RegistrationForm
         submitData={submitData}

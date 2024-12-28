@@ -1,9 +1,17 @@
-import { ErrorMessage } from "@hookform/error-message";
-import { useForm, useWatch } from "react-hook-form";
-import styles from "styles/Form.module.css";
 import Loader from "./Loader";
+import styles from "styles/Form.module.css";
+import { useState, useEffect } from "react";
+import { useForm, useWatch } from "react-hook-form";
+import { getBannerData } from "../../utils/contentful";
+import { ErrorMessage } from "@hookform/error-message";
 
 const RecruitmentForm = ({ submitData, submitted, loading }) => {
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    getBannerData().then(setBanners);
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -12,7 +20,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
     getValues,
   } = useForm();
   const selectedTeam = useWatch({ control, name: "team" });
-  
+
   const onSubmit = (data) => {
     const technicalSkills = getValues("technicalSkills") || [];
     const designSkills = getValues("designSkills") || [];
@@ -195,19 +203,16 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       {selectedTeam === "Design/Branding" && (
         <div className="space-y-4 py-4">
           <p className="font-semibold">Select Design Skills :</p>
-          <div className="space-y-6 ">
-            {designOptions.map((option) => (
-              <label key={option} className="flex items-center space-x-2">
-                <input
-                  {...register("designSkills")}
-                  type="checkbox"
-                  value={option}
-                  className="form-checkbox ml-6"
-                />
-                {option}
-              </label>
-            ))}
-          </div>
+          {designOptions.map((option) => (
+            <label key={option} className="flex items-center space-x-2">
+              <input
+                {...register("designSkills")}
+                type="checkbox"
+                value={option}
+              />
+              {option}
+            </label>
+          ))}
         </div>
       )}
 
@@ -226,16 +231,29 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="desc" as="span" />
       </label>
-      <button type="submit" disabled/*={submitted}*/>
-        {/* Submissions Closed */}
-        {submitted ? (
-          "Submitted Successfully"
-        ) : loading ? (
-          <Loader />
+
+      {/* render only when recruitment is available get from cms */}
+      {banners.length > 0 ? (
+        banners.some((banner) => banner.fields.recruitment) ? (
+          <button type="submit" disabled={submitted}>
+            {submitted ? (
+              "Submitted Successfully"
+            ) : loading ? (
+              <Loader />
+            ) : (
+              "Submit"
+            )}
+          </button>
         ) : (
-          "Alas! The Last Date have Passed." /*"Submit"*/
-        )}
-      </button>
+          <button type="submit" disabled>
+            Alas! The Last Date has Passed.
+          </button>
+        )
+      ) : (
+        <button type="submit" disabled>
+          <Loader />
+        </button>
+      )}
     </form>
   );
 };
