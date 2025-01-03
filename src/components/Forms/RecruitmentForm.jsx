@@ -230,7 +230,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       )}
 
       <label>
-        Upload your Resume (Required for 2nd and 3rd year)
+        Upload your Resume (Required for 1st and 3rd year)
         <input type="file" accept="application/pdf" {...register("resume")} />
         <ErrorMessage errors={errors} name="resume" as="span" />
       </label>
