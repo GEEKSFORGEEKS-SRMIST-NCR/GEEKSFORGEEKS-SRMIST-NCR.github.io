@@ -52,9 +52,29 @@ body.hidden {
 /* Custom Scroll bar */
 
 ::-webkit-scrollbar {
+  /* width: 10px;
+  height: 5px; */
   display: none;
 }
 
+.modal ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--main);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--text-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-main);
+}
 
 .section-title {
   user-select: none;
@@ -90,22 +110,13 @@ body.hidden {
 }
 
 @media screen and (max-width: 768px) {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
   .section-title {
     user-select: none;
     font-size: 4rem;
   }
-
 }
 
 @media screen and (max-width: 480px) {
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
   .section-title {
     user-select: none;
     font-size: 3rem;
