@@ -1,10 +1,10 @@
-import { supabase } from "api/Supabase";
-import RegistrationForm from "components/Forms/RegistrationForm";
-import { Banner } from "components/index";
 import Head from "next/head";
+import { supabase } from "api/Supabase";
+import { Banner } from "components/index";
 import { useEffect, useState } from "react";
-import { useCookies, withCookies } from "react-cookie";
 import { getBannerData } from "../utils/contentful";
+import { useCookies, withCookies } from "react-cookie";
+import RegistrationForm from "components/Forms/RegistrationForm";
 
 const Registration = () => {
   const [submitted, setSubmitted] = useState(false);
