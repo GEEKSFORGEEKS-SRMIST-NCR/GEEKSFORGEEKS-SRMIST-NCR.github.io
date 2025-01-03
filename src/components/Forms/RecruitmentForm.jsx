@@ -34,8 +34,9 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
   };
 
   const yearOptions = [
+    { value: 1, label: "Ist Year" },
     { value: 2, label: "IInd Year" },
-    { value: 3, label: "IIIrd Year" },
+    // { value: 3, label: "IIIrd Year" },
   ];
   const technicalOptions = [
     "Frontend Development",
@@ -70,7 +71,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="name" as="span" />
       </label>
       <label>
-        Email
+        College Email
         <input
           placeholder="Enter Your College email"
           {...register("email", {
@@ -79,6 +80,16 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
               value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
               message: "Enter a valid email ending with '@srmist.edu.in'",
             },
+          })}
+        />
+        <ErrorMessage errors={errors} name="email" as="span" />
+      </label>
+      <label>
+        Personal Email
+        <input
+          placeholder="Enter Your Personal email"
+          {...register("personalEmail", {
+            required: "This field is required",
           })}
         />
         <ErrorMessage errors={errors} name="email" as="span" />
@@ -193,6 +204,8 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
                 {...register("technicalSkills")}
                 type="checkbox"
                 value={option}
+                className="w-5 h-5 to-blue-700 bg-gray-100 border-gray-300 rounded focus:ring-green-500"
+
               />
               {option}
             </label>
