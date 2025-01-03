@@ -90,13 +90,22 @@ body.hidden {
 }
 
 @media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
   .section-title {
     user-select: none;
     font-size: 4rem;
   }
+
 }
 
 @media screen and (max-width: 480px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
   .section-title {
     user-select: none;
     font-size: 3rem;
