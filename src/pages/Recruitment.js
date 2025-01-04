@@ -19,44 +19,52 @@ const Recruitment = () => {
   // Submit the data
   const submitData = async (data, e) => {
     setLoading(true);
-    // Sending data to Supabase
-    await supabase
-      .from("Recruitment-2024")
-      .insert({
-        ...data,
-        resume: data.resume.length === 0 ? " " : data.name + "-" + Date.now(),
-      })
-      .then(
-        data.resume.length === 0
-          ? ""
-          : await supabase.storage
-              .from("recruitment-resume")
-              .upload(
-                `resume2024/${data.name}-${Date.now()}.pdf`,
-                data.resume[0]
-              )
-      )
-      .then(() => {
-        if (e) {
-          e.target.reset();
-        }
-        setLoading(false);
-        setSubmitted(true);
-        // Sending email to user
-        emailjs.send(
-          process.env.NEXT_PUBLIC_EMAIL_ID,
-          process.env.NEXT_PUBLIC_TEMPLATE_ID,
-          {
-            name: data.name,
-            email: data.email,
-          },
-          process.env.NEXT_PUBLIC_EMAIL_KEY
-        );
-        setTimeout(() => {
-          setSubmitted(false);
-        }, 20000);
-      })
-      .then((e) => console.log(e));
+    
+    // Generate timestamp once
+    const timestamp = Date.now();
+    const fileName = data.resume.length === 0 ? " " : `${data.name}-${timestamp}`;
+    
+    try {
+      // First upload the file if it exists
+      if (data.resume.length > 0) {
+        await supabase.storage
+          .from("recruitment-resume")
+          .upload(`resume2024/${fileName}.pdf`, data.resume[0]);
+      }
+  
+      // Then insert into database
+      await supabase
+        .from("Recruitment-2024")
+        .insert({
+          ...data,
+          resume: fileName,
+        });
+  
+      if (e) {
+        e.target.reset();
+      }
+      setLoading(false);
+      setSubmitted(true);
+  
+      // Send email to user
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAIL_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        {
+          name: data.name,
+          email: data.email,
+        },
+        process.env.NEXT_PUBLIC_EMAIL_KEY
+      );
+  
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 20000);
+  
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
 
   return (
