@@ -18,7 +18,12 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
     control,
     formState: { errors },
     getValues,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      technicalSkills: [],
+      designSkills: [],
+    },
+  });
   const selectedTeam = useWatch({ control, name: "team" });
 
   const onSubmit = (data) => {
@@ -196,20 +201,30 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
       </div>
       <ErrorMessage errors={errors} name="team" as="span" />
       {selectedTeam === "Technical" && (
-        <div className=" space-y-4 py-4 ">
+        <div className="space-y-4 py-4">
           <p className="font-semibold">Select Technical Skills :</p>
           {technicalOptions.map((option) => (
             <label key={option}>
               <input
-                {...register("technicalSkills")}
+                {...register("technicalSkills", {
+                  validate: (value) => {
+                    if (
+                      selectedTeam === "Technical" &&
+                      (!value || value.length === 0)
+                    ) {
+                      return "Please select at least one technical skill";
+                    }
+                    return true;
+                  },
+                })}
                 type="checkbox"
                 value={option}
                 className="w-5 h-5 to-blue-700 bg-gray-100 border-gray-300 rounded focus:ring-green-500"
-
               />
               {option}
             </label>
           ))}
+          <ErrorMessage errors={errors} name="technicalSkills" as="span" />
         </div>
       )}
 
@@ -219,19 +234,39 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
           {designOptions.map((option) => (
             <label key={option} className="flex items-center space-x-2">
               <input
-                {...register("designSkills")}
+                {...register("designSkills", {
+                  validate: (value) => {
+                    if (
+                      selectedTeam === "Design/Branding" &&
+                      (!value || value.length === 0)
+                    ) {
+                      return "Please select at least one design skill";
+                    }
+                    return true;
+                  },
+                })}
                 type="checkbox"
                 value={option}
               />
               {option}
             </label>
           ))}
+          <ErrorMessage errors={errors} name="designSkills" as="span" />
         </div>
       )}
 
       <label>
-        Upload your Resume (Required for 1st and 2nd year)
-        <input type="file" accept="application/pdf" {...register("resume")} />
+        Upload your Resume {selectedTeam === "Technical" && "(Required)"}
+        <input
+          type="file"
+          accept="application/pdf"
+          {...register("resume", {
+            required:
+              selectedTeam === "Technical"
+                ? "Resume is required for technical team"
+                : false,
+          })}
+        />
         <ErrorMessage errors={errors} name="resume" as="span" />
       </label>
       <label>
