@@ -64,7 +64,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
             },
           })}
         />
-        <ErrorMessage errors={errors} name="email" as="span" />
+        <ErrorMessage errors={errors} name="personalEmail" as="span" />
       </label>
 
       <label>
