@@ -39,7 +39,7 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         <ErrorMessage errors={errors} name="name" as="span" />
       </label>
       <label>
-        Email
+        College Email
         <input
           placeholder="Enter Your College email"
           {...register("email", {
@@ -52,6 +52,17 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
         />
         <ErrorMessage errors={errors} name="email" as="span" />
       </label>
+      <label>
+        Personal Email
+        <input
+          placeholder="Enter Your Personal email"
+          {...register("personalEmail", {
+            required: "This field is required",
+          })}
+        />
+        <ErrorMessage errors={errors} name="email" as="span" />
+      </label>
+
       <label>
         WhatsApp Number
         <input
