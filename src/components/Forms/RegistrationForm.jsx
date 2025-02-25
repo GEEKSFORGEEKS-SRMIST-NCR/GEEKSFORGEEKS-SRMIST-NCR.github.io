@@ -91,6 +91,16 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
               required: "This field is required",
             })}
             type="radio"
+            value="1"
+          />
+          Ist Year
+        </label>
+        <label>
+          <input
+            {...register("year", {
+              required: "This field is required",
+            })}
+            type="radio"
             value="2"
           />
           IInd Year
