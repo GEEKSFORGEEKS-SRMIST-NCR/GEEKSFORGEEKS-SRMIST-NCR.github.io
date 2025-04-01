@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { createClient } from '@supabase/supabase-js';
 import styles from "styles/Form.module.css";
 import Loader from "./Loader";
 
-const RegistrationForm = ({ submitData, submitted, loading }) => {
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY ;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
   const [formData, setFormData] = useState({
     college_name: "",
     team_name: "",
@@ -19,7 +24,6 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
     team_mem_3_contact_num: "",
     team_mem_3_email_address: "",
     team_mem_3_github_link: "",
-    // (optional)
     team_mem_4_name: "",
     team_mem_4_contact_num: "",
     team_mem_4_email_address: "",
@@ -42,17 +46,20 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
       isValid = false;
     }
 
+   
     if (formData.team_members_qty < 3 || formData.team_members_qty > 4) {
       tempErrors.team_members_qty = "Team must have 3-4 members";
       isValid = false;
     }
 
     for (let i = 1; i <= 3; i++) {
+      
       if (!formData[`team_mem_${i}_name`].trim()) {
         tempErrors[`team_mem_${i}_name`] = "Name is required";
         isValid = false;
       }
 
+     
       if (!formData[`team_mem_${i}_contact_num`].trim()) {
         tempErrors[`team_mem_${i}_contact_num`] = "Contact number is required";
         isValid = false;
@@ -121,6 +128,50 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
       ...prev,
       [name]: value
     }));
+  };
+
+  const submitData = async (data) => {
+    try {
+      setLoading(true);
+      
+      const { data: response, error } = await supabase
+        .from('team_registrations')
+        .insert([data]);
+
+      if (error) throw error;
+
+      setSubmitted(true);
+      setFormData({
+        college_name: "",
+        team_name: "",
+        team_members_qty: 3,
+        team_mem_1_name: "",
+        team_mem_1_contact_num: "",
+        team_mem_1_email_address: "",
+        team_mem_1_github_link: "",
+        team_mem_2_name: "",
+        team_mem_2_contact_num: "",
+        team_mem_2_email_address: "",
+        team_mem_2_github_link: "",
+        team_mem_3_name: "",
+        team_mem_3_contact_num: "",
+        team_mem_3_email_address: "",
+        team_mem_3_github_link: "",
+        team_mem_4_name: "",
+        team_mem_4_contact_num: "",
+        team_mem_4_email_address: "",
+        team_mem_4_github_link: "",
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error.message);
+      setErrors(prev => ({
+        ...prev,
+        submit: 'Failed to submit registration. Please try again.'
+      }));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -194,6 +245,8 @@ const RegistrationForm = ({ submitData, submitted, loading }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.form} autoComplete="on">
       <h2>Vuln-VANGUARD Team Registration</h2>
+      
+      {errors.submit && <span className={styles.error}>{errors.submit}</span>}
       
       <div className={styles.fieldGroup}>
         <label>
