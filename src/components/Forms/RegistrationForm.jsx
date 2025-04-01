@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { createClient } from '@supabase/supabase-js';
 import styles from "styles/Form.module.css";
-import Loader from "./Loader";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY ;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('Missing Supabase environment variables. Please check your .env.local file.');
+  console.error('Expected: NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_KEY');
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
+const RegistrationForm = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     college_name: "",
     team_name: "",
@@ -46,20 +53,17 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
       isValid = false;
     }
 
-   
     if (formData.team_members_qty < 3 || formData.team_members_qty > 4) {
       tempErrors.team_members_qty = "Team must have 3-4 members";
       isValid = false;
     }
 
     for (let i = 1; i <= 3; i++) {
-      
       if (!formData[`team_mem_${i}_name`].trim()) {
         tempErrors[`team_mem_${i}_name`] = "Name is required";
         isValid = false;
       }
 
-     
       if (!formData[`team_mem_${i}_contact_num`].trim()) {
         tempErrors[`team_mem_${i}_contact_num`] = "Contact number is required";
         isValid = false;
@@ -111,8 +115,10 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
         isValid = false;
       }
       
-      if (formData.team_mem_4_github_link.trim() && 
-          !/^https:\/\/github\.com\/[a-zA-Z0-9-]+(?:\/[a-zA-Z0-9._-]+)?$/.test(formData.team_mem_4_github_link.trim())) {
+      if (!formData.team_mem_4_github_link.trim()) {
+        tempErrors.team_mem_4_github_link = "GitHub link is required";
+        isValid = false;
+      } else if (!/^https:\/\/github\.com\/[a-zA-Z0-9-]+(?:\/[a-zA-Z0-9._-]+)?$/.test(formData.team_mem_4_github_link.trim())) {
         tempErrors.team_mem_4_github_link = "Enter a valid GitHub URL";
         isValid = false;
       }
@@ -134,12 +140,24 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
     try {
       setLoading(true);
       
+      console.log('Submitting data:', data);
+      
       const { data: response, error } = await supabase
-        .from('team_registrations')
-        .insert([data]);
+        .from('vuln-VANGUARD') 
+        .insert([data])
+        .select();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error details:', error);
+        
+        if (error.code === '42P01') {
+          throw new Error('Table not found. Please check the table name.');
+        } else {
+          throw new Error(error.message || 'Failed to insert data into the database');
+        }
+      }
 
+      console.log('Successfully inserted:', response);
       setSubmitted(true);
       setFormData({
         college_name: "",
@@ -167,7 +185,7 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
       console.error('Error submitting form:', error.message);
       setErrors(prev => ({
         ...prev,
-        submit: 'Failed to submit registration. Please try again.'
+        submit: error.message || 'Failed to submit registration. Please try again later.'
       }));
     } finally {
       setLoading(false);
@@ -228,7 +246,7 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
 
         <div className={styles.fieldGroup}>
           <label>
-            GitHub Profile Link {memberNum <= 3 ? "(Required)" : "(Optional)"}
+            GitHub Profile Link
             <input
               name={`team_mem_${memberNum}_github_link`}
               value={formData[`team_mem_${memberNum}_github_link`]}
@@ -243,52 +261,54 @@ const RegistrationForm = ({ submitted, loading, setSubmitted, setLoading }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form} autoComplete="on">
-      <h2>Vuln-VANGUARD Team Registration</h2>
-      
-      {errors.submit && <span className={styles.error}>{errors.submit}</span>}
-      
-      <div className={styles.fieldGroup}>
-        <label>
-          College Name
-          <input
-            name="college_name"
-            value={formData.college_name}
-            onChange={handleChange}
-            placeholder="Enter your college name"
-          />
-          {errors.college_name && <span className={styles.error}>{errors.college_name}</span>}
-        </label>
-      </div>
-      
-      <div className={styles.fieldGroup}>
-        <label>
-          Team Name
-          <input
-            name="team_name"
-            value={formData.team_name}
-            onChange={handleChange}
-            placeholder="Enter your team name"
-          />
-          {errors.team_name && <span className={styles.error}>{errors.team_name}</span>}
-        </label>
-      </div>
+    <div>
+      <form onSubmit={handleSubmit} className={styles.form} autoComplete="on">
+        <h2>Vuln-VANGUARD Team Registration</h2>
+        
+        {errors.submit && <div className={styles.errorMessage}>{errors.submit}</div>}
+        
+        <div className={styles.fieldGroup}>
+          <label>
+            College Name
+            <input
+              name="college_name"
+              value={formData.college_name}
+              onChange={handleChange}
+              placeholder="Enter your college name"
+            />
+            {errors.college_name && <span className={styles.error}>{errors.college_name}</span>}
+          </label>
+        </div>
+        
+        <div className={styles.fieldGroup}>
+          <label>
+            Team Name
+            <input
+              name="team_name"
+              value={formData.team_name}
+              onChange={handleChange}
+              placeholder="Enter your team name"
+            />
+            {errors.team_name && <span className={styles.error}>{errors.team_name}</span>}
+          </label>
+        </div>
 
-      {renderTeamMemberFields(1)}
-      {renderTeamMemberFields(2)}
-      {renderTeamMemberFields(3)}
-      {renderTeamMemberFields(4, false)}
+        {renderTeamMemberFields(1)}
+        {renderTeamMemberFields(2)}
+        {renderTeamMemberFields(3)}
+        {renderTeamMemberFields(4, false)}
 
-      <button type="submit" disabled={submitted || loading}>
-        {submitted ? (
-          "Registered Successfully!"
-        ) : loading ? (
-          <Loader />
-        ) : (
-          "Register Now!"
-        )}
-      </button>
-    </form>
+        <button type="submit" disabled={submitted || loading} className={styles.submitButton}>
+          {submitted ? (
+            "Registered Successfully!"
+          ) : loading ? (
+            "Submitting..."
+          ) : (
+            "Register Now!"
+          )}
+        </button>
+      </form>
+    </div>
   );
 };
 
