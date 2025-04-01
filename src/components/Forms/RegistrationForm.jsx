@@ -1,471 +1,242 @@
-import { ErrorMessage } from "@hookform/error-message";
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
 import styles from "styles/Form.module.css";
 import Loader from "./Loader";
-import { getBannerData } from "../../utils/contentful";
 
 const RegistrationForm = ({ submitData, submitted, loading }) => {
-  const [banners, setBanners] = useState([]);
+  const [formData, setFormData] = useState({
+    college_name: "",
+    team_name: "",
+    team_members_qty: 3,
+    team_mem_1_name: "",
+    team_mem_1_contact_num: "",
+    team_mem_1_email_address: "",
+    team_mem_1_github_link: "",
+    team_mem_2_name: "",
+    team_mem_2_contact_num: "",
+    team_mem_2_email_address: "",
+    team_mem_2_github_link: "",
+    team_mem_3_name: "",
+    team_mem_3_contact_num: "",
+    team_mem_3_email_address: "",
+    team_mem_3_github_link: "",
+    // (optional)
+    team_mem_4_name: "",
+    team_mem_4_contact_num: "",
+    team_mem_4_email_address: "",
+    team_mem_4_github_link: "",
+  });
 
-  useEffect(() => {
-    getBannerData().then(setBanners);
-  }, []);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    let tempErrors = {};
+    let isValid = true;
+
+    if (!formData.college_name.trim()) {
+      tempErrors.college_name = "College name is required";
+      isValid = false;
+    }
+
+    if (!formData.team_name.trim()) {
+      tempErrors.team_name = "Team name is required";
+      isValid = false;
+    }
+
+    if (formData.team_members_qty < 3 || formData.team_members_qty > 4) {
+      tempErrors.team_members_qty = "Team must have 3-4 members";
+      isValid = false;
+    }
+
+    for (let i = 1; i <= 3; i++) {
+      if (!formData[`team_mem_${i}_name`].trim()) {
+        tempErrors[`team_mem_${i}_name`] = "Name is required";
+        isValid = false;
+      }
+
+      if (!formData[`team_mem_${i}_contact_num`].trim()) {
+        tempErrors[`team_mem_${i}_contact_num`] = "Contact number is required";
+        isValid = false;
+      } else if (!/^[6-9]\d{9}$/.test(formData[`team_mem_${i}_contact_num`].trim())) {
+        tempErrors[`team_mem_${i}_contact_num`] = "Enter a valid 10-digit phone number";
+        isValid = false;
+      }
+
+      if (!formData[`team_mem_${i}_email_address`].trim()) {
+        tempErrors[`team_mem_${i}_email_address`] = "Email is required";
+        isValid = false;
+      } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData[`team_mem_${i}_email_address`].trim())) {
+        tempErrors[`team_mem_${i}_email_address`] = "Enter a valid email";
+        isValid = false;
+      }
+
+      if (!formData[`team_mem_${i}_github_link`].trim()) {
+        tempErrors[`team_mem_${i}_github_link`] = "GitHub link is required";
+        isValid = false;
+      } else if (!/^https:\/\/github\.com\/[a-zA-Z0-9-]+(?:\/[a-zA-Z0-9._-]+)?$/.test(formData[`team_mem_${i}_github_link`].trim())) {
+        tempErrors[`team_mem_${i}_github_link`] = "Enter a valid GitHub URL";
+        isValid = false;
+      }
+    }
+
+    if (formData.team_mem_4_name || formData.team_mem_4_contact_num || 
+        formData.team_mem_4_email_address || formData.team_mem_4_github_link) {
+      
+      setFormData(prev => ({...prev, team_members_qty: 4}));
+      
+      if (!formData.team_mem_4_name.trim()) {
+        tempErrors.team_mem_4_name = "Name is required";
+        isValid = false;
+      }
+      
+      if (!formData.team_mem_4_contact_num.trim()) {
+        tempErrors.team_mem_4_contact_num = "Contact number is required";
+        isValid = false;
+      } else if (!/^[6-9]\d{9}$/.test(formData.team_mem_4_contact_num.trim())) {
+        tempErrors.team_mem_4_contact_num = "Enter a valid 10-digit phone number";
+        isValid = false;
+      }
+      
+      if (!formData.team_mem_4_email_address.trim()) {
+        tempErrors.team_mem_4_email_address = "Email is required";
+        isValid = false;
+      } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.team_mem_4_email_address.trim())) {
+        tempErrors.team_mem_4_email_address = "Enter a valid email";
+        isValid = false;
+      }
+      
+      if (formData.team_mem_4_github_link.trim() && 
+          !/^https:\/\/github\.com\/[a-zA-Z0-9-]+(?:\/[a-zA-Z0-9._-]+)?$/.test(formData.team_mem_4_github_link.trim())) {
+        tempErrors.team_mem_4_github_link = "Enter a valid GitHub URL";
+        isValid = false;
+      }
+    }
+
+    setErrors(tempErrors);
+    return isValid;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      submitData(formData);
+    }
+  };
+
+  const renderTeamMemberFields = (memberNum, isRequired = true) => {
+    return (
+      <div className={styles.memberSection}>
+        <h3>Team Member {memberNum} {isRequired ? "(Required)" : "(Optional)"}</h3>
+        <div className={styles.fieldGroup}>
+          <label>
+            Full Name
+            <input
+              name={`team_mem_${memberNum}_name`}
+              value={formData[`team_mem_${memberNum}_name`]}
+              onChange={handleChange}
+              placeholder="Enter full name"
+            />
+            {errors[`team_mem_${memberNum}_name`] && <span className={styles.error}>{errors[`team_mem_${memberNum}_name`]}</span>}
+          </label>
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label>
+            Contact Number
+            <input
+              name={`team_mem_${memberNum}_contact_num`}
+              value={formData[`team_mem_${memberNum}_contact_num`]}
+              onChange={handleChange}
+              placeholder="10-digit mobile number"
+              type="tel"
+            />
+            {errors[`team_mem_${memberNum}_contact_num`] && <span className={styles.error}>{errors[`team_mem_${memberNum}_contact_num`]}</span>}
+          </label>
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label>
+            Email Address
+            <input
+              name={`team_mem_${memberNum}_email_address`}
+              value={formData[`team_mem_${memberNum}_email_address`]}
+              onChange={handleChange}
+              placeholder="Enter email address"
+              type="email"
+            />
+            {errors[`team_mem_${memberNum}_email_address`] && <span className={styles.error}>{errors[`team_mem_${memberNum}_email_address`]}</span>}
+          </label>
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label>
+            GitHub Profile Link {memberNum <= 3 ? "(Required)" : "(Optional)"}
+            <input
+              name={`team_mem_${memberNum}_github_link`}
+              value={formData[`team_mem_${memberNum}_github_link`]}
+              onChange={handleChange}
+              placeholder="https://github.com/username"
+            />
+            {errors[`team_mem_${memberNum}_github_link`] && <span className={styles.error}>{errors[`team_mem_${memberNum}_github_link`]}</span>}
+          </label>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(submitData)}
-      className={styles.form}
-      autoComplete="on"
-    >
-      <label>
-        Name
-        <input
-          placeholder="Enter Your Name"
-          {...register("name", {
-            required: "This field is required",
-            pattern: {
-              value: /^[a-zA-Z][a-zA-Z ]+$/,
-              message: "Alphabetical characters only",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="name" as="span" />
-      </label>
-      <label>
-        College Email
-        <input
-          placeholder="Enter Your College email"
-          {...register("email", {
-            required: "This field is required",
-            pattern: {
-              value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
-              message: "Enter a valid email ending with '@srmist.edu.in'",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="email" as="span" />
-      </label>
-      <label>
-        Personal Email
-        <input
-          placeholder="Enter Your Personal email"
-          {...register("personalEmail", {
-            required: "This field is required",
-            pattern: {
-              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: "Enter a valid email",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="personalEmail" as="span" />
-      </label>
-
-      <label>
-        WhatsApp Number
-        <input
-          type="tel"
-          placeholder="Enter Your Whatsapp Number"
-          {...register("phone", {
-            required: "This field is required",
-            pattern: {
-              value:
-                /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
-              message: "Enter a valid Phone Number",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="phone" as="span" />
-      </label>
-      <label>
-        Registration Number
-        <input
-          placeholder="Enter Your College Registration Number"
-          {...register("regno", {
-            required: "This field is required",
-            pattern: {
-              value: /^(RA)[0-9]{13}$/,
-              message:
-                "Enter valid Registration Number starting with capital 'RA'",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="regno" as="span" />
-      </label>
-      <label htmlFor="year">Year</label>
-      <div className={styles.radio}>
+    <form onSubmit={handleSubmit} className={styles.form} autoComplete="on">
+      <h2>Vuln-VANGUARD Team Registration</h2>
+      
+      <div className={styles.fieldGroup}>
         <label>
+          College Name
           <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="1"
+            name="college_name"
+            value={formData.college_name}
+            onChange={handleChange}
+            placeholder="Enter your college name"
           />
-          Ist Year
-        </label>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="2"
-          />
-          IInd Year
-        </label>
-        <label>
-          <input
-            {...register("year", {
-              required: "This field is required",
-            })}
-            type="radio"
-            value="3"
-          />
-          IIIrd Year
+          {errors.college_name && <span className={styles.error}>{errors.college_name}</span>}
         </label>
       </div>
-      <ErrorMessage errors={errors} name="year" as="span" />
-      <div className={styles.box}>
+      
+      <div className={styles.fieldGroup}>
         <label>
-          Section
+          Team Name
           <input
-            placeholder="Enter Your section"
-            {...register("section", {
-              required: "This field is required",
-              pattern: {
-                value: /^[A-Z]{1}$/,
-                message: "Enter a capital alphabetical character only",
-              },
-            })}
+            name="team_name"
+            value={formData.team_name}
+            onChange={handleChange}
+            placeholder="Enter your team name"
           />
-          <ErrorMessage errors={errors} name="section" as="span" />
-        </label>
-        <label>
-          Branch
-          <input
-            placeholder="Enter Your Branch"
-            {...register("branch", {
-              required: "This field is required",
-              pattern: {
-                value: /^[a-zA-Z][a-zA-Z ]+$/,
-                message: "Enter alphabetical characters only",
-              },
-            })}
-          />
-          <ErrorMessage errors={errors} name="branch" as="span" />
+          {errors.team_name && <span className={styles.error}>{errors.team_name}</span>}
         </label>
       </div>
-      {/* <label>
-        HackerRank ID 
-        <input
-          placeholder="Enter Your HackerRank ID"
-          {...register("hackerrank", {
-            required: "This field is required",
-            pattern: {
-              message: "Enter a valid HackerRank id",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="hackerrank" as="span" />
-      </label>
-      <label>
-        LeetCode ID
-        <input
-          placeholder="Enter Your LeetCode ID"
-          {...register("leetcode", {
-            required: "This field is required",
-            pattern: {
-              message: "Enter a valid leetcode id",
-            },
-          })}
-        />
-        <ErrorMessage errors={errors} name="leetcode" as="span" />
-      </label> */}
-      {/* <label>
-        What makes us stand apart from the rest?
-        <textarea
-          placeholder="Type here (Min 100 Words)"
-          {...register("desc", {
-            required: "This field is required",
-          })}
-        />
-        <ErrorMessage errors={errors} name="desc" as="span" />
-      </label> */}
 
-      {banners.length > 0 ? (
-        banners.some((banner) => banner.fields.eventRegistration) ? (
-          <button type="submit" disabled={submitted}>
-            {submitted ? (
-              "Registered Successfully!"
-            ) : loading ? (
-              <Loader />
-            ) : (
-              "Register Now!"
-            )}
-          </button>
-        ) : (
-          <button type="submit" disabled>
-            Alas! The Last Date has Passed.
-          </button>
-        )
-      ) : (
-        <button type="submit" disabled>
+      {renderTeamMemberFields(1)}
+      {renderTeamMemberFields(2)}
+      {renderTeamMemberFields(3)}
+      {renderTeamMemberFields(4, false)}
+
+      <button type="submit" disabled={submitted || loading}>
+        {submitted ? (
+          "Registered Successfully!"
+        ) : loading ? (
           <Loader />
-        </button>
-      )}
+        ) : (
+          "Register Now!"
+        )}
+      </button>
     </form>
   );
 };
-
-{
-  /* 
-<label>
-    Team Name
-    <input
-      placeholder="Enter Your Team's Name"
-      {...register("team_name", {
-        required: "This field is required",
-        pattern: {
-          value: /^[\w\-\s]+$/i,
-          message: "Enter alpha-numeric characters only",
-        },
-      })}
-    />
-    <ErrorMessage errors={errors} name="team_name" as="span" />
-</label>
-
-Team Leader Details container
-<h2>Team Leader Details</h2>
-<h2>Name</h2>
-<div className={styles.box}>
-    <label>
-        Name
-        <input
-            placeholder="Enter The Name"
-            {...register("leader_name", {
-                required: "This field is required",
-                pattern: {
-                    value: /^[a-zA-Z][a-zA-Z ]+$/,
-                    message: "Alphabetical characters only",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_name" as="span" />
-    </label>
-
-    <label>
-        Registration Number
-        <input
-            placeholder="Enter The Registration Number"
-            {...register("leader_regno", {
-                required: "This field is required",
-                pattern: {
-                    value: /^(RA)[0-9]{13}$/,
-                    message:
-                        "Enter valid Registration Number starting with capital 'RA'",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_regno" as="span" />
-    </label>
-</div>
-
-<div className={styles.box}>
-    <label>
-        Email
-        <input
-            placeholder="Enter The College email"
-            {...register("leader_email", {
-                required: "This field is required",
-                pattern: {
-                    value: /^[a-zA-Z]{2}[0-9]{4}@srmist\.edu\.in$/i,
-                    message: "Enter a valid email ending with '@srmist.edu.in'",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_email" as="span" />
-    </label>
-
-    <label>
-        WhatsApp Number
-        <input
-            type="tel"
-            placeholder="Enter Your Whatsapp Number"
-            {...register("leader_phone", {
-                required: "This field is required",
-                pattern: {
-                    value:
-                        /^(?:(?:\+|0{0,2})91(\s*|[-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/,
-                    message: "Enter a valid Phone Number",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_phone" as="span" />
-    </label>
-</div>
-
-<div className={styles.box}>
-    <label>
-        Year
-        <input
-            placeholder="Enter The Year"
-            {...register("leader_year", {
-                required: "This field is required",
-                pattern: {
-                    value: /^[1-4]{1}$/,
-                    message: "Enter a numeric value only from (1-4)",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_year" as="span" />
-    </label>
-    <label>
-        Section
-        <input
-            placeholder="Enter The section"
-            {...register("leader_section", {
-                required: "This field is required",
-                pattern: {
-                    value: /^[A-Z]{1}$/,
-                    message: "Enter a capital alphabetical character only",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="leader_section" as="span" />
-    </label>
-</div>
-
-Team Members Details
-<h2>Team Members Details
-
-Member 1
-<h3>Member 1</h3>
-<div className={styles.box_3}>
-    <label>
-        Name
-        <input
-            placeholder="Enter The Name"
-            {...register("member1_name", {
-                pattern: {
-                    value: /^[a-zA-Z][a-zA-Z ]+$/,
-                    message: "Alphabetical characters only",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member1_name" as="span" />
-    </label>
-
-    <label>
-        Registration Number
-        <input
-            placeholder="Enter The Registration Number"
-            {...register("member1_regno", {
-                pattern: {
-                    value: /^(RA)[0-9]{13}$/,
-                    message:
-                        "Enter valid Registration Number starting with capital 'RA'",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member1_regno" as="span" />
-    </label>
-    <label>
-        Year
-        <input
-            placeholder="Enter The Year"
-            {...register("member1_year", {
-                pattern: {
-                    value: /^[1-4]{1}$/,
-                    message: "Enter a numeric value only from (1-4)",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member1_year" as="span" />
-    </label>
-</div>
-
-Member 2
-<h3>Member 2</h3>
-<div className={styles.box_3}>
-    <label>
-        Name
-        <input
-            placeholder="Enter The Name"
-            {...register("member2_name", {
-                pattern: {
-                    value: /^[a-zA-Z][a-zA-Z ]+$/,
-                    message: "Alphabetical characters only",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member2_name" as="span" />
-    </label>
-
-    <label>
-        Registration Number
-        <input
-            placeholder="Enter The Registration Number"
-            {...register("member2_regno", {
-                pattern: {
-                    value: /^(RA)[0-9]{13}$/,
-                    message:
-                        "Enter valid Registration Number starting with capital 'RA'",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member2_regno" as="span" />
-    </label>
-    <label>
-        Year
-        <input
-            placeholder="Enter The Year"
-            {...register("member2_year", {
-                pattern: {
-                    value: /^[1-4]{1}$/,
-                    message: "Enter a numeric value only from (1-4)",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member2_year" as="span" />
-    </label>
-</div>
-
-Member 3
-<h3>Member 3</h3>
-<div className={styles.box_3}>
-    <label>
-        Name
-        <input
-            placeholder="Enter The Name"
-            {...register("member3_name", {
-                pattern: {
-                    value: /^[a-zA-Z][a-zA-Z ]+$/,
-                    message: "Alphabetical characters only",
-                },
-            })}
-        />
-        <ErrorMessage errors={errors} name="member3_name" as="span" />
-    </label>
-
-    <label>
-        Registration Number
-        <input
-            placeholder="Enter The Registration Number"
-            {...register("member3_regno", {
-                pattern: {
-                    value: /^(RA)[0-9]{13}$/,
-                    message:
-                        "Enter valid Registration Number starting with capital 'RA'",
-                },
-            })}
-      */
-}
 
 export default RegistrationForm;
