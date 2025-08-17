@@ -1,6 +1,6 @@
-<h1 align="center">GEEKSFORGEEKS-SRMIST-NCR Chapter Website </h1>
+<h1 align="center">GEEKSFORGEEKS-SRMIST-NCR Campus Body Website </h1>
 
-<h3 align="center"> An Open Source Website for GEEKSFORGEEKS SRM student chapter built using NextJS. </h3>
+<h3 align="center"> An Open Source Website for GEEKSFORGEEKS SRM Campus Body built using NextJS. </h3>
 
 <h1 align="center">HacktoberFest Accepted</h1>
 <h2 align="center">
@@ -76,3 +76,4 @@ If you wish to contribute, we highly recommend following the guidelines mentione
 ```
    git merge upstream/main
 ```
+
