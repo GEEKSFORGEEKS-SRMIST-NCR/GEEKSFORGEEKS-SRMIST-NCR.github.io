@@ -39,9 +39,9 @@
 //   };
 
 //   const yearOptions = [
-//     { value: 1, label: "Ist Year" },
+//     // { value: 1, label: "Ist Year" },
 //     { value: 2, label: "IInd Year" },
-//     // { value: 3, label: "IIIrd Year" },
+//     { value: 3, label: "IIIrd Year" },
 //   ];
 //   const technicalOptions = [
 //     "Frontend Development",
@@ -311,7 +311,6 @@
 // };
 
 // export default RecruitmentForm;
-
 
 import Loader from "./Loader";
 import styles from "styles/Form.module.css";
@@ -602,7 +601,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
           <ErrorMessage errors={errors} name="designSkills" as="span" />
         </div>
       )}
-
+{/* 
       <label>
         Upload your Resume {selectedTeam === "Technical" && "(Required)"}
         <input
@@ -625,7 +624,40 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
           })}
         />
         <ErrorMessage errors={errors} name="resume" as="span" />
-      </label>
+      </label> */}
+      
+
+<label>
+  Resume Google Drive Link {selectedTeam === "Technical" && "(Required)"}
+  <input
+    type="url"
+    placeholder="Paste your Google Drive resume link here"
+    {...register("resume", {
+      required: selectedTeam === "Technical" 
+        ? "Resume Google Drive link is required for technical team" 
+        : false,
+      validate: (value) => {
+        if (value && value.trim() !== "") {
+          // Check if it's a valid Google Drive link
+          const googleDrivePattern = /^https:\/\/drive\.google\.com\/(file\/d\/|open\?id=)/;
+          if (!googleDrivePattern.test(value)) {
+            return "Please provide a valid Google Drive link";
+          }
+          
+          // Additional check for sharing permissions
+          if (!value.includes("/file/d/") && !value.includes("open?id=")) {
+            return "Please ensure the Google Drive link is properly formatted";
+          }
+        }
+        return true;
+      },
+    })}
+  />
+  <small style={{ color: '#666', fontSize: '0.875rem', marginTop: '4px', display: 'block' }}>
+    Make sure your Google Drive file is set to "Anyone with the link can view"
+  </small>
+  <ErrorMessage errors={errors} name="resume" as="span" />
+</label>
 
       <label>
         What makes you stand apart from the rest?
@@ -667,4 +699,3 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
 };
 
 export default RecruitmentForm;
-
