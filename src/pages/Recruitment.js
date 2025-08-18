@@ -143,7 +143,7 @@ const Recruitment = () => {
         designskills: data.designSkills || [],
         techskills: data.technicalSkills || [], 
         desc: data.desc,
-        resume: fileName,
+        resume: data.googleDriveLink,
         personalemail: data.personalEmail,
         
       };
