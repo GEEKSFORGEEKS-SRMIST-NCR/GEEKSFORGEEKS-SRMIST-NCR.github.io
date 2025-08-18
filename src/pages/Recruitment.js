@@ -123,7 +123,7 @@ const Recruitment = () => {
       if (hasResume) {
         const { error: uploadError } = await supabase.storage
           .from("recruitment-resume")
-          .upload(`resume2024/${fileName}.pdf`, data.resume[0]);
+          .upload(`resume2025/${fileName}.pdf`, data.resume[0]);
           
         if (uploadError) {
           console.error('Upload error:', uploadError);
