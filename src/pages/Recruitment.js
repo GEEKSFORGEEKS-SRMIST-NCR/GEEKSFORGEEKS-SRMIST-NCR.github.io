@@ -1,3 +1,4 @@
+
 // import emailjs from "@emailjs/browser";
 // import { supabase } from "api/Supabase";
 // import RecruitmentForm from "components/Forms/RecruitmentForm";
@@ -91,8 +92,6 @@
 
 // export default withCookies(Recruitment);
 
-
-
 import { supabase } from "api/Supabase";
 import RecruitmentForm from "components/Forms/RecruitmentForm";
 import { Banner } from "components/index";
@@ -114,23 +113,7 @@ const Recruitment = () => {
     setLoading(true);
     setError(null);
     
-    const timestamp = Date.now();
-    const hasResume = data.resume && data.resume.length > 0;
-    const fileName = hasResume ? `${data.name.replace(/\s+/g, '_')}-${timestamp}` : "";
-    
     try {
-      
-      if (hasResume) {
-        const { error: uploadError } = await supabase.storage
-          .from("recruitment-resume")
-          .upload(`resume2025/${fileName}.pdf`, data.resume[0]);
-          
-        if (uploadError) {
-          console.error('Upload error:', uploadError);
-          
-        }
-      }
-
       const dbData = {
         name: data.name,
         email: data.email,
@@ -143,21 +126,22 @@ const Recruitment = () => {
         designskills: data.designSkills || [],
         techskills: data.technicalSkills || [], 
         desc: data.desc,
-        resume: data.googleDriveLink,
+        resume: data.resume || "", 
         personalemail: data.personalEmail,
-        
       };
 
-      // Insert into the correct table name: Recruitment-2025
-      const { error: dbError } = await supabase
-        .from("Recruitment-2025")
-        .insert(dbData);
+      console.log('Submitting data:', dbData); 
 
+      const { data: insertedData, error: dbError } = await supabase
+        .from("Recruitment-2025")
+        .insert(dbData)
+        .select(); 
       if (dbError) {
         console.error('Database error details:', dbError);
         throw new Error(`Database error: ${dbError.message}`);
       }
 
+      console.log('Successfully inserted:', insertedData); 
       setLoading(false);
       setSubmitted(true);
 
