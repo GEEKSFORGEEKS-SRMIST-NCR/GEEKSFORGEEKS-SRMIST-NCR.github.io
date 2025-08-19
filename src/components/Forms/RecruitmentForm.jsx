@@ -326,7 +326,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
     getBannerData().then(setBanners);
   }, []);
 
-  const recruitmentDeadline = new Date('2025-08-20T00:00:00+05:30');
+  const recruitmentDeadline = new Date('2025-08-20T22:00:00+05:30');
   const currentDate = new Date();
   const isRecruitmentOpen = currentDate <= recruitmentDeadline;
 
