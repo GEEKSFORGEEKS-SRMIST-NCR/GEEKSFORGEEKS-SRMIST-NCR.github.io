@@ -370,6 +370,7 @@ const RecruitmentForm = ({ submitData, submitted, loading }) => {
   };
 
   const yearOptions = [
+    { value: 1, label: "Ist Year" },
     { value: 2, label: "IInd Year" },
     { value: 3, label: "IIIrd Year" },
   ];
